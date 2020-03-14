@@ -30,7 +30,6 @@ namespace KSBL_csharpprep_Lab1.Mobile
         public abstract BasicSpeaker Speaker { get; }
         public abstract BasicKeyboard Keyboard { get; }
 
-
         private void Show(IScreenImage screenImage)
         {
             Screen.Show(screenImage);

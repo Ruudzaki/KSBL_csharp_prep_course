@@ -15,39 +15,56 @@ namespace KSBL_csharpprep_Lab1.Mobile
 {
     public class SimCorpMobile : Mobile
     {
-        private readonly Cpu _vCpu = new Cpu("Intel", new List<Core> {new Core(64, 2.1), new Core(64, 2.1)});
-        private readonly ExternalStorage _vExternalStorage = new ExternalStorage(128);
-        private readonly FrontalBasicCamera _vFrontalBasicCamera = new FrontalBasicCamera(1.5, 5);
+        private readonly Cpu _vCpu;
+        private readonly ExternalStorage _vExternalStorage;
+        private readonly FrontalBasicCamera _vFrontalBasicCamera;
+        private readonly GraphCpu _vGraphCpu;
+        private readonly InternalStorage _vInternalStorage;
+        private readonly DigitalKeyboard _vKeyboard;
+        private readonly LiIonBattery _vLiIonBattery;
+        private readonly Microphone _vMicrophone;
+        private readonly MultiMainBasicCamera _vMultiMainBasicCamera;
+        private readonly MultiSimCardHolder _vMultiSimCardHolder;
+        private readonly MultiTouchScreen _vMultiTouchScreen;
+        private readonly OLedBasicScreen _vOLedBasicScreen;
+        private readonly Ram _vRam;
+        private readonly Speaker _vSpeaker;
 
-        private readonly GraphCpu _vGraphCpu = new GraphCpu("AMD", new List<Core>
-            {new Core(64, 2.1), new Core(64, 2.1), new Core(64, 2.1), new Core(64, 2.1)});
+        public SimCorpMobile()
+        {
+            _vCpu = new Cpu("Intel", new List<Core> {new Core(64, 2.1), new Core(64, 2.1)});
+            _vExternalStorage = new ExternalStorage(128);
+            _vFrontalBasicCamera = new FrontalBasicCamera(1.5, 5);
 
-        private readonly InternalStorage _vInternalStorage = new InternalStorage(64);
-        private readonly DigitalKeyboard _vKeyboard = new DigitalKeyboard(new List<char>(), new List<char>());
-        private readonly LiIonBattery _vLiIonBattery = new LiIonBattery(5, 2200, true);
-        private readonly Microphone _vMicrophone = new Microphone("Internal", 3.5, 2);
+            _vGraphCpu = new GraphCpu("AMD", new List<Core>
+                {new Core(64, 2.1), new Core(64, 2.1), new Core(64, 2.1), new Core(64, 2.1)});
 
-        private readonly MultiMainBasicCamera _vMultiMainBasicCamera = new MultiMainBasicCamera(2.5, 12,
-            new List<MainBasicCamera>
-            {
-                new MainBasicCamera(2.5, 12),
-                new MainBasicCamera(2.5, 12),
-                new MainBasicCamera(2.5, 12)
-            });
+            _vInternalStorage = new InternalStorage(64);
+            _vKeyboard = new DigitalKeyboard(new List<char>(), new List<char>());
+            _vLiIonBattery = new LiIonBattery(5, 2200, true);
+            _vMicrophone = new Microphone("Internal", 3.5, 2);
 
-        private readonly MultiSimCardHolder _vMultiSimCardHolder = new MultiSimCardHolder("DoubleSim",
-            new List<SimCardHolder>
-            {
-                new SimCardHolder("microSim"),
-                new SimCardHolder("microSim")
-            });
+            _vMultiMainBasicCamera = new MultiMainBasicCamera(2.5, 12,
+                new List<MainBasicCamera>
+                {
+                    new MainBasicCamera(2.5, 12),
+                    new MainBasicCamera(2.5, 12),
+                    new MainBasicCamera(2.5, 12)
+                });
 
-        private readonly MultiTouchScreen _vMultiTouchScreen = new MultiTouchScreen("Multi", 10);
+            _vMultiSimCardHolder = new MultiSimCardHolder("DoubleSim",
+                new List<SimCardHolder>
+                {
+                    new SimCardHolder("microSim"),
+                    new SimCardHolder("microSim")
+                });
 
-        private readonly OLedBasicScreen _vOLedBasicScreen = new OLedBasicScreen(1080, 1920, 7, 233);
-        private readonly Ram _vRam = new Ram(4);
-        private readonly Speaker _vSpeaker = new Speaker(15, 15000, 4.5, 3);
+            _vMultiTouchScreen = new MultiTouchScreen("Multi", 10);
 
+            _vOLedBasicScreen = new OLedBasicScreen(1080, 1920, 7, 233);
+            _vRam = new Ram(4);
+            _vSpeaker = new Speaker(15, 15000, 4.5, 3);
+        }
 
         public override BasicScreen Screen => _vOLedBasicScreen;
         public override BasicTouch TouchScreen => _vMultiTouchScreen;
