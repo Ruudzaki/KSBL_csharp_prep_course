@@ -43,24 +43,61 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CPU.cs" />
-    <Compile Include="RAM.cs" />
-    <Compile Include="HardMemory.cs" />
-    <Compile Include="MobilePhone.cs" />
-    <Compile Include="TouchScreen.cs" />
-    <Compile Include="Screen.cs" />
-    <Compile Include="Keyboard.cs" />
-    <Compile Include="Battery.cs" />
-    <Compile Include="Camera.cs" />
-    <Compile Include="SimCard.cs" />
-    <Compile Include="Dynamic.cs" />
-    <Compile Include="Microphone.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="src\Battery\BaIonBattery.cs" />
+    <Compile Include="src\Battery\ICharge.cs" />
+    <Compile Include="src\Battery\LiIonBattery.cs" />
+    <Compile Include="src\Camera\MainCamera .cs" />
+    <Compile Include="src\Camera\MultiMainCamera.cs" />
+    <Compile Include="src\Camera\FrontalCamera.cs" />
+    <Compile Include="src\Camera\Camera.cs" />
+    <Compile Include="src\CPU\CPU.cs" />
+    <Compile Include="src\CPU\GraphCPU.cs" />
+    <Compile Include="src\CPU\Core.cs" />
+    <Compile Include="src\CPU\BasicCPU.cs" />
+    <Compile Include="src\CPU\IProcess.cs" />
+    <Compile Include="src\Keyboard\BasicKeyboard.cs" />
+    <Compile Include="src\Keyboard\Keyboard.cs" />
+    <Compile Include="src\Keyboard\DigitalKeyboard.cs" />
+    <Compile Include="src\Microphone\Microphone.cs" />
+    <Compile Include="src\Microphone\BasicMicrophone.cs" />
+    <Compile Include="src\Mobile\SimCorpMobile.cs" />
+    <Compile Include="src\RAM\ILoadToRAM.cs" />
+    <Compile Include="src\RAM\BasicRAM.cs" />
+    <Compile Include="src\RAM\RAM.cs" />
+    <Compile Include="src\RAM\ILoadFromRAM.cs" />
+    <Compile Include="src\Screen\ScreenBase.cs" />
+    <Compile Include="src\Screen\MonochromeScreen.cs" />
+    <Compile Include="src\Screen\ColorfulScreen.cs" />
+    <Compile Include="src\Screen\OLEDScreen.cs" />
+    <Compile Include="src\Screen\RetinaScreen.cs" />
+    <Compile Include="src\SimCard\BasicSimCard.cs" />
+    <Compile Include="src\SimCard\SimCard.cs" />
+    <Compile Include="src\SimCard\MultiSimCard.cs" />
+    <Compile Include="src\Speaker\Speaker.cs" />
+    <Compile Include="src\Speaker\BasicSpeaker.cs" />
+    <Compile Include="src\Storage\Storage.cs" />
+    <Compile Include="src\Storage\InternalStorage.cs" />
+    <Compile Include="src\Storage\ExternalStorage.cs" />
+    <Compile Include="src\Storage\ILoadToStorage.cs" />
+    <Compile Include="src\Storage\ILoadFromStorage.cs" />
+    <Compile Include="src\Mobile\Mobile.cs" />
+    <Compile Include="src\TouchScreen\BasicTouch.cs" />
+    <Compile Include="src\TouchScreen\MultiTouchScreen.cs" />
+    <Compile Include="src\TouchScreen\SingleTouchScreen.cs" />
+    <Compile Include="src\TouchScreen\IScreenTouch.cs" />
+    <Compile Include="src\Screen\IScreenImage.cs" />
+    <Compile Include="src\Keyboard\IPressButton.cs" />
+    <Compile Include="src\Battery\Battery.cs" />
+    <Compile Include="src\Camera\ITakePhoto.cs" />
+    <Compile Include="src\SimCard\ICall.cs" />
+    <Compile Include="src\Speaker\IPlaySound.cs" />
+    <Compile Include="src\Microphone\IRecordSound.cs" />
+    <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ClassDiagram.cd" />
+    <None Include="src\ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

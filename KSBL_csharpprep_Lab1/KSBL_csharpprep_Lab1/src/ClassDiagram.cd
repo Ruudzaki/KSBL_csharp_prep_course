@@ -4,338 +4,336 @@
     <Position X="0.5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAghSAAAAAQEAgABJAAAAAjGAggEAAwkABAADBIQAMA=</HashCode>
-      <FileName>MobilePhone.cs</FileName>
+      <FileName>src\MobilePhone.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.SimCorpMobile">
     <Position X="3.25" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AIggiACAACAAAgABBgASAAKFAggggAwEABQAEAAQAAA=</HashCode>
-      <FileName>MobilePhone.cs</FileName>
+      <FileName>src\MobilePhone.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.BasicCamera">
     <Position X="8" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAg=</HashCode>
-      <FileName>Camera.cs</FileName>
+      <FileName>src\Camera.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.Camera">
     <Position X="8" Y="2.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
-      <FileName>Camera.cs</FileName>
+      <FileName>src\Camera.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.MultiMainCamera">
     <Position X="6.25" Y="6.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAEAAAAAAAAAAAAAAAAg=</HashCode>
-      <FileName>Camera.cs</FileName>
+      <FileName>src\Camera.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.FrontalCamera">
     <Position X="9.75" Y="5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
-      <FileName>Camera.cs</FileName>
+      <FileName>src\Camera.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.ScreenBase">
     <Position X="15.25" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>EAAAAAAABAAAgAAAAAAAAEABAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Screen.cs</FileName>
+      <FileName>src\Screen.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.MonochromeScreen">
     <Position X="17.25" Y="3.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Screen.cs</FileName>
+      <FileName>src\Screen.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.ColorfulScreen">
     <Position X="13.75" Y="3.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Screen.cs</FileName>
+      <FileName>src\Screen.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.OLEDScreen">
     <Position X="12.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Screen.cs</FileName>
+      <FileName>src\Screen.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.RetinaScreen">
     <Position X="15" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Screen.cs</FileName>
+      <FileName>src\Screen.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.BasicTouch">
     <Position X="15.75" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
-      <FileName>TouchScreen.cs</FileName>
+      <FileName>src\TouchScreen.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.MultiTouchScreen">
     <Position X="14.25" Y="9.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAgAAAAAAAAAABAAAAA=</HashCode>
-      <FileName>TouchScreen.cs</FileName>
+      <FileName>src\TouchScreen.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.SingleTouchScreen">
     <Position X="16.75" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
-      <FileName>TouchScreen.cs</FileName>
+      <FileName>src\TouchScreen.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.MainCamera">
     <Position X="6.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
-      <FileName>Camera.cs</FileName>
+      <FileName>src\Camera.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.BasicBattery">
     <Position X="6.5" Y="10" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAQAAAAAAAAAAAACAAAAAAABAAAAAAAAAAE=</HashCode>
-      <FileName>Battery.cs</FileName>
+      <FileName>src\Battery\BaIonBattery.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.LiIonBattery">
     <Position X="5.5" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Battery.cs</FileName>
+      <FileName>src\Battery\BaIonBattery.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.BaIonBattery">
     <Position X="7.75" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Battery.cs</FileName>
+      <FileName>src\Battery\BaIonBattery.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.BasicCPU">
     <Position X="0.5" Y="9.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAAAAAAAAAgAAAAEAAAAACAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CPU.cs</FileName>
+      <FileName>src\CPU.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.CPU">
     <Position X="0.75" Y="11.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CPU.cs</FileName>
+      <FileName>src\CPU.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.GraphCPU">
     <Position X="0.75" Y="13.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CPU.cs</FileName>
+      <FileName>src\CPU.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.Core">
     <Position X="3" Y="10" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAA=</HashCode>
-      <FileName>CPU.cs</FileName>
+      <FileName>src\CPU.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.BasicRAM">
     <Position X="0.75" Y="15.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAABAIAAAA=</HashCode>
-      <FileName>RAM.cs</FileName>
+      <FileName>src\RAM.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.RAM">
     <Position X="0.75" Y="18" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAIAAAA=</HashCode>
-      <FileName>RAM.cs</FileName>
+      <FileName>src\RAM.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.BasicHardMemory">
     <Position X="6.25" Y="15.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAgAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
-      <FileName>HardMemory.cs</FileName>
+      <FileName>src\HardMemory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.InternalHardMemory">
     <Position X="4.5" Y="17.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
-      <FileName>HardMemory.cs</FileName>
+      <FileName>src\HardMemory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.ExternalHardMemory">
     <Position X="7.5" Y="17.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
-      <FileName>HardMemory.cs</FileName>
+      <FileName>src\HardMemory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.BasicSimCard">
     <Position X="11.25" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQAAgAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SimCard.cs</FileName>
+      <FileName>src\SimCard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.SimCard">
     <Position X="11.25" Y="15" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SimCard.cs</FileName>
+      <FileName>src\SimCard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.MultiSimCard">
     <Position X="11.25" Y="17" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
-      <FileName>SimCard.cs</FileName>
+      <FileName>src\SimCard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.BasicDynamic">
     <Position X="1" Y="20.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAABAAAAAiAAAAAABABAAAAAAAAAAA=</HashCode>
-      <FileName>Dynamic.cs</FileName>
+      <FileName>src\Dynamic.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.Dynamic">
     <Position X="1" Y="23" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Dynamic.cs</FileName>
+      <FileName>src\Dynamic.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.BasicKeyboard">
     <Position X="17" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAAAAAAAAAIBAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Keyboard.cs</FileName>
+      <FileName>src\Keyboard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.Keyboard">
     <Position X="15.75" Y="15" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Keyboard.cs</FileName>
+      <FileName>src\Keyboard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.DigitalKeyboard">
     <Position X="18" Y="15" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Keyboard.cs</FileName>
+      <FileName>src\Keyboard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.BasicMicrophone">
     <Position X="5.25" Y="20.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAEAAAAAAAAAASAAAAAAAABAAAAAAAAAAA=</HashCode>
-      <FileName>Microphone.cs</FileName>
+      <FileName>src\Microphone.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KSBL_csharpprep_Lab1.Microphone">
     <Position X="5.25" Y="22.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAEAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Microphone.cs</FileName>
+      <FileName>src\Microphone.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="KSBL_csharpprep_Lab1.IScreenImage">
     <Position X="17.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAQIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Screen.cs</FileName>
+      <FileName>src\Screen.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="KSBL_csharpprep_Lab1.IScreenTouch">
     <Position X="17.75" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAEAAAAA=</HashCode>
-      <FileName>TouchScreen.cs</FileName>
+      <FileName>src\TouchScreen.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="KSBL_csharpprep_Lab1.ITakePhoto">
     <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Camera.cs</FileName>
+      <FileName>src\Camera.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="KSBL_csharpprep_Lab1.ICharge">
     <Position X="8.5" Y="10" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Battery.cs</FileName>
+      <FileName>src\Battery\BaIonBattery.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="KSBL_csharpprep_Lab1.IProcess" Collapsed="true">
     <Position X="3" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CPU.cs</FileName>
+      <FileName>src\CPU.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="KSBL_csharpprep_Lab1.ILoadFromHardMemory">
     <Position X="8.25" Y="15.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>HardMemory.cs</FileName>
-      <NewMemberFileName>RAM.cs</NewMemberFileName>
+      <FileName>src\HardMemory.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="KSBL_csharpprep_Lab1.ILoadToHardMemory">
     <Position X="8.25" Y="16.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>HardMemory.cs</FileName>
-      <NewMemberFileName>RAM.cs</NewMemberFileName>
+      <FileName>src\HardMemory.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="KSBL_csharpprep_Lab1.ICall">
     <Position X="13.25" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SimCard.cs</FileName>
+      <FileName>src\SimCard.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="KSBL_csharpprep_Lab1.IPlaySound">
     <Position X="3" Y="20.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Dynamic.cs</FileName>
+      <FileName>src\Dynamic.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="KSBL_csharpprep_Lab1.IPressButton">
     <Position X="19.25" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Keyboard.cs</FileName>
+      <FileName>src\Keyboard.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="KSBL_csharpprep_Lab1.IRecordSound" Collapsed="true">
     <Position X="7.25" Y="20.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Microphone.cs</FileName>
+      <FileName>src\Microphone.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

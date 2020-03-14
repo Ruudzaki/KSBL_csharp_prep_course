@@ -8,7 +8,7 @@ namespace KSBL_csharpprep_Lab1
         {
             Mobile mobile = new SimCorpMobile();
 
-            Console.WriteLine(mobile.GetDescription());
+            Console.WriteLine(mobile);
 
             Console.ReadKey();
         }

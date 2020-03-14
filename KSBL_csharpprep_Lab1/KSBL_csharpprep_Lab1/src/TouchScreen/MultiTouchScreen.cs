@@ -2,16 +2,7 @@
 
 namespace KSBL_csharpprep_Lab1
 {
-    public interface IScreenTouch
-    {
-        int CoursorX { get; set; }
-        int CoursorY { get; set; }
-    }
 
-    public abstract class BasicTouch
-    {
-        public abstract void Touch(IScreenTouch screenTouch);
-    }
 
     public class MultiTouchScreen : BasicTouch
     {
@@ -40,18 +31,4 @@ namespace KSBL_csharpprep_Lab1
         }
     }
 
-    public class SingleTouchScreen : BasicTouch
-    {
-        public override void Touch(IScreenTouch screenTouch)
-        {
-            //here logic of touch can be added 
-        }
-
-        public override string ToString()
-        {
-            {
-                return "Single Touch";
-            }
-        }
-    }
 }
