@@ -1,4 +1,4 @@
-﻿namespace KSBL_csharpprep_Lab1
+﻿namespace KSBL_csharpprep_Lab1.Components.Speaker
 {
     public abstract class BasicSpeaker
     {
@@ -10,10 +10,10 @@
             Amount = amount;
         }
 
-        public int LowestDMP { get; set; }
-        public int HighestDMP { get; set; }
-        public double Power { get; set; }
-        public int Amount { get; set; }
+        public int LowestDMP { get; }
+        public int HighestDMP { get; }
+        public double Power { get; }
+        public int Amount { get; }
 
         public abstract void PlaySound(IPlaySound playSound);
     }

@@ -1,4 +1,4 @@
-﻿namespace KSBL_csharpprep_Lab1
+﻿namespace KSBL_csharpprep_Lab1.Components.Screen
 {
     public abstract class BasicScreen
     {
@@ -10,10 +10,10 @@
             Density = density;
         }
 
-        public int Width { get; set; }
-        public int Height { get; set; }
-        public int Size { get; set; }
-        public int Density { get; set; }
+        public int Width { get; }
+        public int Height { get; }
+        public int Size { get; }
+        public int Density { get; }
 
         public abstract void Show(IScreenImage screenImage);
         public abstract void Show(IScreenImage screenImage, int brightness);

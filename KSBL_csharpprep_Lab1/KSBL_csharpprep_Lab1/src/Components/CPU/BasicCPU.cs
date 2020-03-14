@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace KSBL_csharpprep_Lab1
+namespace KSBL_csharpprep_Lab1.Components.CPU
 {
     public abstract class BasicCpu
     {
-        public BasicCpu(string cpuName, List<Core> cores)
+        protected BasicCpu(string cpuName, List<Core> cores)
         {
             CpuName = cpuName;
             Cores = cores;

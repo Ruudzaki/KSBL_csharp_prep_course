@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace KSBL_csharpprep_Lab1
+namespace KSBL_csharpprep_Lab1.Components.SimCardHolder
 {
     internal class MultiSimCardHolder : BasicSimCardHolder
     {

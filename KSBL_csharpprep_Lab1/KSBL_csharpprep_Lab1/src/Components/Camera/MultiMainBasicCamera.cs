@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace KSBL_csharpprep_Lab1
+namespace KSBL_csharpprep_Lab1.Components.Camera
 {
     public class MultiMainBasicCamera : MainBasicCamera
     {
@@ -10,7 +10,7 @@ namespace KSBL_csharpprep_Lab1
             Cameras = cameras;
         }
 
-        public List<MainBasicCamera> Cameras { get; set; }
+        public List<MainBasicCamera> Cameras { get; }
 
         public override void TakePhoto(ITakePhoto takePhoto)
         {

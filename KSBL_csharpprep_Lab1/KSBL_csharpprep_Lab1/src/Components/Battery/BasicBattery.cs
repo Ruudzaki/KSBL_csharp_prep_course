@@ -1,8 +1,8 @@
-﻿namespace KSBL_csharpprep_Lab1
+﻿namespace KSBL_csharpprep_Lab1.Components.Battery
 {
     public abstract class BasicBattery
     {
-        public BasicBattery(int power, int capacity, bool fastRecovery)
+        protected BasicBattery(int power, int capacity, bool fastRecovery)
         {
             Power = power;
             Capacity = capacity;

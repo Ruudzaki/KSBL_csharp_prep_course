@@ -1,8 +1,8 @@
-﻿namespace KSBL_csharpprep_Lab1
+﻿namespace KSBL_csharpprep_Lab1.Components.Camera
 {
     public abstract class BasicCamera
     {
-        public BasicCamera(double cameraDiafragm, int cameraResolution)
+        protected BasicCamera(double cameraDiafragm, int cameraResolution)
         {
             CameraDiafragm = cameraDiafragm;
             CameraResolution = cameraResolution;

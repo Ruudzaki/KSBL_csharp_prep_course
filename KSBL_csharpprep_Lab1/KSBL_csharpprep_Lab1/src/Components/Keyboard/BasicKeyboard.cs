@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace KSBL_csharpprep_Lab1
+namespace KSBL_csharpprep_Lab1.Components.Keyboard
 {
     public abstract class BasicKeyboard
     {
-        public BasicKeyboard(List<char> figures, List<char> letters)
+        protected BasicKeyboard(List<char> figures, List<char> letters)
         {
             Figures = figures;
             Letters = letters;
