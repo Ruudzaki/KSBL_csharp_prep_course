@@ -2,5 +2,6 @@
 {
     public interface LoadFromStorage
     {
+        int Adress { get; set; }
     }
 }

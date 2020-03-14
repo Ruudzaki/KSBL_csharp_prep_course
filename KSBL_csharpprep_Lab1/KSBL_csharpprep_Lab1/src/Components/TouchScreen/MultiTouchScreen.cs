@@ -2,16 +2,14 @@
 
 namespace KSBL_csharpprep_Lab1
 {
-
-
     public class MultiTouchScreen : BasicTouch
     {
-        public MultiTouchScreen(int maxTouchInput)
+        public MultiTouchScreen(string name, int maxTouchInput) : base(name)
         {
             MaxTouchInputs = maxTouchInput;
         }
 
-        public int MaxTouchInputs { get; set; }
+        public int MaxTouchInputs { get; }
 
         public override void Touch(IScreenTouch screenTouch)
         {
@@ -26,9 +24,8 @@ namespace KSBL_csharpprep_Lab1
         public override string ToString()
         {
             {
-                return string.Format("Multi Touch ({0} touches supported simultaneously)", MaxTouchInputs);
+                return $"Multi Touch ({MaxTouchInputs} touches supported simultaneously)";
             }
         }
     }
-
 }

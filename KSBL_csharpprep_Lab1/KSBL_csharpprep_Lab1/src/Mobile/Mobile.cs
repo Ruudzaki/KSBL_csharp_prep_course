@@ -1,21 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 
 namespace KSBL_csharpprep_Lab1
 {
     public abstract class Mobile
     {
-        public abstract ScreenBase Screen { get; }
+        public abstract BasicScreen Screen { get; }
         public abstract BasicTouch TouchScreen { get; }
-        public abstract Camera MainCamera { get; }
-        public abstract Camera FrontalCamera { get; }
-        public abstract Battery Battery { get; }
-        public abstract BasicCPU CPU { get; }
-        public abstract BasicCPU GraphCPU { get; }
-        public abstract BasicRAM RAM { get; }
-        public abstract Storage InternalStorage { get; }
-        public abstract Storage ExternalStorage { get; }
-        public abstract BasicSimCard SimCard { get; }
+        public abstract BasicCamera MainCamera { get; }
+        public abstract BasicCamera FrontalCamera { get; }
+        public abstract BasicBattery Battery { get; }
+        public abstract BasicCpu Cpu { get; }
+        public abstract BasicCpu GraphCpu { get; }
+        public abstract BasicRAM Ram { get; }
+        public abstract BasicStorage InternalStorage { get; }
+        public abstract BasicStorage ExternalStorage { get; }
+        public abstract BasicSimCardHolder SimCardHolder { get; }
         public abstract BasicMicrophone Microphone { get; }
         public abstract BasicSpeaker Speaker { get; }
         public abstract BasicKeyboard Keyboard { get; }
@@ -46,24 +45,24 @@ namespace KSBL_csharpprep_Lab1
             Battery.Charge(charge);
         }
 
-        private void CPUProcess(IProcess process)
+        private void CpuProcess(IProcess process)
         {
-            CPU.Process(process);
+            Cpu.Process(process);
         }
 
-        private void GraphCPUProcess(IProcess process)
+        private void GraphCpuProcess(IProcess process)
         {
-            GraphCPU.Process(process);
+            GraphCpu.Process(process);
         }
 
-        private void LoadFromRAM(ILoadFromRAM loadFromRam)
+        private void LoadFromRam(ILoadFromRAM loadFromRam)
         {
-            RAM.LoadFromRAM(loadFromRam);
+            Ram.LoadFromRAM(loadFromRam);
         }
 
-        private void LoadToRAM(ILoadToRAM loadToRam)
+        private void LoadToRam(ILoadToRAM loadToRam)
         {
-            RAM.LoadToRAM(loadToRam);
+            Ram.LoadToRAM(loadToRam);
         }
 
         private void LoadFromIntHardMemory(LoadFromStorage loadFromHardMemory)
@@ -88,7 +87,7 @@ namespace KSBL_csharpprep_Lab1
 
         private void Call(ICall call)
         {
-            SimCard.Call(call);
+            SimCardHolder.Call(call);
         }
 
         private void RecordSound(IRecordSound recordSound)
@@ -114,12 +113,12 @@ namespace KSBL_csharpprep_Lab1
             descriptionBuilder.AppendLine($"Main Camera: {MainCamera}");
             descriptionBuilder.AppendLine($"Frontal Camera: {FrontalCamera}");
             descriptionBuilder.AppendLine($"Battery: {Battery}");
-            descriptionBuilder.AppendLine($"CPU: {CPU}");
-            descriptionBuilder.AppendLine($"Graph CPU: {GraphCPU}");
-            descriptionBuilder.AppendLine($"RAM: {RAM}");
+            descriptionBuilder.AppendLine($"CPU: {Cpu}");
+            descriptionBuilder.AppendLine($"Graph CPU: {GraphCpu}");
+            descriptionBuilder.AppendLine($"RAM: {Ram}");
             descriptionBuilder.AppendLine($"Internal Storage: {InternalStorage}");
             descriptionBuilder.AppendLine($"External Storage: {ExternalStorage}");
-            descriptionBuilder.AppendLine($"SimCard: {SimCard}");
+            descriptionBuilder.AppendLine($"SimCard: {SimCardHolder}");
             descriptionBuilder.AppendLine($"Microphone: {Microphone}");
             descriptionBuilder.AppendLine($"Speaker: {Speaker}");
             descriptionBuilder.AppendLine($"Keyboard: {Keyboard}");

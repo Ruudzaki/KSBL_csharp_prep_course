@@ -1,7 +1,11 @@
 ﻿namespace KSBL_csharpprep_Lab1
 {
-    public class ExternalStorage : Storage
+    public class ExternalStorage : BasicStorage
     {
+        public ExternalStorage(int capacity) : base(capacity)
+        {
+        }
+
         public override void LoadFromHardMemory(LoadFromStorage loadFromHardMemory)
         {
             //here logic for load from external hard memory
@@ -14,7 +18,7 @@
 
         public override string ToString()
         {
-            return "External Storage";
+            return "External BasicStorage";
         }
     }
 }

@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
-
-namespace KSBL_csharpprep_Lab1
+﻿namespace KSBL_csharpprep_Lab1
 {
-    public class FrontalCamera : Camera
+    public class FrontalBasicCamera : BasicCamera
     {
+        public FrontalBasicCamera(double cameraDiafragm, int cameraResolution) : base(cameraDiafragm, cameraResolution)
+        {
+        }
+
         public override void TakePhoto(ITakePhoto takePhoto)
         {
             //here logic for Frontal Camera take photo action

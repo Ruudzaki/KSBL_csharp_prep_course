@@ -2,15 +2,14 @@
 
 namespace KSBL_csharpprep_Lab1
 {
-
-    internal class MultiSimCard : SimCard
+    internal class MultiSimCardHolder : BasicSimCardHolder
     {
-        public MultiSimCard(List<SimCard> simCards)
+        public MultiSimCardHolder(string simCardCaseType, List<SimCardHolder> simCards) : base(simCardCaseType)
         {
             SimCards = simCards;
         }
 
-        public List<SimCard> SimCards { get; set; }
+        public List<SimCardHolder> SimCards { get; }
 
         public override void Call(ICall call)
         {

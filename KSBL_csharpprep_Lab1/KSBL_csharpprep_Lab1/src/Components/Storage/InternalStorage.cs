@@ -1,7 +1,11 @@
 ﻿namespace KSBL_csharpprep_Lab1
 {
-    public class InternalStorage : Storage
+    public class InternalStorage : BasicStorage
     {
+        public InternalStorage(int capacity) : base(capacity)
+        {
+        }
+
         public override void LoadFromHardMemory(LoadFromStorage loadFromHardMemory)
         {
             //here logic for load from internal hard memory
@@ -14,7 +18,7 @@
 
         public override string ToString()
         {
-            return "Internal Storage";
+            return "Internal BasicStorage";
         }
     }
 }

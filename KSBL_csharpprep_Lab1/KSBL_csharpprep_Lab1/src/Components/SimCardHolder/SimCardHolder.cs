@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-
-namespace KSBL_csharpprep_Lab1
+﻿namespace KSBL_csharpprep_Lab1
 {
-
-
-    internal class SimCard : BasicSimCard
+    internal class SimCardHolder : BasicSimCardHolder
     {
+        public SimCardHolder(string simCardCaseType) : base(simCardCaseType)
+        {
+        }
+
         public override void Call(ICall call)
         {
             //here logic for call with one SimCard

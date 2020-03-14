@@ -2,7 +2,7 @@
 {
     public interface IRecordSound
     {
+        string Format { get; set; }
+        int Length { get; set; }
     }
-
-  
 }

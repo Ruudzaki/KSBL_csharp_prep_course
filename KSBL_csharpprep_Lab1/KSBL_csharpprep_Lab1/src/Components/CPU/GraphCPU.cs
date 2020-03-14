@@ -2,10 +2,9 @@
 
 namespace KSBL_csharpprep_Lab1
 {
-
-    public class GraphCPU : CPU
+    public class GraphCpu : Cpu
     {
-        public GraphCPU(List<Core> GraphCPUCores) : base(GraphCPUCores)
+        public GraphCpu(string graphCpuName, List<Core> graphCpuCores) : base(graphCpuName, graphCpuCores)
         {
         }
 
@@ -16,7 +15,7 @@ namespace KSBL_csharpprep_Lab1
 
         public override string ToString()
         {
-            return string.Format("Graph CPU with {0} cores", AmountOfCPUCores);
+            return $"Graph CPU with {AmountOfCpuCores} cores";
         }
     }
 }

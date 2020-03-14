@@ -2,5 +2,7 @@
 {
     public interface IPlaySound
     {
+        string Format { get; set; }
+        int Length { get; set; }
     }
 }

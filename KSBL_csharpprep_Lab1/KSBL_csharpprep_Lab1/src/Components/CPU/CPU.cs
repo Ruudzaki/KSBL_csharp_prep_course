@@ -2,13 +2,10 @@
 
 namespace KSBL_csharpprep_Lab1
 {
-
-    public class CPU : BasicCPU
+    public class Cpu : BasicCpu
     {
-        public CPU(List<Core> CPUCores)
+        public Cpu(string cpuName, List<Core> cores) : base(cpuName, cores)
         {
-            Cores = CPUCores;
-            AmountOfCPUCores = Cores.Count;
         }
 
         public override void Process(IProcess process)
@@ -18,9 +15,7 @@ namespace KSBL_csharpprep_Lab1
 
         public override string ToString()
         {
-            return string.Format("CPU with {0} cores", AmountOfCPUCores);
+            return $"CPU with {AmountOfCpuCores} cores";
         }
     }
-
- 
 }

@@ -2,9 +2,8 @@
 {
     public interface IScreenImage
     {
-        int size { get; set; }
-        int width { get; set; }
-        int height { get; set; }
+        int Size { get; set; }
+        int Width { get; set; }
+        int Height { get; set; }
     }
-
 }
