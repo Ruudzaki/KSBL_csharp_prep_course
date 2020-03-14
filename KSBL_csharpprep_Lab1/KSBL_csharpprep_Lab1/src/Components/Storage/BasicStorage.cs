@@ -9,7 +9,7 @@
 
         public int Capacity { get; }
 
-        public abstract void LoadFromHardMemory(LoadFromStorage loadFromHardMemory);
+        public abstract void LoadFromHardMemory(ILoadFromStorage loadFromHardMemory);
         public abstract void LoadToHardMemory(ILoadToStorage loadToHardMemory);
     }
 }

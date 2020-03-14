@@ -22,7 +22,7 @@ namespace KSBL_csharpprep_Lab1.Mobile
         public abstract BasicBattery Battery { get; }
         public abstract BasicCpu Cpu { get; }
         public abstract BasicCpu GraphCpu { get; }
-        public abstract BasicRAM Ram { get; }
+        public abstract BasicRam Ram { get; }
         public abstract BasicStorage InternalStorage { get; }
         public abstract BasicStorage ExternalStorage { get; }
         public abstract BasicSimCardHolder SimCardHolder { get; }
@@ -66,22 +66,22 @@ namespace KSBL_csharpprep_Lab1.Mobile
             GraphCpu.Process(process);
         }
 
-        private void LoadFromRam(ILoadFromRAM loadFromRam)
+        private void LoadFromRam(ILoadFromRam loadFromRam)
         {
-            Ram.LoadFromRAM(loadFromRam);
+            Ram.LoadFromRam(loadFromRam);
         }
 
-        private void LoadToRam(ILoadToRAM loadToRam)
+        private void LoadToRam(ILoadToRam loadToRam)
         {
-            Ram.LoadToRAM(loadToRam);
+            Ram.LoadToRam(loadToRam);
         }
 
-        private void LoadFromIntHardMemory(LoadFromStorage loadFromHardMemory)
+        private void LoadFromIntHardMemory(ILoadFromStorage loadFromHardMemory)
         {
             InternalStorage.LoadFromHardMemory(loadFromHardMemory);
         }
 
-        private void LoadFromExtHardMemory(LoadFromStorage loadFromHardMemory)
+        private void LoadFromExtHardMemory(ILoadFromStorage loadFromHardMemory)
         {
             ExternalStorage.LoadFromHardMemory(loadFromHardMemory);
         }

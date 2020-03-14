@@ -15,8 +15,12 @@ namespace KSBL_csharpprep_Lab1.Mobile
 {
     public class SimCorpMobile : Mobile
     {
+        private readonly Cpu _vCpu = new Cpu("Intel", new List<Core> {new Core(64, 2.1), new Core(64, 2.1)});
         private readonly ExternalStorage _vExternalStorage = new ExternalStorage(128);
         private readonly FrontalBasicCamera _vFrontalBasicCamera = new FrontalBasicCamera(1.5, 5);
+
+        private readonly GraphCpu _vGraphCpu = new GraphCpu("AMD", new List<Core>
+            {new Core(64, 2.1), new Core(64, 2.1), new Core(64, 2.1), new Core(64, 2.1)});
 
         private readonly InternalStorage _vInternalStorage = new InternalStorage(64);
         private readonly DigitalKeyboard _vKeyboard = new DigitalKeyboard(new List<char>(), new List<char>());
@@ -41,12 +45,8 @@ namespace KSBL_csharpprep_Lab1.Mobile
         private readonly MultiTouchScreen _vMultiTouchScreen = new MultiTouchScreen("Multi", 10);
 
         private readonly OLedBasicScreen _vOLedBasicScreen = new OLedBasicScreen(1080, 1920, 7, 233);
-        private readonly RAM _vRam = new RAM(4);
+        private readonly Ram _vRam = new Ram(4);
         private readonly Speaker _vSpeaker = new Speaker(15, 15000, 4.5, 3);
-        private readonly Cpu vCpu = new Cpu("Intel", new List<Core> {new Core(64, 2.1), new Core(64, 2.1)});
-
-        private readonly GraphCpu vGraphCpu = new GraphCpu("AMD", new List<Core>
-            {new Core(64, 2.1), new Core(64, 2.1), new Core(64, 2.1), new Core(64, 2.1)});
 
 
         public override BasicScreen Screen => _vOLedBasicScreen;
@@ -54,9 +54,9 @@ namespace KSBL_csharpprep_Lab1.Mobile
         public override BasicCamera MainCamera => _vMultiMainBasicCamera;
         public override BasicBattery Battery => _vLiIonBattery;
         public override BasicCamera FrontalCamera => _vFrontalBasicCamera;
-        public override BasicCpu Cpu => vCpu;
-        public override BasicCpu GraphCpu => vGraphCpu;
-        public override BasicRAM Ram => _vRam;
+        public override BasicCpu Cpu => _vCpu;
+        public override BasicCpu GraphCpu => _vGraphCpu;
+        public override BasicRam Ram => _vRam;
         public override BasicStorage ExternalStorage => _vExternalStorage;
         public override BasicStorage InternalStorage => _vInternalStorage;
         public override BasicSimCardHolder SimCardHolder => _vMultiSimCardHolder;

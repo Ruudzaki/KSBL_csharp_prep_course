@@ -1,6 +1,6 @@
 ﻿namespace KSBL_csharpprep_Lab1.Components.Storage
 {
-    public interface LoadFromStorage
+    public interface ILoadFromStorage
     {
         int Adress { get; set; }
     }

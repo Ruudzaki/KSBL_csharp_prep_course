@@ -61,10 +61,10 @@
     <Compile Include="src\Components\Microphone\Microphone.cs" />
     <Compile Include="src\Components\Microphone\BasicMicrophone.cs" />
     <Compile Include="src\Mobile\SimCorpMobile.cs" />
-    <Compile Include="src\Components\RAM\ILoadToRAM.cs" />
-    <Compile Include="src\Components\RAM\BasicRAM.cs" />
-    <Compile Include="src\Components\RAM\RAM.cs" />
-    <Compile Include="src\Components\RAM\ILoadFromRAM.cs" />
+    <Compile Include="src\Components\RAM\ILoadToRam.cs" />
+    <Compile Include="src\Components\RAM\BasicRam.cs" />
+    <Compile Include="src\Components\RAM\Ram.cs" />
+    <Compile Include="src\Components\RAM\ILoadFromRam.cs" />
     <Compile Include="src\Components\Screen\BasicScreen.cs" />
     <Compile Include="src\Components\Screen\MonochromeBasicScreen.cs" />
     <Compile Include="src\Components\Screen\ColorfulBasicScreen.cs" />

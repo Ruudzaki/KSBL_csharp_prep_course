@@ -4,14 +4,14 @@
     {
         protected BasicSpeaker(int lowestDmp, int highestDmp, double power, int amount)
         {
-            LowestDMP = lowestDmp;
-            HighestDMP = highestDmp;
+            LowestDmp = lowestDmp;
+            HighestDmp = highestDmp;
             Power = power;
             Amount = amount;
         }
 
-        public int LowestDMP { get; }
-        public int HighestDMP { get; }
+        public int LowestDmp { get; }
+        public int HighestDmp { get; }
         public double Power { get; }
         public int Amount { get; }
 

@@ -1,17 +1,17 @@
 ﻿namespace KSBL_csharpprep_Lab1.Components.RAM
 {
-    public class RAM : BasicRAM
+    public class Ram : BasicRam
     {
-        public RAM(int size) : base(size)
+        public Ram(int size) : base(size)
         {
         }
 
-        public override void LoadFromRAM(ILoadFromRAM loadFromRam)
+        public override void LoadFromRam(ILoadFromRam loadFromRam)
         {
             //here logic for Load from RAM process 
         }
 
-        public override void LoadToRAM(ILoadToRAM loadFromRam)
+        public override void LoadToRam(ILoadToRam loadFromRam)
         {
             //here logic for Load to RAM process
         }

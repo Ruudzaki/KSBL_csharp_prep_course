@@ -6,7 +6,7 @@
         {
         }
 
-        public override void LoadFromHardMemory(LoadFromStorage loadFromHardMemory)
+        public override void LoadFromHardMemory(ILoadFromStorage loadFromHardMemory)
         {
             //here logic for load from external hard memory
         }
