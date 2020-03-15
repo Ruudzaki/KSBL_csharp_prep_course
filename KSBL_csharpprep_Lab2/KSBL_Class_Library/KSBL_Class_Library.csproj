@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4552BC93-F932-4394-85EC-401CAA771855}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KSBL_Class_Library</RootNamespace>
+    <AssemblyName>KSBL_Class_Library</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Components\Battery\BaIonBattery.cs" />
+    <Compile Include="src\Components\Battery\Battery.cs" />
+    <Compile Include="src\Components\Battery\ICharge.cs" />
+    <Compile Include="src\Components\Battery\LiIonBattery.cs" />
+    <Compile Include="src\Components\Camera\Camera.cs" />
+    <Compile Include="src\Components\Camera\FrontalCamera.cs" />
+    <Compile Include="src\Components\Camera\ITakePhoto.cs" />
+    <Compile Include="src\Components\Camera\MainCamera .cs" />
+    <Compile Include="src\Components\Camera\MultiMainCamera.cs" />
+    <Compile Include="src\Components\CPU\BasicCPU.cs" />
+    <Compile Include="src\Components\CPU\Core.cs" />
+    <Compile Include="src\Components\CPU\CPU.cs" />
+    <Compile Include="src\Components\CPU\GraphCPU.cs" />
+    <Compile Include="src\Components\CPU\IProcess.cs" />
+    <Compile Include="src\Components\Keyboard\BasicKeyboard.cs" />
+    <Compile Include="src\Components\Keyboard\DigitalKeyboard.cs" />
+    <Compile Include="src\Components\Keyboard\IPressButton.cs" />
+    <Compile Include="src\Components\Keyboard\Keyboard.cs" />
+    <Compile Include="src\Components\Microphone\BasicMicrophone.cs" />
+    <Compile Include="src\Components\Microphone\IRecordSound.cs" />
+    <Compile Include="src\Components\Microphone\Microphone.cs" />
+    <Compile Include="src\Components\RAM\BasicRAM.cs" />
+    <Compile Include="src\Components\RAM\ILoadFromRAM.cs" />
+    <Compile Include="src\Components\RAM\ILoadToRAM.cs" />
+    <Compile Include="src\Components\RAM\RAM.cs" />
+    <Compile Include="src\Components\Screen\ColorfulScreen.cs" />
+    <Compile Include="src\Components\Screen\IScreenImage.cs" />
+    <Compile Include="src\Components\Screen\MonochromeScreen.cs" />
+    <Compile Include="src\Components\Screen\OLEDScreen.cs" />
+    <Compile Include="src\Components\Screen\RetinaScreen.cs" />
+    <Compile Include="src\Components\Screen\ScreenBase.cs" />
+    <Compile Include="src\Components\SimCard\BasicSimCard.cs" />
+    <Compile Include="src\Components\SimCard\ICall.cs" />
+    <Compile Include="src\Components\SimCard\MultiSimCard.cs" />
+    <Compile Include="src\Components\SimCard\SimCard.cs" />
+    <Compile Include="src\Components\Speaker\AppleHeadset.cs" />
+    <Compile Include="src\Components\Speaker\BasicSpeaker.cs" />
+    <Compile Include="src\Components\Speaker\IPlayback.cs" />
+    <Compile Include="src\Components\Speaker\SamsungHeadset.cs" />
+    <Compile Include="src\Components\Speaker\Speaker.cs" />
+    <Compile Include="src\Components\Speaker\UnofficialAppleHeadset.cs" />
+    <Compile Include="src\Components\Storage\ExternalStorage.cs" />
+    <Compile Include="src\Components\Storage\ILoadFromStorage.cs" />
+    <Compile Include="src\Components\Storage\ILoadToStorage.cs" />
+    <Compile Include="src\Components\Storage\InternalStorage.cs" />
+    <Compile Include="src\Components\Storage\Storage.cs" />
+    <Compile Include="src\Components\TouchScreen\BasicTouch.cs" />
+    <Compile Include="src\Components\TouchScreen\IScreenTouch.cs" />
+    <Compile Include="src\Components\TouchScreen\MultiTouchScreen.cs" />
+    <Compile Include="src\Components\TouchScreen\SingleTouchScreen.cs" />
+    <Compile Include="src\Mobile\Mobile.cs" />
+    <Compile Include="src\Mobile\SimCorpMobile.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
