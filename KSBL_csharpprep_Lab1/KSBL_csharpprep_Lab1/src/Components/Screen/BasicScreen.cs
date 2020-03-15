@@ -10,6 +10,7 @@
             Density = density;
         }
 
+
         public int Width { get; }
         public int Height { get; }
         public int Size { get; }

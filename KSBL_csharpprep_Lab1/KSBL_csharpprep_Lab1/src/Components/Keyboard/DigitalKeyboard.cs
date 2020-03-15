@@ -6,7 +6,10 @@ namespace KSBL_csharpprep_Lab1.Components.Keyboard
     {
         public DigitalKeyboard(List<char> figures, List<char> letters) : base(figures, letters)
         {
+            TouchScreen = true;
         }
+
+        public bool TouchScreen { get; }
 
         public override void PressButton(IPressButton pressButton)
         {

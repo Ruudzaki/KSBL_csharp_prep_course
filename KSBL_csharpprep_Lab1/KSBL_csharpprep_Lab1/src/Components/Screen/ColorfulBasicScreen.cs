@@ -2,9 +2,13 @@
 {
     public class ColorfulBasicScreen : BasicScreen
     {
-        public ColorfulBasicScreen(int width, int height, int size, int density) : base(width, height, size, density)
+        public ColorfulBasicScreen(int width, int height, int size, int density, int amountOfColors) : base(width,
+            height, size, density)
         {
+            AmountOfColors = amountOfColors;
         }
+
+        public int AmountOfColors { get; }
 
         public override void Show(IScreenImage screenImage)
         {
