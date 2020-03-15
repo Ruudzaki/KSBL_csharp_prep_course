@@ -25,7 +25,7 @@ namespace KSBL_Class_Library.Mobile
             }
             catch
             {
-                Console.WriteLine("Wrong input.");
+                Console.WriteLine("Wrong input");
             }
 
             switch (index)
@@ -47,7 +47,6 @@ namespace KSBL_Class_Library.Mobile
                     Console.WriteLine("Speaker playback selected");
                     break;
                 default:
-                    Console.WriteLine("Wrong input");
                     break;
                 
             }
@@ -148,9 +147,16 @@ namespace KSBL_Class_Library.Mobile
 
         public void Play(object data)
         {
-            Console.WriteLine($"Play sound in {nameof(Mobile)}:");
-            PlaybackComponent.Play(data);
-        }
+            if (PlaybackComponent != null)
+            {
+                Console.WriteLine($"Play sound in {nameof(Mobile)}:");
+                PlaybackComponent.Play(data);
+            }
+            else
+            {
+                Console.WriteLine("No playback component to play");
+            }
+}
 
         private void PressButton(IPressButton pressButton)
         {

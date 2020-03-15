@@ -1,4 +1,4 @@
-﻿using KSBL_Class_Library;
+﻿using KSBL_Class_Library.Mobile;
 using System;
 
 namespace KSBL_Console_app
