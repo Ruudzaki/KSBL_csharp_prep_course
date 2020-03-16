@@ -79,6 +79,7 @@
     <Compile Include="src\Components\SimCardHolder\SimCardHolder.cs" />
     <Compile Include="src\Components\Speaker\AppleHeadset.cs" />
     <Compile Include="src\Components\Speaker\BasicSpeaker.cs" />
+    <Compile Include="src\Components\Speaker\IOutput.cs" />
     <Compile Include="src\Components\Speaker\IPlayback.cs" />
     <Compile Include="src\Components\Speaker\SamsungHeadset.cs" />
     <Compile Include="src\Components\Speaker\Speaker.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="src\Components\TouchScreen\SingleTouchScreen.cs" />
     <Compile Include="src\Mobile\Mobile.cs" />
     <Compile Include="src\Mobile\SimCorpMobile.cs" />
+    <Compile Include="src\WinFormOutput.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

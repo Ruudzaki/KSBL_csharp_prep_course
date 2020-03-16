@@ -32,8 +32,9 @@ namespace KSBL_Class_Library.Mobile
         public abstract BasicKeyboard Keyboard { get; }
 
         public IPlayback PlaybackComponent { get; set; }
+        public IOutput Output { get; set; }
 
-        public void SelectPlaybackComponent()
+        public void SelectPlaybackComponentConsole()
         {
             Console.WriteLine("Select playback component (specify index):");
             Console.WriteLine("0 - No playback component");
@@ -53,19 +54,19 @@ namespace KSBL_Class_Library.Mobile
             switch (index)
             {
                 case 1:
-                    PlaybackComponent = new AppleHeadset();
+                    PlaybackComponent = new AppleHeadset(Output);
                     Console.WriteLine("Apple Headset playback selected");
                     break;
                 case 2:
-                    PlaybackComponent = new SamsungHeadset();
+                    PlaybackComponent = new SamsungHeadset(Output);
                     Console.WriteLine("Samsung Headset playback selected");
                     break;
                 case 3:
-                    PlaybackComponent = new UnofficialAppleHeadset();
+                    PlaybackComponent = new UnofficialAppleHeadset(Output);
                     Console.WriteLine("Unofficial Apple Headset playback selected");
                     break;
                 case 4:
-                    PlaybackComponent = Speaker;
+                    PlaybackComponent = new Speaker(15, 15000, 4.5, 3, Output);
                     Console.WriteLine("Speaker playback selected");
                     break;
                 default:
@@ -76,6 +77,38 @@ namespace KSBL_Class_Library.Mobile
             Console.WriteLine($"Set playback to {nameof(Mobile)}...");
         }
 
+        public string SelectPlaybackComponentWinForm(int index)
+        {
+            var selectionBuilder = new StringBuilder();
+
+            switch (index)
+            {
+                case 1:
+                    PlaybackComponent = new AppleHeadset(Output);
+                    selectionBuilder.AppendLine("Apple Headset playback selected");
+                    break;
+                case 2:
+                    PlaybackComponent = new SamsungHeadset(Output);
+                    selectionBuilder.AppendLine("Samsung Headset playback selected");
+                    break;
+                case 3:
+                    PlaybackComponent = new UnofficialAppleHeadset(Output);
+                    selectionBuilder.AppendLine("Unofficial Apple Headset playback selected");
+                    break;
+                case 4:
+                    PlaybackComponent = Speaker;
+                    Speaker.Output = Output;
+                    selectionBuilder.AppendLine("Speaker playback selected");
+                    break;
+                default:
+                    selectionBuilder.AppendLine("No playback selected");
+                    break;
+            }
+
+            selectionBuilder.AppendLine($"Set playback to {nameof(Mobile)}...");
+
+            return selectionBuilder.ToString();
+        }
 
         private void Show(IScreenImage screenImage)
         {
@@ -152,17 +185,24 @@ namespace KSBL_Class_Library.Mobile
             Microphone.RecordSound(recordSound);
         }
 
-        public void Play(object data)
+        public string Play(object data)
         {
-            if (PlaybackComponent != null)
+            if (Output != null)
             {
-                Console.WriteLine($"Play sound in {nameof(Mobile)}:");
-                PlaybackComponent.Play(data);
+                if (PlaybackComponent != null)
+                {
+                    var stringBuilder = new StringBuilder();
+
+                    stringBuilder.AppendLine(
+                        Output.WriteLine($"Play sound in {nameof(Mobile)} by {Output.GetType()}:"));
+                    stringBuilder.AppendLine(PlaybackComponent.Play(data));
+                    return stringBuilder.ToString();
+                }
+
+                return Output.WriteLine("No playback component to play");
             }
-            else
-            {
-                Console.WriteLine("No playback component to play");
-            }
+
+            return "No Output!";
         }
 
         private void PressButton(IPressButton pressButton)
@@ -173,6 +213,8 @@ namespace KSBL_Class_Library.Mobile
         public override string ToString()
         {
             var descriptionBuilder = new StringBuilder();
+            descriptionBuilder.AppendLine($"Name: {GetType()}");
+            descriptionBuilder.AppendLine();
             descriptionBuilder.AppendLine($"Screen Type: {Screen}");
             descriptionBuilder.AppendLine($"Touch Screen: {TouchScreen}");
             descriptionBuilder.AppendLine($"Main Camera: {MainCamera}");

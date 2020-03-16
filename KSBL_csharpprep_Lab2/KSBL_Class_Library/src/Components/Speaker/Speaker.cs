@@ -1,22 +1,23 @@
-﻿using System;
-
-namespace KSBL_Class_Library.Components.Speaker
+﻿namespace KSBL_Class_Library.Components.Speaker
 {
     public class Speaker : BasicSpeaker
     {
-        public Speaker(int lowestDmp, int highestDmp, double power, int amount) : base(lowestDmp, highestDmp, power,
-            amount)
+        public Speaker(int lowestDmp, int highestDmp, double power, int amount, IOutput output) : base(lowestDmp,
+            highestDmp, power,
+            amount, output)
         {
         }
 
-        public override void Play(object data)
+        public override string Play(object data)
         {
-            Console.WriteLine($"{nameof(Speaker)} sound");
+            if (Output != null) return Output.WriteLine($"{nameof(Speaker)} sound");
+
+            return "No Output!";
         }
 
         public override string ToString()
         {
-            return "Dynamic";
+            return "Speaker";
         }
     }
 }

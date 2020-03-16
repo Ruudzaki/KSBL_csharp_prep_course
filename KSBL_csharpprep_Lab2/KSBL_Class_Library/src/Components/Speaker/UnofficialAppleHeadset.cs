@@ -1,12 +1,19 @@
-﻿using System;
-
-namespace KSBL_Class_Library.Components.Speaker
+﻿namespace KSBL_Class_Library.Components.Speaker
 {
     public class UnofficialAppleHeadset : IPlayback
     {
-        public void Play(object data)
+        public UnofficialAppleHeadset(IOutput output)
         {
-            Console.WriteLine($"{nameof(UnofficialAppleHeadset)} sound");
+            Output = output;
+        }
+
+        public IOutput Output { get; }
+
+        public string Play(object data)
+        {
+            if (Output != null) return Output.WriteLine($"{nameof(UnofficialAppleHeadset)} sound");
+
+            return "No Output!";
         }
     }
 }

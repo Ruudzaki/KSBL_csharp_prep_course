@@ -1,7 +1,6 @@
 ﻿using System;
 using KSBL_Class_Library.Mobile;
 
-
 namespace KSBL_Console_app
 {
     internal class Program
@@ -9,10 +8,11 @@ namespace KSBL_Console_app
         private static void Main()
         {
             Mobile mobile = new SimCorpMobile();
+            mobile.Output = new ConsoleOutput();
 
-            Console.WriteLine(mobile);
+            mobile.Output.WriteLine(mobile.ToString());
 
-            mobile.SelectPlaybackComponent();
+            mobile.SelectPlaybackComponentConsole();
             mobile.Play(new object());
 
             Console.ReadKey();

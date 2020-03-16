@@ -1,19 +1,26 @@
 ﻿using System;
 using System.Windows.Forms;
+using KSBL_WinForms_app;
+using KSBL_Class_Library;
+using KSBL_Class_Library.Components.Speaker;
+using KSBL_Class_Library.Mobile;
 
-namespace WindowsFormsApplication1
+namespace KSBL_WinForms_app
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
-        /// The main entry point for the application.
+        ///     The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
+            Mobile mobile = new SimCorpMobile();
+            IOutput output = new WinFormOutput();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new SelectPlaybackComponent(mobile, output));
         }
     }
 }

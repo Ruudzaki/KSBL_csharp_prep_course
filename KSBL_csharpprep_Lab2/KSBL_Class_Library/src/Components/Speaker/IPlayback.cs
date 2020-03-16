@@ -2,6 +2,6 @@
 {
     public interface IPlayback
     {
-        void Play(object data);
+        string Play(object data);
     }
 }
