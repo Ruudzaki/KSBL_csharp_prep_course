@@ -10,10 +10,10 @@
             Amount = amount;
         }
 
-        public int LowestDmp { get; set; }
-        public int HighestDmp { get; set; }
-        public double Power { get; set; }
-        public int Amount { get; set; }
+        public int LowestDmp { get; }
+        public int HighestDmp { get; }
+        public double Power { get; }
+        public int Amount { get; }
 
         public abstract void Play(object data);
     }

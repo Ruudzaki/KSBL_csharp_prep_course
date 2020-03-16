@@ -65,7 +65,7 @@ namespace KSBL_Class_Library.Mobile
                     Console.WriteLine("Unofficial Apple Headset playback selected");
                     break;
                 case 4:
-                    PlaybackComponent = new Speaker(15, 15000, 4.5, 3);
+                    PlaybackComponent = Speaker;
                     Console.WriteLine("Speaker playback selected");
                     break;
                 default:
