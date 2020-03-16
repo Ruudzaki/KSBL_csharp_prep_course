@@ -1,4 +1,4 @@
-﻿namespace KSBL_Class_Library.Components.Keyboard
+﻿namespace KSBL_csharpprep_Lab1.Components.Keyboard
 {
     public interface IPressButton
     {

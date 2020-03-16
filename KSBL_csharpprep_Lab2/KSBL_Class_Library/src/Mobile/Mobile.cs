@@ -1,83 +1,34 @@
-﻿using System;
-using System.Text;
-using KSBL_Class_Library.Components.Battery;
-using KSBL_Class_Library.Components.Camera;
-using KSBL_Class_Library.Components.CPU;
-using KSBL_Class_Library.Components.Keyboard;
-using KSBL_Class_Library.Components.Microphone;
-using KSBL_Class_Library.Components.RAM;
-using KSBL_Class_Library.Components.Screen;
-using KSBL_Class_Library.Components.SimCard;
-using KSBL_Class_Library.Components.Speaker;
-using KSBL_Class_Library.Components.Storage;
-using KSBL_Class_Library.Components.TouchScreen;
+﻿using System.Text;
+using KSBL_csharpprep_Lab1.Components.Battery;
+using KSBL_csharpprep_Lab1.Components.Camera;
+using KSBL_csharpprep_Lab1.Components.CPU;
+using KSBL_csharpprep_Lab1.Components.Keyboard;
+using KSBL_csharpprep_Lab1.Components.Microphone;
+using KSBL_csharpprep_Lab1.Components.RAM;
+using KSBL_csharpprep_Lab1.Components.Screen;
+using KSBL_csharpprep_Lab1.Components.SimCardHolder;
+using KSBL_csharpprep_Lab1.Components.Speaker;
+using KSBL_csharpprep_Lab1.Components.Storage;
+using KSBL_csharpprep_Lab1.Components.TouchScreen;
 
-namespace KSBL_Class_Library.Mobile
+namespace KSBL_csharpprep_Lab1.Mobile
 {
     public abstract class Mobile
     {
-        public abstract ScreenBase Screen { get; }
+        public abstract BasicScreen Screen { get; }
         public abstract BasicTouch TouchScreen { get; }
-
-        public abstract Camera MainCamera { get; }
-        public abstract Camera FrontalCamera { get; }
-        public abstract Battery Battery { get; }
+        public abstract BasicCamera MainCamera { get; }
+        public abstract BasicCamera FrontalCamera { get; }
+        public abstract BasicBattery Battery { get; }
         public abstract BasicCpu Cpu { get; }
         public abstract BasicCpu GraphCpu { get; }
         public abstract BasicRam Ram { get; }
-        public abstract Storage InternalStorage { get; }
-        public abstract Storage ExternalStorage { get; }
-        public abstract BasicSimCard SimCard { get; }
+        public abstract BasicStorage InternalStorage { get; }
+        public abstract BasicStorage ExternalStorage { get; }
+        public abstract BasicSimCardHolder SimCardHolder { get; }
         public abstract BasicMicrophone Microphone { get; }
         public abstract BasicSpeaker Speaker { get; }
         public abstract BasicKeyboard Keyboard { get; }
-
-        public IPlayback PlaybackComponent { get; set; }
-
-        public void SelectPlaybackComponent()
-        {
-            Console.WriteLine("Select playback component (specify index):");
-            Console.WriteLine("0 - No playback component");
-            Console.WriteLine("1 - Apple Headset");
-            Console.WriteLine("2 - Samsung Headset");
-            Console.WriteLine("3 - Unofficial Apple Headset");
-            Console.WriteLine("4 - Speaker");
-
-            int index;
-
-            while (true) {
-                if (int.TryParse(Console.ReadLine(), out index) && index >= 0 && index < 5) {
-                    break;
-                }
-                Console.WriteLine("Please enter a valid integer value!");
-            }
-
-            switch (index)
-            {
-                case 1:
-                    PlaybackComponent = new AppleHeadset();
-                    Console.WriteLine("Apple Headset playback selected");
-                    break;
-                case 2:
-                    PlaybackComponent = new SamsungHeadset();
-                    Console.WriteLine("Samsung Headset playback selected");
-                    break;
-                case 3:
-                    PlaybackComponent = new UnofficialAppleHeadset();
-                    Console.WriteLine("Unofficial Apple Headset playback selected");
-                    break;
-                case 4:
-                    PlaybackComponent = new Speaker();
-                    Console.WriteLine("Speaker playback selected");
-                    break;
-                default:
-                    Console.WriteLine("No playback selected");
-                    break;
-            }
-
-            Console.WriteLine($"Set playback to {nameof(Mobile)}...");
-        }
-
 
         private void Show(IScreenImage screenImage)
         {
@@ -146,7 +97,7 @@ namespace KSBL_Class_Library.Mobile
 
         private void Call(ICall call)
         {
-            SimCard.Call(call);
+            SimCardHolder.Call(call);
         }
 
         private void RecordSound(IRecordSound recordSound)
@@ -154,17 +105,9 @@ namespace KSBL_Class_Library.Mobile
             Microphone.RecordSound(recordSound);
         }
 
-        public void Play(object data)
+        private void PlaySound(IPlaySound playSound)
         {
-            if (PlaybackComponent != null)
-            {
-                Console.WriteLine($"Play sound in {nameof(Mobile)}:");
-                PlaybackComponent.Play(data);
-            }
-            else
-            {
-                Console.WriteLine("No playback component to play");
-            }
+            Speaker.PlaySound(playSound);
         }
 
         private void PressButton(IPressButton pressButton)
@@ -174,8 +117,6 @@ namespace KSBL_Class_Library.Mobile
 
         public override string ToString()
         {
-            Console.WriteLine($"{GetType().Name} description:");
-            Console.WriteLine();
             var descriptionBuilder = new StringBuilder();
             descriptionBuilder.AppendLine($"Screen Type: {Screen}");
             descriptionBuilder.AppendLine($"Touch Screen: {TouchScreen}");
@@ -187,7 +128,7 @@ namespace KSBL_Class_Library.Mobile
             descriptionBuilder.AppendLine($"RAM: {Ram}");
             descriptionBuilder.AppendLine($"Internal Storage: {InternalStorage}");
             descriptionBuilder.AppendLine($"External Storage: {ExternalStorage}");
-            descriptionBuilder.AppendLine($"SimCard: {SimCard}");
+            descriptionBuilder.AppendLine($"SimCard: {SimCardHolder}");
             descriptionBuilder.AppendLine($"Microphone: {Microphone}");
             descriptionBuilder.AppendLine($"Speaker: {Speaker}");
             descriptionBuilder.AppendLine($"Keyboard: {Keyboard}");

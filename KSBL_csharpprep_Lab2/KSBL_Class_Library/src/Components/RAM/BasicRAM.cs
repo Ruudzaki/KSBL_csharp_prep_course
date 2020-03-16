@@ -1,8 +1,13 @@
-﻿namespace KSBL_Class_Library.Components.RAM
+﻿namespace KSBL_csharpprep_Lab1.Components.RAM
 {
     public abstract class BasicRam
     {
-        public int Size { get; set; }
+        protected BasicRam(int size)
+        {
+            Size = size;
+        }
+
+        public int Size { get; }
 
         public abstract void LoadFromRam(ILoadFromRam loadFromRam);
         public abstract void LoadToRam(ILoadToRam loadFromRam);

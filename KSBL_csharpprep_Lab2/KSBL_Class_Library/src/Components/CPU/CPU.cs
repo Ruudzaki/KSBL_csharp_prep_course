@@ -1,13 +1,11 @@
 ﻿using System.Collections.Generic;
 
-namespace KSBL_Class_Library.Components.CPU
+namespace KSBL_csharpprep_Lab1.Components.CPU
 {
     public class Cpu : BasicCpu
     {
-        public Cpu(List<Core> cpuCores)
+        public Cpu(string cpuName, List<Core> cores) : base(cpuName, cores)
         {
-            Cores = cpuCores;
-            AmountOfCpuCores = Cores.Count;
         }
 
         public override void Process(IProcess process)

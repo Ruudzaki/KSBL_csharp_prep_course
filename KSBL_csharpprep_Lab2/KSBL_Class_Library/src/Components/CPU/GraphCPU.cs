@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace KSBL_Class_Library.Components.CPU
+namespace KSBL_csharpprep_Lab1.Components.CPU
 {
     public class GraphCpu : Cpu
     {
-        public GraphCpu(List<Core> graphCpuCores) : base(graphCpuCores)
+        public GraphCpu(string graphCpuName, List<Core> graphCpuCores) : base(graphCpuName, graphCpuCores)
         {
         }
 

@@ -1,4 +1,4 @@
-﻿namespace KSBL_Class_Library.Components.TouchScreen
+﻿namespace KSBL_csharpprep_Lab1.Components.TouchScreen
 {
     public interface IScreenTouch
     {

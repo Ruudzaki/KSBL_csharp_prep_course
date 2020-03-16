@@ -1,9 +1,17 @@
-﻿namespace KSBL_Class_Library.Components.Keyboard
+﻿using System.Collections.Generic;
+
+namespace KSBL_csharpprep_Lab1.Components.Keyboard
 {
     public abstract class BasicKeyboard
     {
-        public string Figures { get; set; }
-        public string Letters { get; set; }
+        protected BasicKeyboard(List<char> figures, List<char> letters)
+        {
+            Figures = figures;
+            Letters = letters;
+        }
+
+        public List<char> Figures { get; }
+        public List<char> Letters { get; }
 
         public abstract void PressButton(IPressButton pressButton);
     }

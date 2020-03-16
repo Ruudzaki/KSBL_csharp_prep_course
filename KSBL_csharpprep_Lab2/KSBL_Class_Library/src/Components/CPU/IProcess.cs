@@ -1,6 +1,8 @@
-﻿namespace KSBL_Class_Library.Components.CPU
+﻿namespace KSBL_csharpprep_Lab1.Components.CPU
 {
     public interface IProcess
     {
+        int Adress { get; set; }
+        int Value { get; set; }
     }
 }

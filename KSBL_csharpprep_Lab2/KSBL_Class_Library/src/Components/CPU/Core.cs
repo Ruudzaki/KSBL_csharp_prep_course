@@ -1,8 +1,14 @@
-﻿namespace KSBL_Class_Library.Components.CPU
+﻿namespace KSBL_csharpprep_Lab1.Components.CPU
 {
     public class Core
     {
-        public int CashMemory { get; set; }
-        public double CoreFrequency { get; set; }
+        public Core(int cache, double coreFrequency)
+        {
+            Cache = cache;
+            CoreFrequency = coreFrequency;
+        }
+
+        public int Cache { get; }
+        public double CoreFrequency { get; }
     }
 }

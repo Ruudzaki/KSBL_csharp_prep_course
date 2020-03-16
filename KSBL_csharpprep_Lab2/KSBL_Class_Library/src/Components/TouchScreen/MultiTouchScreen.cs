@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 
-namespace KSBL_Class_Library.Components.TouchScreen
+namespace KSBL_csharpprep_Lab1.Components.TouchScreen
 {
     public class MultiTouchScreen : BasicTouch
     {
-        public MultiTouchScreen(int maxTouchInput)
+        public MultiTouchScreen(string name, int maxTouchInput) : base(name)
         {
             MaxTouchInputs = maxTouchInput;
         }
 
-        public int MaxTouchInputs { get; set; }
+        public int MaxTouchInputs { get; }
 
         public override void Touch(IScreenTouch screenTouch)
         {

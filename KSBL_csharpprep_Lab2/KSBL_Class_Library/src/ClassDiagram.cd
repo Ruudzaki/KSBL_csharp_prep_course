@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="KSBL_csharpprep_Lab1.Mobile">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAkQQAAAACQECgEFBhAAAEhGAggEAAgEABAECBCAAMA=</HashCode>
+      <FileName>src\Mobile\Mobile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.BasicCamera">
+    <Position X="8" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAg=</HashCode>
+      <FileName>src\Components\Camera\BasicCamera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.MultiMainBasicCamera">
+    <Position X="6.25" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAEAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>src\Components\Camera\MultiMainBasicCamera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.FrontalBasicCamera">
+    <Position X="9.75" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>src\Components\Camera\FrontalBasicCamera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.BasicScreen">
+    <Position X="15.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAgAAAAAAAAEABAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Screen\BasicScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.MonochromeBasicScreen">
+    <Position X="17.25" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Screen\MonochromeBasicScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.ColorfulBasicScreen">
+    <Position X="13.75" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Screen\ColorfulBasicScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.OLedBasicScreen">
+    <Position X="12.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Screen\OLedBasicScreen.cs</FileName>
+      <NewMemberFileName>src\Components\Screen\OledBasicScreen.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.RetinaBasicScreen">
+    <Position X="15" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Screen\RetinaBasicScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.BasicTouch">
+    <Position X="15.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>src\Components\TouchScreen\BasicTouch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.MultiTouchScreen">
+    <Position X="14.25" Y="9.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAgAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>src\Components\TouchScreen\MultiTouchScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.SingleTouchScreen">
+    <Position X="16.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>src\Components\TouchScreen\SingleTouchScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.MainBasicCamera">
+    <Position X="6.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>src\Components\Camera\MainCamera .cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.BasicBattery">
+    <Position X="6.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAACAAAAAAABAAAAAAAAAAE=</HashCode>
+      <FileName>src\Components\Battery\BasicBattery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.LiIonBattery">
+    <Position X="5.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Battery\LiIonBattery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.BaIonBattery">
+    <Position X="7.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Battery\BaIonBattery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.BasicCpu">
+    <Position X="0.5" Y="9.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAggAAAGAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\CPU\BasicCpu.cs</FileName>
+      <NewMemberFileName>src\Components\CPU\BasicCPU.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.Cpu">
+    <Position X="0.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\CPU\Cpu.cs</FileName>
+      <NewMemberFileName>src\Components\CPU\CPU.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.GraphCpu">
+    <Position X="0.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\CPU\GraphCpu.cs</FileName>
+      <NewMemberFileName>src\Components\CPU\GraphCPU.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.Core">
+    <Position X="3" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>src\Components\CPU\Core.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.BasicRAM">
+    <Position X="0.75" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAABAIAAAA=</HashCode>
+      <FileName>src\Components\RAM\BasicRAM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.RAM">
+    <Position X="0.75" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAIAAAA=</HashCode>
+      <FileName>src\Components\RAM\RAM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.BasicHardMemory">
+    <Position X="6.25" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAgAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>src\HardMemory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.ExternalStorage">
+    <Position X="4.5" Y="17.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Storage\ExternalStorage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.InternalStorage">
+    <Position X="7.5" Y="17.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Storage\InternalStorage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.BasicSimCardHolder">
+    <Position X="11.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>src\Components\SimCardHolder\BasicSimCardHolder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.SimCardHolder">
+    <Position X="11.25" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\SimCardHolder\SimCardHolder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.MultiSimCardHolder">
+    <Position X="11.25" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>src\Components\SimCardHolder\MultiSimCardHolder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.BasicSpeaker">
+    <Position X="1" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAiAAAAAABABAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Speaker\BasicSpeaker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.Speaker">
+    <Position X="1" Y="23" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Speaker\Speaker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.BasicKeyboard">
+    <Position X="17" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAIBAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Keyboard\BasicKeyboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.Keyboard">
+    <Position X="15.75" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Keyboard\Keyboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.DigitalKeyboard">
+    <Position X="18" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Keyboard\DigitalKeyboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.BasicMicrophone">
+    <Position X="5.25" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAASAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Microphone\BasicMicrophone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.Microphone">
+    <Position X="5.25" Y="22.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Microphone\Microphone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KSBL_csharpprep_Lab1.SimCorpMobile">
+    <Position X="3.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>gAkwAAAABAABCAAABBACEAAEAggICCgkEBAEAACAADg=</HashCode>
+      <FileName>src\Mobile\SimCorpMobile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="KSBL_csharpprep_Lab1.IScreenImage">
+    <Position X="17.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAgAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Screen\IScreenImage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="KSBL_csharpprep_Lab1.IScreenTouch">
+    <Position X="17.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAEAAAAA=</HashCode>
+      <FileName>src\Components\TouchScreen\IScreenTouch.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="KSBL_csharpprep_Lab1.ITakePhoto">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAgAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Camera\ITakePhoto.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="KSBL_csharpprep_Lab1.ICharge">
+    <Position X="8.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Battery\ICharge.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="KSBL_csharpprep_Lab1.IProcess" Collapsed="true">
+    <Position X="3" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>src\Components\CPU\IProcess.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="KSBL_csharpprep_Lab1.ILoadFromHardMemory">
+    <Position X="8.25" Y="15.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\HardMemory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="KSBL_csharpprep_Lab1.ILoadToHardMemory">
+    <Position X="8.25" Y="16.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\HardMemory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="KSBL_csharpprep_Lab1.ICall">
+    <Position X="13.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAASAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\SimCardHolder\ICall.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="KSBL_csharpprep_Lab1.IPlaySound">
+    <Position X="3" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Speaker\IPlaySound.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="KSBL_csharpprep_Lab1.IPressButton">
+    <Position X="19.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Keyboard\IPressButton.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="KSBL_csharpprep_Lab1.IRecordSound" Collapsed="true">
+    <Position X="7.25" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Components\Microphone\IRecordSound.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

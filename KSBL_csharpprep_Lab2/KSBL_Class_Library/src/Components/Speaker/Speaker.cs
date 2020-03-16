@@ -1,12 +1,15 @@
-﻿using System;
-
-namespace KSBL_Class_Library.Components.Speaker
+﻿namespace KSBL_csharpprep_Lab1.Components.Speaker
 {
     public class Speaker : BasicSpeaker
     {
-        public override void Play(object data)
+        public Speaker(int lowestDmp, int highestDmp, double power, int amount) : base(lowestDmp, highestDmp, power,
+            amount)
         {
-            Console.WriteLine($"{nameof(Speaker)} sound");
+        }
+
+        public override void PlaySound(IPlaySound playSound)
+        {
+            //here logic for play sound from dynamic
         }
 
         public override string ToString()
