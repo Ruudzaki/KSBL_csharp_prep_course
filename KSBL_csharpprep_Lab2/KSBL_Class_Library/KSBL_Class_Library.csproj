@@ -73,10 +73,6 @@
     <Compile Include="src\Components\Screen\OLEDScreen.cs" />
     <Compile Include="src\Components\Screen\RetinaScreen.cs" />
     <Compile Include="src\Components\Screen\ScreenBase.cs" />
-    <Compile Include="src\Components\SimCard\BasicSimCard.cs" />
-    <Compile Include="src\Components\SimCard\ICall.cs" />
-    <Compile Include="src\Components\SimCard\MultiSimCard.cs" />
-    <Compile Include="src\Components\SimCard\SimCard.cs" />
     <Compile Include="src\Components\Speaker\AppleHeadset.cs" />
     <Compile Include="src\Components\Speaker\BasicSpeaker.cs" />
     <Compile Include="src\Components\Speaker\IPlayback.cs" />

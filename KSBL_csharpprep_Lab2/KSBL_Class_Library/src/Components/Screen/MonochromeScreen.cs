@@ -1,6 +1,6 @@
 ﻿namespace KSBL_Class_Library.Components.Screen
 {
-    public class MonochromeScreen : ScreenBase
+    public class MonochromeScreen : BasicScreen
     {
         public override void Show(IScreenImage screenImage)
         {

@@ -5,7 +5,6 @@ using KSBL_csharpprep_Lab1.Components.CPU;
 using KSBL_csharpprep_Lab1.Components.Keyboard;
 using KSBL_csharpprep_Lab1.Components.Microphone;
 using KSBL_csharpprep_Lab1.Components.RAM;
-using KSBL_csharpprep_Lab1.Components.Screen;
 using KSBL_csharpprep_Lab1.Components.SimCardHolder;
 using KSBL_csharpprep_Lab1.Components.Speaker;
 using KSBL_csharpprep_Lab1.Components.Storage;
