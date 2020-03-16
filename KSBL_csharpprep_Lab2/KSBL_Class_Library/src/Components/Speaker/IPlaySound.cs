@@ -1,4 +1,4 @@
-﻿namespace KSBL_csharpprep_Lab1.Components.Speaker
+﻿namespace KSBL_Class_Library.Components.Speaker
 {
     public interface IPlaySound
     {

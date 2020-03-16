@@ -1,4 +1,4 @@
-﻿namespace KSBL_csharpprep_Lab1.Components.CPU
+﻿namespace KSBL_Class_Library.Components.CPU
 {
     public class Core
     {

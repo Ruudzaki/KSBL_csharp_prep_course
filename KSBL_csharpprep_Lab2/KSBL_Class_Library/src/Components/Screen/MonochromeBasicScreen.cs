@@ -1,7 +1,11 @@
 ﻿namespace KSBL_Class_Library.Components.Screen
 {
-    public class MonochromeScreen : BasicScreen
+    public class MonochromeBasicScreen : BasicScreen
     {
+        public MonochromeBasicScreen(int width, int height, int size, int density) : base(width, height, size, density)
+        {
+        }
+
         public override void Show(IScreenImage screenImage)
         {
             //here logic that draws monochrome image can be added 

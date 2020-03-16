@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace KSBL_csharpprep_Lab1.Components.Camera
+namespace KSBL_Class_Library.Components.Camera
 {
     public class MultiMainBasicCamera : MainBasicCamera
     {

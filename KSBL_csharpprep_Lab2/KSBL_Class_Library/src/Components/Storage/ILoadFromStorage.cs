@@ -1,4 +1,4 @@
-﻿namespace KSBL_csharpprep_Lab1.Components.Storage
+﻿namespace KSBL_Class_Library.Components.Storage
 {
     public interface ILoadFromStorage
     {

@@ -1,4 +1,4 @@
-﻿namespace KSBL_csharpprep_Lab1.Components.Microphone
+﻿namespace KSBL_Class_Library.Components.Microphone
 {
     public abstract class BasicMicrophone
     {

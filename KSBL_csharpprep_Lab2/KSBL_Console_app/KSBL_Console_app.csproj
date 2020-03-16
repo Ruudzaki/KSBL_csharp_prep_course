@@ -7,8 +7,8 @@
     <ProjectGuid>{632DDA42-01F4-417E-9643-8DAD508F25C1}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KSBL_csharpprep_Lab1</RootNamespace>
-    <AssemblyName>KSBL_csharpprep_Lab1</AssemblyName>
+    <RootNamespace>KSBL_Console_app</RootNamespace>
+    <AssemblyName>KSBL_Console_app</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

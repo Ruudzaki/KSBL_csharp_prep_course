@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
-using KSBL_csharpprep_Lab1.Components.Battery;
-using KSBL_csharpprep_Lab1.Components.Camera;
-using KSBL_csharpprep_Lab1.Components.CPU;
-using KSBL_csharpprep_Lab1.Components.Keyboard;
-using KSBL_csharpprep_Lab1.Components.Microphone;
-using KSBL_csharpprep_Lab1.Components.RAM;
-using KSBL_csharpprep_Lab1.Components.SimCardHolder;
-using KSBL_csharpprep_Lab1.Components.Speaker;
-using KSBL_csharpprep_Lab1.Components.Storage;
-using KSBL_csharpprep_Lab1.Components.TouchScreen;
+using KSBL_Class_Library.Components.Battery;
+using KSBL_Class_Library.Components.Camera;
+using KSBL_Class_Library.Components.CPU;
+using KSBL_Class_Library.Components.Keyboard;
+using KSBL_Class_Library.Components.Microphone;
+using KSBL_Class_Library.Components.RAM;
+using KSBL_Class_Library.Components.Screen;
+using KSBL_Class_Library.Components.SimCardHolder;
+using KSBL_Class_Library.Components.Speaker;
+using KSBL_Class_Library.Components.Storage;
+using KSBL_Class_Library.Components.TouchScreen;
 
-namespace KSBL_csharpprep_Lab1.Mobile
+namespace KSBL_Class_Library.Mobile
 {
     public class SimCorpMobile : Mobile
     {

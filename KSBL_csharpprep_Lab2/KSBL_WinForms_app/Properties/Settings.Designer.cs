@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KSBL_WinForms_app.Properties
+namespace WindowsFormsApplication1.Properties
 {
 
 

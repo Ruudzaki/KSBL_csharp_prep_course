@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace KSBL_csharpprep_Lab1.Components.CPU
+namespace KSBL_Class_Library.Components.CPU
 {
     public abstract class BasicCpu
     {

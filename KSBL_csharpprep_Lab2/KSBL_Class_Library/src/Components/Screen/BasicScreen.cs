@@ -1,4 +1,4 @@
-﻿namespace KSBL_csharpprep_Lab1.Components.Screen
+﻿namespace KSBL_Class_Library.Components.Screen
 {
     public abstract class BasicScreen
     {

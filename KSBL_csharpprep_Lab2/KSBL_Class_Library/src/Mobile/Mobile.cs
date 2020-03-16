@@ -1,17 +1,18 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
+using KSBL_Class_Library.Components.Battery;
+using KSBL_Class_Library.Components.Camera;
+using KSBL_Class_Library.Components.CPU;
+using KSBL_Class_Library.Components.Keyboard;
+using KSBL_Class_Library.Components.Microphone;
+using KSBL_Class_Library.Components.RAM;
 using KSBL_Class_Library.Components.Screen;
-using KSBL_csharpprep_Lab1.Components.Battery;
-using KSBL_csharpprep_Lab1.Components.Camera;
-using KSBL_csharpprep_Lab1.Components.CPU;
-using KSBL_csharpprep_Lab1.Components.Keyboard;
-using KSBL_csharpprep_Lab1.Components.Microphone;
-using KSBL_csharpprep_Lab1.Components.RAM;
-using KSBL_csharpprep_Lab1.Components.SimCardHolder;
-using KSBL_csharpprep_Lab1.Components.Speaker;
-using KSBL_csharpprep_Lab1.Components.Storage;
-using KSBL_csharpprep_Lab1.Components.TouchScreen;
+using KSBL_Class_Library.Components.SimCardHolder;
+using KSBL_Class_Library.Components.Speaker;
+using KSBL_Class_Library.Components.Storage;
+using KSBL_Class_Library.Components.TouchScreen;
 
-namespace KSBL_csharpprep_Lab1.Mobile
+namespace KSBL_Class_Library.Mobile
 {
     public abstract class Mobile
     {
@@ -29,6 +30,55 @@ namespace KSBL_csharpprep_Lab1.Mobile
         public abstract BasicMicrophone Microphone { get; }
         public abstract BasicSpeaker Speaker { get; }
         public abstract BasicKeyboard Keyboard { get; }
+
+        public IPlayback PlaybackComponent { get; set; }
+
+        public void SelectPlaybackComponent()
+        {
+            Console.WriteLine("Select playback component (specify index):");
+            Console.WriteLine("0 - No playback component");
+            Console.WriteLine("1 - Apple Headset");
+            Console.WriteLine("2 - Samsung Headset");
+            Console.WriteLine("3 - Unofficial Apple Headset");
+            Console.WriteLine("4 - Speaker");
+
+            int index;
+
+            while (true)
+            {
+                if (int.TryParse(Console.ReadLine(), out index) && index >= 0 && index < 5)
+                {
+                    break;
+                }
+                Console.WriteLine("Please enter a valid integer value!");
+            }
+
+            switch (index)
+            {
+                case 1:
+                    PlaybackComponent = new AppleHeadset();
+                    Console.WriteLine("Apple Headset playback selected");
+                    break;
+                case 2:
+                    PlaybackComponent = new SamsungHeadset();
+                    Console.WriteLine("Samsung Headset playback selected");
+                    break;
+                case 3:
+                    PlaybackComponent = new UnofficialAppleHeadset();
+                    Console.WriteLine("Unofficial Apple Headset playback selected");
+                    break;
+                case 4:
+                    PlaybackComponent = new Speaker(15, 15000, 4.5, 3);
+                    Console.WriteLine("Speaker playback selected");
+                    break;
+                default:
+                    Console.WriteLine("No playback selected");
+                    break;
+            }
+
+            Console.WriteLine($"Set playback to {nameof(Mobile)}...");
+        }
+
 
         private void Show(IScreenImage screenImage)
         {
@@ -105,9 +155,17 @@ namespace KSBL_csharpprep_Lab1.Mobile
             Microphone.RecordSound(recordSound);
         }
 
-        private void PlaySound(IPlaySound playSound)
+        public void Play(object data)
         {
-            Speaker.PlaySound(playSound);
+            if (PlaybackComponent != null)
+            {
+                Console.WriteLine($"Play sound in {nameof(Mobile)}:");
+                PlaybackComponent.Play(data);
+            }
+            else
+            {
+                Console.WriteLine("No playback component to play");
+            }
         }
 
         private void PressButton(IPressButton pressButton)

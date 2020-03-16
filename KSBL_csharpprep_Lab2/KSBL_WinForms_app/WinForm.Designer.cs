@@ -1,4 +1,4 @@
-﻿namespace KSBL_WinForms_app
+﻿namespace WindowsFormsApplication1
 {
     partial class Form1
     {

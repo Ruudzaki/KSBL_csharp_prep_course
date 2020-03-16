@@ -1,4 +1,4 @@
-﻿namespace KSBL_csharpprep_Lab1.Components.SimCardHolder
+﻿namespace KSBL_Class_Library.Components.SimCardHolder
 {
     internal class SimCardHolder : BasicSimCardHolder
     {

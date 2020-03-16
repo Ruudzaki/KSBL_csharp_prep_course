@@ -1,4 +1,4 @@
-﻿namespace KSBL_csharpprep_Lab1.Components.RAM
+﻿namespace KSBL_Class_Library.Components.RAM
 {
     public abstract class BasicRam
     {

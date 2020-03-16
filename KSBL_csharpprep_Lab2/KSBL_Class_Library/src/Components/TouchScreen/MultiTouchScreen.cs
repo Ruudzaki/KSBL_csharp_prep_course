@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace KSBL_csharpprep_Lab1.Components.TouchScreen
+namespace KSBL_Class_Library.Components.TouchScreen
 {
     public class MultiTouchScreen : BasicTouch
     {
