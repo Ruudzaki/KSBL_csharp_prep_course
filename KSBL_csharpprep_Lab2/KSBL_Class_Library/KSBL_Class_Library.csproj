@@ -80,7 +80,6 @@
     <Compile Include="src\Components\Speaker\AppleHeadset.cs" />
     <Compile Include="src\Components\Speaker\BasicSpeaker.cs" />
     <Compile Include="src\Components\Speaker\IPlayback.cs" />
-    <Compile Include="src\Components\Speaker\IPlaySound.cs" />
     <Compile Include="src\Components\Speaker\SamsungHeadset.cs" />
     <Compile Include="src\Components\Speaker\Speaker.cs" />
     <Compile Include="src\Components\Speaker\UnofficialAppleHeadset.cs" />
