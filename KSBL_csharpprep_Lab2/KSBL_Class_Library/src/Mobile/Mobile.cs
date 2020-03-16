@@ -37,6 +37,7 @@ namespace KSBL_Class_Library.Mobile
         public void SelectPlaybackComponent()
         {
             Console.WriteLine("Select playback component (specify index):");
+            Console.WriteLine("0 - No playback component");
             Console.WriteLine("1 - Apple Headset");
             Console.WriteLine("2 - Samsung Headset");
             Console.WriteLine("3 - Unofficial Apple Headset");
@@ -45,7 +46,7 @@ namespace KSBL_Class_Library.Mobile
             int index;
 
             while (true) {
-                if (int.TryParse(Console.ReadLine(), out index) && index > 0 && index < 5) {
+                if (int.TryParse(Console.ReadLine(), out index) && index >= 0 && index < 5) {
                     break;
                 }
                 Console.WriteLine("Please enter a valid integer value!");
@@ -68,6 +69,9 @@ namespace KSBL_Class_Library.Mobile
                 case 4:
                     PlaybackComponent = new Speaker();
                     Console.WriteLine("Speaker playback selected");
+                    break;
+                default:
+                    Console.WriteLine("No playback selected");
                     break;
             }
 
