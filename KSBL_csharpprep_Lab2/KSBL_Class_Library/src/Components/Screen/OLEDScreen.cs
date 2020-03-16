@@ -1,6 +1,6 @@
-﻿namespace KSBL_Class_Library
+﻿namespace KSBL_Class_Library.Components.Screen
 {
-    public class OLEDScreen : ColorfulScreen
+    public class OledScreen : ColorfulScreen
     {
         public override void Show(IScreenImage screenImage)
         {

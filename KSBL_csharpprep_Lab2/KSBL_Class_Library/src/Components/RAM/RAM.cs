@@ -1,14 +1,13 @@
-﻿namespace KSBL_Class_Library
+﻿namespace KSBL_Class_Library.Components.RAM
 {
-
-    public class RAM : BasicRAM
+    public class Ram : BasicRam
     {
-        public override void LoadFromRAM(ILoadFromRAM loadFromRam)
+        public override void LoadFromRam(ILoadFromRam loadFromRam)
         {
             //here logic for Load from RAM process 
         }
 
-        public override void LoadToRAM(ILoadToRAM loadFromRam)
+        public override void LoadToRam(ILoadToRam loadFromRam)
         {
             //here logic for Load to RAM process
         }

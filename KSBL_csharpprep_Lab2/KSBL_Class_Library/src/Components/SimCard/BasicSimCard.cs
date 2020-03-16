@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-
-namespace KSBL_Class_Library
+﻿namespace KSBL_Class_Library.Components.SimCard
 {
-
     public abstract class BasicSimCard
     {
         public string SimCardType { get; set; }

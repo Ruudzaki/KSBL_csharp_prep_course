@@ -1,55 +1,64 @@
 ﻿using System.Collections.Generic;
-using System.Text;
+using KSBL_Class_Library.Components.Battery;
+using KSBL_Class_Library.Components.Camera;
+using KSBL_Class_Library.Components.CPU;
+using KSBL_Class_Library.Components.Keyboard;
+using KSBL_Class_Library.Components.Microphone;
+using KSBL_Class_Library.Components.RAM;
+using KSBL_Class_Library.Components.Screen;
+using KSBL_Class_Library.Components.SimCard;
+using KSBL_Class_Library.Components.Speaker;
+using KSBL_Class_Library.Components.Storage;
+using KSBL_Class_Library.Components.TouchScreen;
 
 namespace KSBL_Class_Library.Mobile
 {
-
     public class SimCorpMobile : Mobile
     {
-        private readonly CPU vCPU = new CPU(new List<Core> {new Core(), new Core()});
-        private readonly Speaker vSpeaker = new Speaker();
-        private readonly ExternalStorage vExternalStorage = new ExternalStorage();
-        private readonly FrontalCamera vFrontalCamera = new FrontalCamera();
+        private readonly Cpu _vCpu = new Cpu(new List<Core> {new Core(), new Core()});
+        private readonly ExternalStorage _vExternalStorage = new ExternalStorage();
+        private readonly FrontalCamera _vFrontalCamera = new FrontalCamera();
 
-        private readonly GraphCPU vGraphCPU = new GraphCPU(new List<Core>
+        private readonly GraphCpu _vGraphCpu = new GraphCpu(new List<Core>
             {new Core(), new Core(), new Core(), new Core()});
 
-        private readonly InternalStorage vInternalStorage = new InternalStorage();
-        private readonly DigitalKeyboard vKeyboard = new DigitalKeyboard();
-        private readonly LiIonBattery vLiIonBattery = new LiIonBattery();
-        private readonly Microphone vMicrophone = new Microphone();
+        private readonly InternalStorage _vInternalStorage = new InternalStorage();
+        private readonly DigitalKeyboard _vKeyboard = new DigitalKeyboard();
+        private readonly LiIonBattery _vLiIonBattery = new LiIonBattery();
+        private readonly Microphone _vMicrophone = new Microphone();
 
-        private readonly MultiMainCamera vMultiMainCamera = new MultiMainCamera(new List<MainCamera>
+        private readonly MultiMainCamera _vMultiMainCamera = new MultiMainCamera(new List<MainCamera>
         {
             new MainCamera(),
             new MainCamera(),
             new MainCamera()
         });
 
-        private readonly MultiSimCard vMultiSimCard = new MultiSimCard(new List<SimCard>
+        private readonly MultiSimCard _vMultiSimCard = new MultiSimCard(new List<SimCard>
         {
             new SimCard(),
             new SimCard()
         });
 
-        private readonly MultiTouchScreen vMultiTouchScreen = new MultiTouchScreen(10);
-        private readonly OLEDScreen vOLEDScreen = new OLEDScreen();
-        private readonly RAM vRAM = new RAM();
+        private readonly MultiTouchScreen _vMultiTouchScreen = new MultiTouchScreen(10);
+        private readonly OledScreen _vOledScreen = new OledScreen();
+        private readonly Ram _vRam = new Ram();
+        private readonly Speaker _vSpeaker = new Speaker();
 
 
-        public override ScreenBase Screen => vOLEDScreen;
-        public override BasicTouch TouchScreen => vMultiTouchScreen;
-        public override Camera MainCamera => vMultiMainCamera;
-        public override Battery Battery => vLiIonBattery;
-        public override Camera FrontalCamera => vFrontalCamera;
-        public override BasicCPU CPU => vCPU;
-        public override BasicCPU GraphCPU => vGraphCPU;
-        public override BasicRAM RAM => vRAM;
-        public override Storage ExternalStorage => vExternalStorage;
-        public override Storage InternalStorage => vInternalStorage;
-        public override BasicSimCard SimCard => vMultiSimCard;
-        public override BasicMicrophone Microphone => vMicrophone;
-        public override BasicSpeaker Speaker => vSpeaker;
-        public override BasicKeyboard Keyboard => vKeyboard;
+        public override ScreenBase Screen => _vOledScreen;
+        public override BasicTouch TouchScreen => _vMultiTouchScreen;
+        public override Camera MainCamera => _vMultiMainCamera;
+        public override Battery Battery => _vLiIonBattery;
+        public override Camera FrontalCamera => _vFrontalCamera;
+        public override BasicCpu Cpu => _vCpu;
+        public override BasicCpu GraphCpu => _vGraphCpu;
+        public override BasicRam Ram => _vRam;
+        public override Storage ExternalStorage => _vExternalStorage;
+        public override Storage InternalStorage => _vInternalStorage;
+        public override BasicSimCard SimCard => _vMultiSimCard;
+        public override BasicMicrophone Microphone => _vMicrophone;
+        public override BasicSpeaker Speaker => _vSpeaker;
+        public override BasicKeyboard Keyboard => _vKeyboard;
     }
 }

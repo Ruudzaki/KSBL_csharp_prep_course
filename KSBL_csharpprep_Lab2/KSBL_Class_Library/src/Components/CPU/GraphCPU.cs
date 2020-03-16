@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace KSBL_Class_Library
+namespace KSBL_Class_Library.Components.CPU
 {
-
-    public class GraphCPU : CPU
+    public class GraphCpu : Cpu
     {
-        public GraphCPU(List<Core> GraphCPUCores) : base(GraphCPUCores)
+        public GraphCpu(List<Core> graphCpuCores) : base(graphCpuCores)
         {
         }
 
@@ -16,7 +15,7 @@ namespace KSBL_Class_Library
 
         public override string ToString()
         {
-            return string.Format("Graph CPU with {0} cores", AmountOfCPUCores);
+            return $"Graph CPU with {AmountOfCpuCores} cores";
         }
     }
 }

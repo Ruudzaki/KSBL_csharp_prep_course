@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 
-namespace KSBL_Class_Library
+namespace KSBL_Class_Library.Components.CPU
 {
-
-    public abstract class BasicCPU
+    public abstract class BasicCpu
     {
-        public string CPUName { get; set; }
+        public string CpuName { get; set; }
         public List<Core> Cores { get; set; }
-        public int AmountOfCPUCores { get; set; }
+        public int AmountOfCpuCores { get; set; }
 
         public abstract void Process(IProcess process);
     }

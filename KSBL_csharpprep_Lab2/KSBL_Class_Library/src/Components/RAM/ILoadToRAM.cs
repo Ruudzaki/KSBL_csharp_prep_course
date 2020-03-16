@@ -1,9 +1,6 @@
-﻿namespace KSBL_Class_Library
+﻿namespace KSBL_Class_Library.Components.RAM
 {
-
-    public interface ILoadToRAM
+    public interface ILoadToRam
     {
     }
-
-
 }

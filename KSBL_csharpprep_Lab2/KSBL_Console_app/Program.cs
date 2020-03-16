@@ -1,7 +1,7 @@
-﻿using KSBL_Class_Library.Mobile;
-using System;
+﻿using System;
+using KSBL_Class_Library.Mobile;
 
-namespace KSBL_Console_app
+namespace KSBL_csharpprep_Lab1
 {
     internal class Program
     {

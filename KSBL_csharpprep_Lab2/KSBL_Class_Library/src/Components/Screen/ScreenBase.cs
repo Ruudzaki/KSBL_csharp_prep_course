@@ -1,6 +1,5 @@
-﻿namespace KSBL_Class_Library
+﻿namespace KSBL_Class_Library.Components.Screen
 {
-
     public abstract class ScreenBase
     {
         public int Width { get; set; }

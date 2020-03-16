@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
 
-namespace KSBL_Class_Library
+namespace KSBL_Class_Library.Components.CPU
 {
-
-    public class CPU : BasicCPU
+    public class Cpu : BasicCpu
     {
-        public CPU(List<Core> CPUCores)
+        public Cpu(List<Core> cpuCores)
         {
-            Cores = CPUCores;
-            AmountOfCPUCores = Cores.Count;
+            Cores = cpuCores;
+            AmountOfCpuCores = Cores.Count;
         }
 
         public override void Process(IProcess process)
@@ -18,9 +17,7 @@ namespace KSBL_Class_Library
 
         public override string ToString()
         {
-            return string.Format("CPU with {0} cores", AmountOfCPUCores);
+            return $"CPU with {AmountOfCpuCores} cores";
         }
     }
-
- 
 }

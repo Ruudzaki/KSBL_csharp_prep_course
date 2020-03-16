@@ -1,6 +1,5 @@
-﻿namespace KSBL_Class_Library
+﻿namespace KSBL_Class_Library.Components.Screen
 {
-
     public class ColorfulScreen : ScreenBase
     {
         public override void Show(IScreenImage screenImage)
@@ -18,5 +17,4 @@
             return "Colorful Screen";
         }
     }
-
- }
+}

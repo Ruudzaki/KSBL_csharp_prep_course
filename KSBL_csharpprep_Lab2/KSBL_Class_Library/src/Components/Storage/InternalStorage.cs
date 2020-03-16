@@ -1,8 +1,8 @@
-﻿namespace KSBL_Class_Library
+﻿namespace KSBL_Class_Library.Components.Storage
 {
     public class InternalStorage : Storage
     {
-        public override void LoadFromHardMemory(LoadFromStorage loadFromHardMemory)
+        public override void LoadFromHardMemory(ILoadFromStorage loadFromHardMemory)
         {
             //here logic for load from internal hard memory
         }

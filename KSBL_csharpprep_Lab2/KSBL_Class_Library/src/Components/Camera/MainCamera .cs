@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace KSBL_Class_Library
+﻿namespace KSBL_Class_Library.Components.Camera
 {
     public class MainCamera : Camera
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KSBL_Class_Library.src.Components.Speaker
+namespace KSBL_Class_Library.Components.Speaker
 {
     public class AppleHeadset : IPlayback
     {

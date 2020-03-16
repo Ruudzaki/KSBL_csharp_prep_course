@@ -1,6 +1,16 @@
-﻿using KSBL_Class_Library.src.Components.Speaker;
+﻿using System;
 using System.Text;
-using System;
+using KSBL_Class_Library.Components.Battery;
+using KSBL_Class_Library.Components.Camera;
+using KSBL_Class_Library.Components.CPU;
+using KSBL_Class_Library.Components.Keyboard;
+using KSBL_Class_Library.Components.Microphone;
+using KSBL_Class_Library.Components.RAM;
+using KSBL_Class_Library.Components.Screen;
+using KSBL_Class_Library.Components.SimCard;
+using KSBL_Class_Library.Components.Speaker;
+using KSBL_Class_Library.Components.Storage;
+using KSBL_Class_Library.Components.TouchScreen;
 
 namespace KSBL_Class_Library.Mobile
 {
@@ -8,6 +18,21 @@ namespace KSBL_Class_Library.Mobile
     {
         public abstract ScreenBase Screen { get; }
         public abstract BasicTouch TouchScreen { get; }
+
+        public abstract Camera MainCamera { get; }
+        public abstract Camera FrontalCamera { get; }
+        public abstract Battery Battery { get; }
+        public abstract BasicCpu Cpu { get; }
+        public abstract BasicCpu GraphCpu { get; }
+        public abstract BasicRam Ram { get; }
+        public abstract Storage InternalStorage { get; }
+        public abstract Storage ExternalStorage { get; }
+        public abstract BasicSimCard SimCard { get; }
+        public abstract BasicMicrophone Microphone { get; }
+        public abstract BasicSpeaker Speaker { get; }
+        public abstract BasicKeyboard Keyboard { get; }
+
+        public IPlayback PlaybackComponent { get; set; }
 
         public void SelectPlaybackComponent()
         {
@@ -17,57 +42,37 @@ namespace KSBL_Class_Library.Mobile
             Console.WriteLine("3 - Unofficial Apple Headset");
             Console.WriteLine("4 - Speaker");
 
-            int index = 0;
+            int index;
 
-            try
-            {
-                index = int.Parse(Console.ReadLine());
-            }
-            catch
-            {
-                Console.WriteLine("Wrong input");
+            while (true) {
+                if (int.TryParse(Console.ReadLine(), out index) && index > 0 && index < 5) {
+                    break;
+                }
+                Console.WriteLine("Please enter a valid integer value!");
             }
 
             switch (index)
             {
-                case (1):
+                case 1:
                     PlaybackComponent = new AppleHeadset();
                     Console.WriteLine("Apple Headset playback selected");
                     break;
-                case (2):
+                case 2:
                     PlaybackComponent = new SamsungHeadset();
                     Console.WriteLine("Samsung Headset playback selected");
                     break;
-                case (3):
+                case 3:
                     PlaybackComponent = new UnofficialAppleHeadset();
                     Console.WriteLine("Unofficial Apple Headset playback selected");
                     break;
-                case (4):
+                case 4:
                     PlaybackComponent = new Speaker();
                     Console.WriteLine("Speaker playback selected");
                     break;
-                default:
-                    break;
-                
             }
 
             Console.WriteLine($"Set playback to {nameof(Mobile)}...");
         }
-
-        public abstract Camera MainCamera { get; }
-        public abstract Camera FrontalCamera { get; }
-        public abstract Battery Battery { get; }
-        public abstract BasicCPU CPU { get; }
-        public abstract BasicCPU GraphCPU { get; }
-        public abstract BasicRAM RAM { get; }
-        public abstract Storage InternalStorage { get; }
-        public abstract Storage ExternalStorage { get; }
-        public abstract BasicSimCard SimCard { get; }
-        public abstract BasicMicrophone Microphone { get; }
-        public abstract BasicSpeaker Speaker { get; }
-        public abstract BasicKeyboard Keyboard { get; }
-
-        public IPlayback PlaybackComponent { get; set; }
 
 
         private void Show(IScreenImage screenImage)
@@ -95,32 +100,32 @@ namespace KSBL_Class_Library.Mobile
             Battery.Charge(charge);
         }
 
-        private void CPUProcess(IProcess process)
+        private void CpuProcess(IProcess process)
         {
-            CPU.Process(process);
+            Cpu.Process(process);
         }
 
-        private void GraphCPUProcess(IProcess process)
+        private void GraphCpuProcess(IProcess process)
         {
-            GraphCPU.Process(process);
+            GraphCpu.Process(process);
         }
 
-        private void LoadFromRAM(ILoadFromRAM loadFromRam)
+        private void LoadFromRam(ILoadFromRam loadFromRam)
         {
-            RAM.LoadFromRAM(loadFromRam);
+            Ram.LoadFromRam(loadFromRam);
         }
 
-        private void LoadToRAM(ILoadToRAM loadToRam)
+        private void LoadToRam(ILoadToRam loadToRam)
         {
-            RAM.LoadToRAM(loadToRam);
+            Ram.LoadToRam(loadToRam);
         }
 
-        private void LoadFromIntHardMemory(LoadFromStorage loadFromHardMemory)
+        private void LoadFromIntHardMemory(ILoadFromStorage loadFromHardMemory)
         {
             InternalStorage.LoadFromHardMemory(loadFromHardMemory);
         }
 
-        private void LoadFromExtHardMemory(LoadFromStorage loadFromHardMemory)
+        private void LoadFromExtHardMemory(ILoadFromStorage loadFromHardMemory)
         {
             ExternalStorage.LoadFromHardMemory(loadFromHardMemory);
         }
@@ -156,7 +161,7 @@ namespace KSBL_Class_Library.Mobile
             {
                 Console.WriteLine("No playback component to play");
             }
-}
+        }
 
         private void PressButton(IPressButton pressButton)
         {
@@ -165,7 +170,7 @@ namespace KSBL_Class_Library.Mobile
 
         public override string ToString()
         {
-            Console.WriteLine($"{this.GetType().Name} description:");
+            Console.WriteLine($"{GetType().Name} description:");
             Console.WriteLine();
             var descriptionBuilder = new StringBuilder();
             descriptionBuilder.AppendLine($"Screen Type: {Screen}");
@@ -173,9 +178,9 @@ namespace KSBL_Class_Library.Mobile
             descriptionBuilder.AppendLine($"Main Camera: {MainCamera}");
             descriptionBuilder.AppendLine($"Frontal Camera: {FrontalCamera}");
             descriptionBuilder.AppendLine($"Battery: {Battery}");
-            descriptionBuilder.AppendLine($"CPU: {CPU}");
-            descriptionBuilder.AppendLine($"Graph CPU: {GraphCPU}");
-            descriptionBuilder.AppendLine($"RAM: {RAM}");
+            descriptionBuilder.AppendLine($"CPU: {Cpu}");
+            descriptionBuilder.AppendLine($"Graph CPU: {GraphCpu}");
+            descriptionBuilder.AppendLine($"RAM: {Ram}");
             descriptionBuilder.AppendLine($"Internal Storage: {InternalStorage}");
             descriptionBuilder.AppendLine($"External Storage: {ExternalStorage}");
             descriptionBuilder.AppendLine($"SimCard: {SimCard}");

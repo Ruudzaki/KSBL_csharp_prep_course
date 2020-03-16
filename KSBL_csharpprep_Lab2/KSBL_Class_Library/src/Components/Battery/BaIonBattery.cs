@@ -1,7 +1,5 @@
-﻿namespace KSBL_Class_Library
+﻿namespace KSBL_Class_Library.Components.Battery
 {
-
-
     public class BaIonBattery : Battery
     {
         public override void Charge(ICharge charge)

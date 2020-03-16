@@ -1,4 +1,4 @@
-﻿namespace KSBL_Class_Library
+﻿namespace KSBL_Class_Library.Components.Screen
 {
     public class MonochromeScreen : ScreenBase
     {
@@ -17,5 +17,4 @@
             return "Monochrome Screen";
         }
     }
-
 }

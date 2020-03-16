@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 
-namespace KSBL_Class_Library
+namespace KSBL_Class_Library.Components.TouchScreen
 {
-
-
     public class MultiTouchScreen : BasicTouch
     {
         public MultiTouchScreen(int maxTouchInput)
@@ -26,9 +24,8 @@ namespace KSBL_Class_Library
         public override string ToString()
         {
             {
-                return string.Format("Multi Touch ({0} touches supported simultaneously)", MaxTouchInputs);
+                return $"Multi Touch ({MaxTouchInputs} touches supported simultaneously)";
             }
         }
     }
-
 }

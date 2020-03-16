@@ -1,9 +1,5 @@
-﻿using System.Collections.Generic;
-
-namespace KSBL_Class_Library
+﻿namespace KSBL_Class_Library.Components.SimCard
 {
-
-
     internal class SimCard : BasicSimCard
     {
         public override void Call(ICall call)

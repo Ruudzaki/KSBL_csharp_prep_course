@@ -1,7 +1,5 @@
-﻿namespace KSBL_Class_Library
+﻿namespace KSBL_Class_Library.Components.Keyboard
 {
-
-
     public abstract class BasicKeyboard
     {
         public string Figures { get; set; }
@@ -9,5 +7,4 @@
 
         public abstract void PressButton(IPressButton pressButton);
     }
-
 }

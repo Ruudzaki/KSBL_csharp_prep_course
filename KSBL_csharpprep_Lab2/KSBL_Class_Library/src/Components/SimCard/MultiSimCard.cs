@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 
-namespace KSBL_Class_Library
+namespace KSBL_Class_Library.Components.SimCard
 {
-
     internal class MultiSimCard : SimCard
     {
         public MultiSimCard(List<SimCard> simCards)

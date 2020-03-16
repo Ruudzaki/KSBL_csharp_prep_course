@@ -1,7 +1,5 @@
-﻿namespace KSBL_Class_Library
+﻿namespace KSBL_Class_Library.Components.Microphone
 {
-
-
     public class Microphone : BasicMicrophone
     {
         public override void RecordSound(IRecordSound recordSound)

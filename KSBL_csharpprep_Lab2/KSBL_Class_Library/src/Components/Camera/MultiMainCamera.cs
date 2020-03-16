@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace KSBL_Class_Library
+namespace KSBL_Class_Library.Components.Camera
 {
     public class MultiMainCamera : MainCamera
     {
@@ -18,8 +18,7 @@ namespace KSBL_Class_Library
 
         public override string ToString()
         {
-            return string.Format("Main multi camera with {0} cameras", Cameras.Count);
+            return $"Main multi camera with {Cameras.Count} cameras";
         }
     }
-
 }

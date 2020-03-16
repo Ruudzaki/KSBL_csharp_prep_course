@@ -1,6 +1,5 @@
-﻿namespace KSBL_Class_Library
+﻿namespace KSBL_Class_Library.Components.Keyboard
 {
-
     public class DigitalKeyboard : BasicKeyboard
     {
         public override void PressButton(IPressButton pressButton)

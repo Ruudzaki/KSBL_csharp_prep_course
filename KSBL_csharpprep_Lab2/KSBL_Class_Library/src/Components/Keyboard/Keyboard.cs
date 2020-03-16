@@ -1,6 +1,5 @@
-﻿namespace KSBL_Class_Library
+﻿namespace KSBL_Class_Library.Components.Keyboard
 {
-
     public class Keyboard : BasicKeyboard
     {
         public override void PressButton(IPressButton pressButton)
@@ -13,6 +12,4 @@
             return "Ordinary Keyboard";
         }
     }
-
-
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KSBL_Class_Library
+namespace KSBL_Class_Library.Components.Speaker
 {
     public class Speaker : BasicSpeaker
     {
