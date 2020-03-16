@@ -46,10 +46,7 @@ namespace KSBL_Class_Library.Mobile
 
             while (true)
             {
-                if (int.TryParse(Console.ReadLine(), out index) && index >= 0 && index < 5)
-                {
-                    break;
-                }
+                if (int.TryParse(Console.ReadLine(), out index) && index >= 0 && index < 5) break;
                 Console.WriteLine("Please enter a valid integer value!");
             }
 

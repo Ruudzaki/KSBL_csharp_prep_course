@@ -1,7 +1,6 @@
 ﻿using System;
 using KSBL_Class_Library.Mobile;
 
-
 namespace KSBL_Console_app
 {
     internal class Program
