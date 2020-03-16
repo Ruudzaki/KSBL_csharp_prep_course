@@ -13,7 +13,7 @@
         {
             if (Output != null) return Output.WriteLine($"{nameof(AppleHeadset)} sound");
 
-            return "No output!";
+            return "No Output!";
         }
     }
 }
