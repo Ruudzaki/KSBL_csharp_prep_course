@@ -125,6 +125,7 @@ namespace KSBL_Class_Library.Mobile
                     selectionBuilder.AppendLine(Output.WriteLine("No Charger selected"));
                     break;
             }
+
             if (ChargeComponent != null)
                 selectionBuilder.AppendLine(Output.WriteLine($"Set charger to {nameof(Mobile)}..."));
 

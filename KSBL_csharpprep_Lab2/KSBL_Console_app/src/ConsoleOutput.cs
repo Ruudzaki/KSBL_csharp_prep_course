@@ -1,6 +1,5 @@
 ﻿using System;
 using KSBL_Class_Library;
-using KSBL_Class_Library.Components.Speaker;
 
 namespace KSBL_Console_app
 {

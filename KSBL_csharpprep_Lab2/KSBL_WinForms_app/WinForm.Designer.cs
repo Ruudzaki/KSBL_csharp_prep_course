@@ -1,4 +1,4 @@
-﻿namespace KSBL_WinForms_app
+﻿namespace KSBL_Win_Forms_app
 {
     partial class SelectPlaybackComponent
     {

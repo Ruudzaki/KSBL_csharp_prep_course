@@ -1,11 +1,7 @@
-﻿using KSBL_Class_Library.Components.Speaker;
-
-namespace KSBL_Class_Library.Components.Battery
+﻿namespace KSBL_Class_Library.Components.Battery
 {
     public class AppleCharger : ICharge
     {
-        public int Voltage { get; }
-
         public AppleCharger(int voltage, IOutput output)
         {
             Voltage = voltage;
@@ -13,6 +9,7 @@ namespace KSBL_Class_Library.Components.Battery
         }
 
         public IOutput Output { get; }
+        public int Voltage { get; }
 
         public string Charge(object data)
         {

@@ -7,8 +7,8 @@
     <ProjectGuid>{454A7F31-19BB-45F7-B689-6CA08FF0A90A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KSBL_Win_Forms_app</RootNamespace>
-    <AssemblyName>KSBL_Win_Forms_app</AssemblyName>
+    <RootNamespace>KSBL_WinForms_app</RootNamespace>
+    <AssemblyName>KSBL_WinForms_app</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

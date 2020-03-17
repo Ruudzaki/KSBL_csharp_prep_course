@@ -12,11 +12,11 @@ namespace KSBL_UnitTestProject
         {
             //Arrange
             IOutput output = new FakeOutput();
-            AppleHeadset headset = new AppleHeadset(output);
-            string expect = "Test Output is running";
+            var headset = new AppleHeadset(output);
+            var expect = "Test Output is running";
 
             //Act
-            string actual = headset.Play(new object());
+            var actual = headset.Play(new object());
 
             //Assert
             Assert.AreEqual(expect, actual);
@@ -27,11 +27,11 @@ namespace KSBL_UnitTestProject
         {
             //Arrange
             IOutput output = new FakeOutput();
-            SamsungHeadset headset = new SamsungHeadset(output);
-            string expect = "Test Output is running";
+            var headset = new SamsungHeadset(output);
+            var expect = "Test Output is running";
 
             //Act
-            string actual = headset.Play(new object());
+            var actual = headset.Play(new object());
 
             //Assert
             Assert.AreEqual(expect, actual);
@@ -42,11 +42,11 @@ namespace KSBL_UnitTestProject
         {
             //Arrange
             IOutput output = new FakeOutput();
-            UnofficialAppleHeadset headset = new UnofficialAppleHeadset(output);
-            string expect = "Test Output is running";
+            var headset = new UnofficialAppleHeadset(output);
+            var expect = "Test Output is running";
 
             //Act
-            string actual = headset.Play(new object());
+            var actual = headset.Play(new object());
 
             //Assert
             Assert.AreEqual(expect, actual);
@@ -57,11 +57,11 @@ namespace KSBL_UnitTestProject
         {
             //Arrange
             IOutput output = new FakeOutput();
-            Speaker headset = new Speaker(15,15000, 4.5,2, output);
-            string expect = "Test Output is running";
+            var headset = new Speaker(15, 15000, 4.5, 2, output);
+            var expect = "Test Output is running";
 
             //Act
-            string actual = headset.Play(new object());
+            var actual = headset.Play(new object());
 
             //Assert
             Assert.AreEqual(expect, actual);
@@ -71,11 +71,11 @@ namespace KSBL_UnitTestProject
         public void AppleHeadsetWithoutOutput()
         {
             //Arrange
-            AppleHeadset headset = new AppleHeadset(null);
-            string expect = "No Output!";
+            var headset = new AppleHeadset(null);
+            var expect = "No Output!";
 
             //Act
-            string actual = headset.Play(new object());
+            var actual = headset.Play(new object());
 
             //Assert
             Assert.AreEqual(expect, actual);
@@ -85,11 +85,11 @@ namespace KSBL_UnitTestProject
         public void SamsungHeadsetWithoutOutput()
         {
             //Arrange
-            SamsungHeadset headset = new SamsungHeadset(null);
-            string expect = "No Output!";
+            var headset = new SamsungHeadset(null);
+            var expect = "No Output!";
 
             //Act
-            string actual = headset.Play(new object());
+            var actual = headset.Play(new object());
 
             //Assert
             Assert.AreEqual(expect, actual);
@@ -99,11 +99,11 @@ namespace KSBL_UnitTestProject
         public void UnofficialAppleHeadsetWithoutOutput()
         {
             //Arrange
-            UnofficialAppleHeadset headset = new UnofficialAppleHeadset(null);
-            string expect = "No Output!";
+            var headset = new UnofficialAppleHeadset(null);
+            var expect = "No Output!";
 
             //Act
-            string actual = headset.Play(new object());
+            var actual = headset.Play(new object());
 
             //Assert
             Assert.AreEqual(expect, actual);
@@ -113,15 +113,14 @@ namespace KSBL_UnitTestProject
         public void SpeakerWithoutOutput()
         {
             //Arrange
-            Speaker headset = new Speaker(15, 15000, 4.5, 2, null);
-            string expect = "No Output!";
+            var headset = new Speaker(15, 15000, 4.5, 2, null);
+            var expect = "No Output!";
 
             //Act
-            string actual = headset.Play(new object());
+            var actual = headset.Play(new object());
 
             //Assert
             Assert.AreEqual(expect, actual);
         }
-
     }
 }
