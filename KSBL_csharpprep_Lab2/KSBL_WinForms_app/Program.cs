@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using KSBL_Class_Library;
 using KSBL_Class_Library.Mobile;
-using KSBL_WinForms_app;
 
 namespace KSBL_Win_Forms_app
 {
