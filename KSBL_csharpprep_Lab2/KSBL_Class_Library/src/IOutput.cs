@@ -1,4 +1,4 @@
-﻿namespace KSBL_Class_Library.Components.Speaker
+﻿namespace KSBL_Class_Library
 {
     public interface IOutput
     {

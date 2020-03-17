@@ -12,8 +12,10 @@ namespace KSBL_Console_app
 
             mobile.Output.WriteLine(mobile.ToString());
 
-            mobile.SelectPlaybackComponentConsole();
+            mobile.SelectPlaybackComponent();
             mobile.Play(new object());
+            mobile.SelectChargeComponent();
+            mobile.Charge();
 
             Console.ReadKey();
         }

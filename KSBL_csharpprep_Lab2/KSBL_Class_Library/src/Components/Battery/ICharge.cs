@@ -2,7 +2,8 @@
 {
     public interface ICharge
     {
-        string ChargerType { get; set; }
-        string Voltage { get; set; }
+        int Voltage { get; }
+
+        string Charge(object data);
     }
 }

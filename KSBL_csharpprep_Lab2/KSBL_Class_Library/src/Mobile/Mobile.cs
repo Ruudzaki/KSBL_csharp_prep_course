@@ -33,8 +33,9 @@ namespace KSBL_Class_Library.Mobile
 
         public IPlayback PlaybackComponent { get; set; }
         public IOutput Output { get; set; }
+        public ICharge ChargeComponent { get; set; }
 
-        public void SelectPlaybackComponentConsole()
+        public void SelectPlaybackComponent()
         {
             Console.WriteLine("Select playback component (specify index):");
             Console.WriteLine("0 - No playback component");
@@ -51,34 +52,10 @@ namespace KSBL_Class_Library.Mobile
                 Console.WriteLine("Please enter a valid integer value!");
             }
 
-            switch (index)
-            {
-                case 1:
-                    PlaybackComponent = new AppleHeadset(Output);
-                    Console.WriteLine("Apple Headset playback selected");
-                    break;
-                case 2:
-                    PlaybackComponent = new SamsungHeadset(Output);
-                    Console.WriteLine("Samsung Headset playback selected");
-                    break;
-                case 3:
-                    PlaybackComponent = new UnofficialAppleHeadset(Output);
-                    Console.WriteLine("Unofficial Apple Headset playback selected");
-                    break;
-                case 4:
-                    PlaybackComponent = Speaker;
-                    Speaker.Output = Output;
-                    Console.WriteLine("Speaker playback selected");
-                    break;
-                default:
-                    Console.WriteLine("No playback selected");
-                    break;
-            }
-
-            Console.WriteLine($"Set playback to {nameof(Mobile)}...");
+            SelectPlaybackComponent(index);
         }
 
-        public string SelectPlaybackComponentWinForm(int index)
+        public string SelectPlaybackComponent(int index)
         {
             var selectionBuilder = new StringBuilder();
 
@@ -86,27 +63,70 @@ namespace KSBL_Class_Library.Mobile
             {
                 case 1:
                     PlaybackComponent = new AppleHeadset(Output);
-                    selectionBuilder.AppendLine("Apple Headset playback selected");
+                    selectionBuilder.AppendLine(Output.WriteLine("Apple Headset playback selected"));
                     break;
                 case 2:
                     PlaybackComponent = new SamsungHeadset(Output);
-                    selectionBuilder.AppendLine("Samsung Headset playback selected");
+                    selectionBuilder.AppendLine(Output.WriteLine("Samsung Headset playback selected"));
                     break;
                 case 3:
                     PlaybackComponent = new UnofficialAppleHeadset(Output);
-                    selectionBuilder.AppendLine("Unofficial Apple Headset playback selected");
+                    selectionBuilder.AppendLine(Output.WriteLine("Unofficial Apple Headset playback selected"));
                     break;
                 case 4:
                     PlaybackComponent = Speaker;
                     Speaker.Output = Output;
-                    selectionBuilder.AppendLine("Speaker playback selected");
+                    selectionBuilder.AppendLine(Output.WriteLine("Speaker playback selected"));
                     break;
                 default:
-                    selectionBuilder.AppendLine("No playback selected");
+                    selectionBuilder.AppendLine(Output.WriteLine("No playback selected"));
                     break;
             }
 
-            selectionBuilder.AppendLine($"Set playback to {nameof(Mobile)}...");
+            if (PlaybackComponent != null)
+                selectionBuilder.AppendLine(Output.WriteLine($"Set playback to {nameof(Mobile)}..."));
+
+            return selectionBuilder.ToString();
+        }
+
+        public void SelectChargeComponent()
+        {
+            Console.WriteLine("Select charge component (specify index):");
+            Console.WriteLine("0 - No charge component");
+            Console.WriteLine("1 - Apple Charger");
+            Console.WriteLine("2 - Xiaomi Charger");
+
+            int index;
+
+            while (true)
+            {
+                if (int.TryParse(Console.ReadLine(), out index) && index >= 0 && index < 3) break;
+                Console.WriteLine("Please enter a valid integer value!");
+            }
+
+            SelectChargeComponent(index);
+        }
+
+        public string SelectChargeComponent(int index)
+        {
+            var selectionBuilder = new StringBuilder();
+
+            switch (index)
+            {
+                case 1:
+                    ChargeComponent = new AppleCharger(110, Output);
+                    selectionBuilder.AppendLine(Output.WriteLine("Apple Charger playback selected"));
+                    break;
+                case 2:
+                    ChargeComponent = new XiaomiCharger(220, Output);
+                    selectionBuilder.AppendLine(Output.WriteLine("Xiaomi Charger playback selected"));
+                    break;
+                default:
+                    selectionBuilder.AppendLine(Output.WriteLine("No Charger selected"));
+                    break;
+            }
+            if (ChargeComponent != null)
+                selectionBuilder.AppendLine(Output.WriteLine($"Set charger to {nameof(Mobile)}..."));
 
             return selectionBuilder.ToString();
         }
@@ -131,9 +151,24 @@ namespace KSBL_Class_Library.Mobile
             FrontalCamera.TakePhoto(takePhoto);
         }
 
-        private void Charge(ICharge charge)
+        public string Charge()
         {
-            Battery.Charge(charge);
+            if (Output != null)
+            {
+                if (ChargeComponent != null)
+                {
+                    var stringBuilder = new StringBuilder();
+
+                    stringBuilder.AppendLine(
+                        Output.WriteLine($"Charge battery in {nameof(Mobile)} by {Output.GetType()}:"));
+                    stringBuilder.AppendLine(ChargeComponent.Charge(""));
+                    return stringBuilder.ToString();
+                }
+
+                return Output.WriteLine("No charge component to charge");
+            }
+
+            return "No Output!";
         }
 
         private void CpuProcess(IProcess process)

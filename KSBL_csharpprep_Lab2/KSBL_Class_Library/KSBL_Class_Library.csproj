@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Components\Battery\XiaomiCharger.cs" />
     <Compile Include="src\Components\Battery\BaIonBattery.cs" />
     <Compile Include="src\Components\Battery\BasicBattery.cs" />
+    <Compile Include="src\Components\Battery\AppleCharger.cs" />
     <Compile Include="src\Components\Battery\ICharge.cs" />
     <Compile Include="src\Components\Battery\LiIonBattery.cs" />
     <Compile Include="src\Components\Camera\BasicCamera.cs" />
@@ -79,7 +81,7 @@
     <Compile Include="src\Components\SimCardHolder\SimCardHolder.cs" />
     <Compile Include="src\Components\Speaker\AppleHeadset.cs" />
     <Compile Include="src\Components\Speaker\BasicSpeaker.cs" />
-    <Compile Include="src\Components\Speaker\IOutput.cs" />
+    <Compile Include="src\IOutput.cs" />
     <Compile Include="src\Components\Speaker\IPlayback.cs" />
     <Compile Include="src\Components\Speaker\SamsungHeadset.cs" />
     <Compile Include="src\Components\Speaker\Speaker.cs" />
