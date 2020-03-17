@@ -46,7 +46,9 @@ namespace KSBL_Win_Forms_app
             textBox1.AppendText(Mobile.SelectPlaybackComponent(IndexPlaybackComponent));
             if (Mobile.PlaybackComponent != null)
                 textBox1.AppendText(Mobile.Play(new object()));
+
             textBox1.AppendText(Environment.NewLine);
+
             textBox1.AppendText(Mobile.SelectChargeComponent(IndexChargeComponent));
             if (Mobile.ChargeComponent != null)
                 textBox1.AppendText(Mobile.Charge());
