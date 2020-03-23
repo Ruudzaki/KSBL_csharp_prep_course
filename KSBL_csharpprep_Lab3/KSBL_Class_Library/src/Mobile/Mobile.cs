@@ -156,22 +156,15 @@ namespace KSBL_Class_Library.Mobile
 
         public string Charge()
         {
-            if (Output != null)
-            {
-                if (ChargeComponent != null)
-                {
-                    var stringBuilder = new StringBuilder();
+            if (Output == null) return "No Output!";
+            if (ChargeComponent == null) return Output.WriteLine("No charge component to charge");
+            var stringBuilder = new StringBuilder();
 
-                    stringBuilder.AppendLine(
-                        Output.WriteLine($"Charge battery in {nameof(Mobile)} by {Output.GetType()}:"));
-                    stringBuilder.AppendLine(ChargeComponent.Charge(""));
-                    return stringBuilder.ToString();
-                }
+            stringBuilder.AppendLine(
+                Output.WriteLine($"Charge battery in {nameof(Mobile)} by {Output.GetType()}:"));
+            stringBuilder.AppendLine(ChargeComponent.Charge(""));
+            return stringBuilder.ToString();
 
-                return Output.WriteLine("No charge component to charge");
-            }
-
-            return "No Output!";
         }
 
         private void CpuProcess(IProcess process)
@@ -226,22 +219,19 @@ namespace KSBL_Class_Library.Mobile
 
         public string Play(object data)
         {
-            if (Output != null)
+            if (Output == null) return "No Output!";
+            if (PlaybackComponent != null)
             {
-                if (PlaybackComponent != null)
-                {
-                    var stringBuilder = new StringBuilder();
+                var stringBuilder = new StringBuilder();
 
-                    stringBuilder.AppendLine(
-                        Output.WriteLine($"Play sound in {nameof(Mobile)} by {Output.GetType()}:"));
-                    stringBuilder.AppendLine(PlaybackComponent.Play(data));
-                    return stringBuilder.ToString();
-                }
-
-                return Output.WriteLine("No playback component to play");
+                stringBuilder.AppendLine(
+                    Output.WriteLine($"Play sound in {nameof(Mobile)} by {Output.GetType()}:"));
+                stringBuilder.AppendLine(PlaybackComponent.Play(data));
+                return stringBuilder.ToString();
             }
 
-            return "No Output!";
+            return Output.WriteLine("No playback component to play");
+
         }
 
         private void PressButton(IPressButton pressButton)

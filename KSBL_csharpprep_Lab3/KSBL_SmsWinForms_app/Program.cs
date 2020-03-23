@@ -22,6 +22,4 @@ namespace KSBL_SmsWinForms_app
             Application.Run(new SmsViewer(mobile, output, message));
         }
     }
-
-
 }

@@ -73,8 +73,7 @@ namespace KSBL_UnitTestProject
         {
             //Arrange
             IOutput output = new FakeOutput();
-            var mobile = new SimCorpMobile();
-            mobile.Output = output;
+            var mobile = new SimCorpMobile {Output = output};
             var expect = "Test Output is running";
 
             //Act

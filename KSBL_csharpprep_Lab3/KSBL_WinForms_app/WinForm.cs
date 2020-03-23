@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using KSBL_Class_Library;
 using KSBL_Class_Library.Mobile;
 
-namespace KSBL_Win_Forms_app
+namespace KSBL_WinForms_app
 {
     public partial class SelectPlaybackComponent : Form
     {
@@ -12,6 +12,8 @@ namespace KSBL_Win_Forms_app
             InitializeComponent();
             Mobile = mobile;
             Mobile.Output = output;
+
+            MaximizeBox = false;
         }
 
         public Mobile Mobile { get; set; }

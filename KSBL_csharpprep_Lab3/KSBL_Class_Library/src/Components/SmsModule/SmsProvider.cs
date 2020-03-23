@@ -1,13 +1,12 @@
-﻿using System;
-
-namespace KSBL_Class_Library.Components.SmsModule
+﻿namespace KSBL_Class_Library.Components.SmsModule
 {
     public class SmsProvider
     {
-        public string LastText { get; set; }
-
         public delegate string FormatDelegate(string text);
+
         public delegate void SmsRecievedDelegate(string message);
+
+        public string LastText { get; set; }
 
         public FormatDelegate Formatter { get; set; }
 
@@ -20,10 +19,7 @@ namespace KSBL_Class_Library.Components.SmsModule
 
         private string OnSmsReceived(string message)
         {
-            if (Formatter != null)
-            {
-                message = Formatter($"{message}");
-            }
+            if (Formatter != null) message = Formatter($"{message}");
 
             var handler = SmsReceived;
             handler?.Invoke(message);

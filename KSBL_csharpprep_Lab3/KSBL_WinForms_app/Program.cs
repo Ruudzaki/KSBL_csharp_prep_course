@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using KSBL_Class_Library;
 using KSBL_Class_Library.Mobile;
 
-namespace KSBL_Win_Forms_app
+namespace KSBL_WinForms_app
 {
     internal static class Program
     {

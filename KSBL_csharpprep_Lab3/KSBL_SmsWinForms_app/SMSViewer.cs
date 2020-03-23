@@ -10,9 +10,6 @@ namespace KSBL_SmsWinForms_app
 {
     public partial class SmsViewer : Form
     {
-
-        public Mobile Mobile { get; }
-
         public SmsViewer(Mobile mobile, IOutput output, string message)
         {
             InitializeComponent();
@@ -24,6 +21,8 @@ namespace KSBL_SmsWinForms_app
 
             MessageGenerator(message, 0, 1000);
         }
+
+        public Mobile Mobile { get; }
 
         private void InitializeComboBox()
         {
@@ -55,12 +54,27 @@ namespace KSBL_SmsWinForms_app
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex == 0) Mobile.SmsProvider.Formatter = FormatNone;
-            if (comboBox1.SelectedIndex == 1) Mobile.SmsProvider.Formatter = FormatStartWithDate;
-            if (comboBox1.SelectedIndex == 2) Mobile.SmsProvider.Formatter = FormatEndWithDate;
-            if (comboBox1.SelectedIndex == 3) Mobile.SmsProvider.Formatter = FormatUpperCase;
-            if (comboBox1.SelectedIndex == 4) Mobile.SmsProvider.Formatter = FormatLowerCase;
-            if (comboBox1.SelectedIndex == 5) Mobile.SmsProvider.Formatter = FormatUpperStartWithDate;
+            switch (comboBox1.SelectedIndex)
+            {
+                case 0:
+                    Mobile.SmsProvider.Formatter = FormatNone;
+                    break;
+                case 1:
+                    Mobile.SmsProvider.Formatter = FormatStartWithDate;
+                    break;
+                case 2:
+                    Mobile.SmsProvider.Formatter = FormatEndWithDate;
+                    break;
+                case 3:
+                    Mobile.SmsProvider.Formatter = FormatUpperCase;
+                    break;
+                case 4:
+                    Mobile.SmsProvider.Formatter = FormatLowerCase;
+                    break;
+                case 5:
+                    Mobile.SmsProvider.Formatter = FormatUpperStartWithDate;
+                    break;
+            }
         }
 
 
