@@ -8,13 +8,14 @@ namespace KSBL_UnitTestProject
     [TestClass]
     public class CheckFormats
     {
+
         [TestMethod]
         public void MessageIsPrinted()
         {
             //Arrange
             var mobile = new SimCorpMobile();
             var message = "Test message!";
-            var expected = "Test message!";
+            var expected = "Test message! #1";
             string actual;
 
             //Act
@@ -31,7 +32,7 @@ namespace KSBL_UnitTestProject
             //Arrange
             var mobile = new SimCorpMobile();
             var message = "Test message!";
-            var expected = "TEST MESSAGE!";
+            var expected = "TEST MESSAGE! #1";
             string actual;
             mobile.SmsProvider.Formatter = SmsViewer.FormatUpperCase;
 
@@ -49,7 +50,7 @@ namespace KSBL_UnitTestProject
             //Arrange
             var mobile = new SimCorpMobile();
             var message = "Test message!";
-            var expected = "test message!";
+            var expected = "test message! #1";
             string actual;
             mobile.SmsProvider.Formatter = SmsViewer.FormatLowerCase;
 
@@ -67,7 +68,7 @@ namespace KSBL_UnitTestProject
             //Arrange
             var mobile = new SimCorpMobile();
             var message = "Test message!";
-            var expected = $"Test message! [{DateTime.Now}]";
+            var expected = $"Test message! #1 [{DateTime.Now}]";
             string actual;
             mobile.SmsProvider.Formatter = SmsViewer.FormatEndWithDate;
 
@@ -85,7 +86,7 @@ namespace KSBL_UnitTestProject
             //Arrange
             var mobile = new SimCorpMobile();
             var message = "Test message!";
-            var expected = $"[{DateTime.Now}] Test message!";
+            var expected = $"[{DateTime.Now}] Test message! #1";
             string actual;
             mobile.SmsProvider.Formatter = SmsViewer.FormatStartWithDate;
 
@@ -103,7 +104,7 @@ namespace KSBL_UnitTestProject
             //Arrange
             var mobile = new SimCorpMobile();
             var message = "Test message!";
-            var expected = $"[{DateTime.Now}] TEST MESSAGE!";
+            var expected = $"[{DateTime.Now}] TEST MESSAGE! #1";
             string actual;
             mobile.SmsProvider.Formatter = SmsViewer.FormatUpperStartWithDate;
 
@@ -121,7 +122,7 @@ namespace KSBL_UnitTestProject
             //Arrange
             var mobile = new SimCorpMobile();
             var message = "Test message!";
-            var expected = message;
+            var expected = "Test message! #1";
             string actual;
             mobile.SmsProvider.Formatter = SmsViewer.FormatNone;
 

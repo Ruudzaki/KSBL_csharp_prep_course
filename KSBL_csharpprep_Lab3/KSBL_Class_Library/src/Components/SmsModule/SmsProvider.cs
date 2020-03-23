@@ -8,6 +8,8 @@
 
         public string LastText { get; set; }
 
+        public static int Count { get; set; }
+
         public FormatDelegate Formatter { get; set; }
 
         public event SmsRecievedDelegate SmsReceived;
@@ -19,6 +21,8 @@
 
         private string OnSmsReceived(string message)
         {
+            Count++;
+            message = message + " #" + Count;
             if (Formatter != null) message = Formatter($"{message}");
 
             var handler = SmsReceived;

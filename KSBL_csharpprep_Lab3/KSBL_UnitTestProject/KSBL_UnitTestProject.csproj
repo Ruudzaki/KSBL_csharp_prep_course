@@ -53,6 +53,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CheckEvent.cs" />
     <Compile Include="FakeOutput.cs" />
     <Compile Include="ChargeUnitTest.cs" />
     <Compile Include="PlaybackUnitTest.cs" />

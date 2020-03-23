@@ -66,6 +66,7 @@ namespace KSBL_Class_Library.Mobile
             _vRam = new Ram(4);
             _vSpeaker = new Speaker(15, 15000, 4.5, 3, Output);
             SmsProvider = new SmsProvider();
+            SmsProvider.Count = 0;
         }
 
         public override BasicScreen Screen => _vOLedBasicScreen;
