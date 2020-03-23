@@ -14,11 +14,13 @@ namespace KSBL_Win_Forms_app
             Mobile.Output = output;
         }
 
+        public Mobile Mobile { get; set; }
+
         public int IndexPlaybackComponent { get; set; }
         public int IndexChargeComponent { get; set; }
 
 
-        public Mobile Mobile { get; set; }
+
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {

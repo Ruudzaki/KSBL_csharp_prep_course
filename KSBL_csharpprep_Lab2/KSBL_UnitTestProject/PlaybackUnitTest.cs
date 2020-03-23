@@ -1,5 +1,6 @@
 ﻿using KSBL_Class_Library;
 using KSBL_Class_Library.Components.Speaker;
+using KSBL_Class_Library.Mobile;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace KSBL_UnitTestProject
@@ -62,6 +63,22 @@ namespace KSBL_UnitTestProject
 
             //Act
             var actual = headset.Play(new object());
+
+            //Assert
+            Assert.AreEqual(expect, actual);
+        }
+
+        [TestMethod]
+        public void NoPlaybackComponent()
+        {
+            //Arrange
+            IOutput output = new FakeOutput();
+            var mobile = new SimCorpMobile();
+            mobile.Output = output;
+            var expect = "Test Output is running";
+
+            //Act
+            var actual = mobile.Play(new object());
 
             //Assert
             Assert.AreEqual(expect, actual);

@@ -7,6 +7,7 @@ using KSBL_Class_Library.Components.Microphone;
 using KSBL_Class_Library.Components.RAM;
 using KSBL_Class_Library.Components.Screen;
 using KSBL_Class_Library.Components.SimCardHolder;
+using KSBL_Class_Library.Components.SmsModule;
 using KSBL_Class_Library.Components.Speaker;
 using KSBL_Class_Library.Components.Storage;
 using KSBL_Class_Library.Components.TouchScreen;
@@ -64,6 +65,7 @@ namespace KSBL_Class_Library.Mobile
             _vOLedBasicScreen = new OLedBasicScreen(1080, 1920, 7, 233);
             _vRam = new Ram(4);
             _vSpeaker = new Speaker(15, 15000, 4.5, 3, Output);
+            SmsProvider = new SmsProvider(Output, "Hello");
         }
 
         public override BasicScreen Screen => _vOLedBasicScreen;

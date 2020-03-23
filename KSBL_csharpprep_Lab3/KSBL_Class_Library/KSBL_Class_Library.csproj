@@ -79,6 +79,7 @@
     <Compile Include="src\Components\SimCardHolder\ICall.cs" />
     <Compile Include="src\Components\SimCardHolder\MultiSimCardHolder.cs" />
     <Compile Include="src\Components\SimCardHolder\SimCardHolder.cs" />
+    <Compile Include="src\Components\SmsModule\SmsProvider.cs" />
     <Compile Include="src\Components\Speaker\AppleHeadset.cs" />
     <Compile Include="src\Components\Speaker\BasicSpeaker.cs" />
     <Compile Include="src\IOutput.cs" />
