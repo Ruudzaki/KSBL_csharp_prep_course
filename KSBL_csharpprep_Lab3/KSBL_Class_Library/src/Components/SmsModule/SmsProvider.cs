@@ -11,7 +11,7 @@ namespace KSBL_Class_Library.Components.SmsModule
         public delegate void SmsRecievedDelegate(string message);
         public delegate string FormatDelegate(string text);
 
-        private readonly FormatDelegate Formatter = new FormatDelegate(FormatWithTime);
+        public FormatDelegate Formatter { get; set; }
         public event SmsRecievedDelegate SmsReceived;
         public IOutput Output { get; }
 
@@ -26,20 +26,26 @@ namespace KSBL_Class_Library.Components.SmsModule
         public void PrintMessage(object message)
         {
             OnSmsReceived((string)message);
-            if (Output != null)
-                Output.WriteLine((string)$"{message}");
         }
 
         private void OnSmsReceived(string message)
         {
-
+            if (Formatter != null)
+            {
+                message = Formatter($"{message}");
+            }
             var handler = SmsReceived;
             handler?.Invoke(message);
         }
 
-        private static string FormatWithTime(string message)
+        private static string FormatStartWithDate(string message)
         {
             return $"[{DateTime.Now}] {message}";
+        }
+
+        private static string FormatEndWithDate(string message)
+        {
+            return $"{message} [{DateTime.Now}]";
         }
     }
 }
