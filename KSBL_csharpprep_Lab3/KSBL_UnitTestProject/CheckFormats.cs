@@ -8,7 +8,6 @@ namespace KSBL_UnitTestProject
     [TestClass]
     public class CheckFormats
     {
-
         [TestMethod]
         public void MessageIsPrinted()
         {

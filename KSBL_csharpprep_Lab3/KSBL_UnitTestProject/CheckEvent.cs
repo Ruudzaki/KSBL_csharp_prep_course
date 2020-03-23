@@ -1,8 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-using KSBL_Class_Library.Components.SmsModule;
-using KSBL_Class_Library.Mobile;
-using KSBL_SmsWinForms_app;
+﻿using KSBL_Class_Library.Mobile;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace KSBL_UnitTestProject
@@ -35,7 +31,7 @@ namespace KSBL_UnitTestProject
             Text = ReturnMessage(message + " - Event Raised");
         }
 
-        private string ReturnMessage(string message)
+        private static string ReturnMessage(string message)
         {
             return message;
         }
