@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
 using KSBL_Class_Library;
@@ -9,104 +8,89 @@ using Timer = System.Threading.Timer;
 
 namespace KSBL_SmsWinForms_app
 {
-    public partial class SMSViewer : Form
+    public partial class SmsViewer : Form
     {
-        public SMSViewer(Mobile mobile, IOutput output)
+
+        public Mobile Mobile { get; }
+
+        public SmsViewer(Mobile mobile, IOutput output, string message)
         {
             InitializeComponent();
+            InitializeComboBox();
+
             Mobile = mobile;
             Mobile.Output = output;
-            string message = "Hello!";
+            MaximizeBox = false;
 
-
-            comboBox1.Items.Add("FormatStartWithDate");
-            comboBox1.Items.Add("FormatEndWithDate");
-            comboBox1.Items.Add("FormatUpperCase");
-            comboBox1.Items.Add("FormatLowerCase");
-            comboBox1.Items.Add("FormatUpperStartWithDate");
-
-            Mobile.SmsProvider.SmsReceived += new SmsProvider.SmsRecievedDelegate(SmsProvider_SmsRecieved);
-
-            TimerCallback tm = mobile.SmsProvider.PrintMessage;
-
-            var timer = new Timer(tm, message, 0, 1000);
-            
+            MessageGenerator(message, 0, 1000);
         }
 
-        private void SmsProvider_SmsRecieved(object message)
+        private void InitializeComboBox()
         {
-            if (InvokeRequired)
-            {
-                Invoke(new SmsProvider.SmsRecievedDelegate(OnSmsRecieved), message);
-            }
-
+            comboBox1.Items.Add(Formats.None);
+            comboBox1.Items.Add(Formats.FormatStartWithDate);
+            comboBox1.Items.Add(Formats.FormatEndWithDate);
+            comboBox1.Items.Add(Formats.FormatUpperCase);
+            comboBox1.Items.Add(Formats.FormatLowerCase);
+            comboBox1.Items.Add(Formats.Custom);
         }
 
-        private void OnSmsRecieved(string message)
+        public void MessageGenerator(string message, int dueTime, int period)
+        {
+            Mobile.SmsProvider.SmsReceived += SmsProvider_SmsReceived;
+
+            TimerCallback tm = Mobile.SmsProvider.PrintMessage;
+            var unused = new Timer(tm, message, dueTime, period);
+        }
+
+        private void SmsProvider_SmsReceived(object message)
+        {
+            if (InvokeRequired) Invoke(new SmsProvider.SmsRecievedDelegate(OnSmsReceived), message);
+        }
+
+        private void OnSmsReceived(string message)
         {
             richTextBox1.AppendText($"{message} {Environment.NewLine}");
         }
 
-        public Mobile Mobile { get; set; }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex == 0)
-            {
-                Mobile.SmsProvider.Formatter = new SmsProvider.FormatDelegate(FormatStartWithDate);
-            }
-
-            if (comboBox1.SelectedIndex == 1)
-            {
-                Mobile.SmsProvider.Formatter = new SmsProvider.FormatDelegate(FormatEndWithDate);
-            }
-
-            if (comboBox1.SelectedIndex == 2)
-            {
-                Mobile.SmsProvider.Formatter = new SmsProvider.FormatDelegate(FormatUpperCase);
-            }
-
-            if (comboBox1.SelectedIndex == 3)
-            {
-                Mobile.SmsProvider.Formatter = new SmsProvider.FormatDelegate(FormatLowerCase);
-            }
-            if (comboBox1.SelectedIndex == 4)
-            {
-                Mobile.SmsProvider.Formatter = new SmsProvider.FormatDelegate(FormatUpperStartWithDate);
-            }
+            if (comboBox1.SelectedIndex == 0) Mobile.SmsProvider.Formatter = FormatNone;
+            if (comboBox1.SelectedIndex == 1) Mobile.SmsProvider.Formatter = FormatStartWithDate;
+            if (comboBox1.SelectedIndex == 2) Mobile.SmsProvider.Formatter = FormatEndWithDate;
+            if (comboBox1.SelectedIndex == 3) Mobile.SmsProvider.Formatter = FormatUpperCase;
+            if (comboBox1.SelectedIndex == 4) Mobile.SmsProvider.Formatter = FormatLowerCase;
+            if (comboBox1.SelectedIndex == 5) Mobile.SmsProvider.Formatter = FormatUpperStartWithDate;
         }
 
-        private static string FormatStartWithDate(string message)
+
+        //Format Methods to delegate
+        public static string FormatNone(string message)
+        {
+            return message;
+        }
+
+        public static string FormatStartWithDate(string message)
         {
             return $"[{DateTime.Now}] {message}";
         }
 
-        private static string FormatEndWithDate(string message)
+        public static string FormatEndWithDate(string message)
         {
             return $"{message} [{DateTime.Now}]";
         }
 
-        private static string FormatUpperCase(string message)
+        public static string FormatUpperCase(string message)
         {
             return message.ToUpper();
         }
 
-        private static string FormatLowerCase(string message)
+        public static string FormatLowerCase(string message)
         {
             return message.ToLower();
         }
 
-        private static string FormatUpperStartWithDate(string message)
+        public static string FormatUpperStartWithDate(string message)
         {
             return $"[{DateTime.Now}] {message.ToUpper()}";
         }

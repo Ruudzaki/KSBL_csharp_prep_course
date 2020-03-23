@@ -20,8 +20,6 @@ namespace KSBL_Win_Forms_app
         public int IndexChargeComponent { get; set; }
 
 
-
-
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             IndexPlaybackComponent = 1;

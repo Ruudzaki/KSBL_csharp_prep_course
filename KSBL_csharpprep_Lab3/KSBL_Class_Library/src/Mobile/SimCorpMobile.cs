@@ -65,7 +65,7 @@ namespace KSBL_Class_Library.Mobile
             _vOLedBasicScreen = new OLedBasicScreen(1080, 1920, 7, 233);
             _vRam = new Ram(4);
             _vSpeaker = new Speaker(15, 15000, 4.5, 3, Output);
-            SmsProvider = new SmsProvider(Output, "Hello");
+            SmsProvider = new SmsProvider();
         }
 
         public override BasicScreen Screen => _vOLedBasicScreen;
