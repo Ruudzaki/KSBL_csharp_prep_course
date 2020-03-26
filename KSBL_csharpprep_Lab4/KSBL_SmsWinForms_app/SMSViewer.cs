@@ -26,12 +26,12 @@ namespace KSBL_SmsWinForms_app
 
         private void InitializeComboBox()
         {
-            comboBox1.Items.Add(Formats.None);
-            comboBox1.Items.Add(Formats.FormatStartWithDate);
-            comboBox1.Items.Add(Formats.FormatEndWithDate);
-            comboBox1.Items.Add(Formats.FormatUpperCase);
-            comboBox1.Items.Add(Formats.FormatLowerCase);
-            comboBox1.Items.Add(Formats.Custom);
+            formatComboBox.Items.Add(Formats.None);
+            formatComboBox.Items.Add(Formats.FormatStartWithDate);
+            formatComboBox.Items.Add(Formats.FormatEndWithDate);
+            formatComboBox.Items.Add(Formats.FormatUpperCase);
+            formatComboBox.Items.Add(Formats.FormatLowerCase);
+            formatComboBox.Items.Add(Formats.Custom);
         }
 
         public void MessageGenerator(string message, int dueTime, int period)
@@ -52,9 +52,9 @@ namespace KSBL_SmsWinForms_app
             richTextBox1.AppendText($"{message} {Environment.NewLine}");
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void formatComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (comboBox1.SelectedIndex)
+            switch (formatComboBox.SelectedIndex)
             {
                 case 0:
                     Mobile.SmsProvider.Formatter = FormatNone;

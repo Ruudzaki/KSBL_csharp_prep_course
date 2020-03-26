@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.formatComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -40,21 +40,22 @@
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
-            // comboBox1
+            // formatComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(13, 13);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(183, 21);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.formatComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.formatComboBox.FormattingEnabled = true;
+            this.formatComboBox.Location = new System.Drawing.Point(13, 13);
+            this.formatComboBox.Name = "formatComboBox";
+            this.formatComboBox.Size = new System.Drawing.Size(183, 21);
+            this.formatComboBox.TabIndex = 1;
+            this.formatComboBox.SelectedIndexChanged += new System.EventHandler(this.formatComboBox1_SelectedIndexChanged);
             // 
             // SmsViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 461);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.formatComboBox);
             this.Controls.Add(this.richTextBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SmsViewer";
@@ -66,7 +67,7 @@
         #endregion
 
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox formatComboBox;
     }
 }
 
