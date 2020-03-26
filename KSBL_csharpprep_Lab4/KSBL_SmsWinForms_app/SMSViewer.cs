@@ -4,13 +4,14 @@ using System.Windows.Forms;
 using KSBL_Class_Library;
 using KSBL_Class_Library.Components.SmsModule;
 using KSBL_Class_Library.Mobile;
+using Message = KSBL_Class_Library.Components.SmsModule.Message;
 using Timer = System.Threading.Timer;
 
 namespace KSBL_SmsWinForms_app
 {
     public partial class SmsViewer : Form
     {
-        public SmsViewer(Mobile mobile, IOutput output, string message)
+        public SmsViewer(Mobile mobile, IOutput output, Message message1, Message message2, Message message3)
         {
             InitializeComponent();
             InitializeComboBox();
@@ -19,7 +20,10 @@ namespace KSBL_SmsWinForms_app
             Mobile.Output = output;
             MaximizeBox = false;
 
-            MessageGenerator(message, 0, 1000);
+            MessageGenerator(message1, 0, 1000);
+            MessageGenerator(message2, 0, 2000);
+            MessageGenerator(message3, 0, 3000);
+            Mobile.SmsProvider.SmsReceived += SmsProvider_SmsReceived;
         }
 
         public Mobile Mobile { get; }
@@ -34,10 +38,8 @@ namespace KSBL_SmsWinForms_app
             formatComboBox.Items.Add(Formats.Custom);
         }
 
-        public void MessageGenerator(string message, int dueTime, int period)
+        public void MessageGenerator(Message message, int dueTime, int period)
         {
-            Mobile.SmsProvider.SmsReceived += SmsProvider_SmsReceived;
-
             TimerCallback tm = Mobile.SmsProvider.PrintMessage;
             var unused = new Timer(tm, message, dueTime, period);
         }
@@ -47,9 +49,9 @@ namespace KSBL_SmsWinForms_app
             if (InvokeRequired) Invoke(new SmsProvider.SmsRecievedDelegate(OnSmsReceived), message);
         }
 
-        private void OnSmsReceived(string message)
+        private void OnSmsReceived(Message message)
         {
-            richTextBox1.AppendText($"{message} {Environment.NewLine}");
+            richTextBox1.AppendText($"{message.FormatText} {Environment.NewLine}");
         }
 
         private void formatComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,34 +81,40 @@ namespace KSBL_SmsWinForms_app
 
 
         //Format Methods to delegate
-        public static string FormatNone(string message)
+        public static Message FormatNone(Message message)
         {
+            message.FormatText = $"{message.Text} #{message.ReferenceNumber}";
             return message;
         }
 
-        public static string FormatStartWithDate(string message)
+        public static Message FormatStartWithDate(Message message)
         {
-            return $"[{DateTime.Now}] {message}";
+            message.FormatText = $"[{message.ReceivingTime}] {message.Text} #{message.ReferenceNumber}";
+            return message;
         }
 
-        public static string FormatEndWithDate(string message)
+        public static Message FormatEndWithDate(Message message)
         {
-            return $"{message} [{DateTime.Now}]";
+            message.FormatText = $"{message.Text} [{message.ReceivingTime}] #{message.ReferenceNumber}";
+            return message;
         }
 
-        public static string FormatUpperCase(string message)
+        public static Message FormatUpperCase(Message message)
         {
-            return message.ToUpper();
+            message.FormatText = message.Text.ToUpper() + " #" + message.ReferenceNumber;
+            return message;
         }
 
-        public static string FormatLowerCase(string message)
+        public static Message FormatLowerCase(Message message)
         {
-            return message.ToLower();
+            message.FormatText = message.Text.ToLower() + " #" + message.ReferenceNumber;
+            return message;
         }
 
-        public static string FormatUpperStartWithDate(string message)
+        public static Message FormatUpperStartWithDate(Message message)
         {
-            return $"[{DateTime.Now}] {message.ToUpper()}";
+            message.FormatText = $"[{message.ReceivingTime}] {message.Text.ToUpper()} #{message.ReferenceNumber}";
+            return message;
         }
     }
 }

@@ -1,10 +1,16 @@
-﻿namespace KSBL_Class_Library.Components.SmsModule
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace KSBL_Class_Library.Components.SmsModule
 {
     public class SmsProvider
     {
-        public delegate string FormatDelegate(string text);
+        public delegate Message FormatDelegate(Message message);
 
-        public delegate void SmsRecievedDelegate(string message);
+        public delegate void SmsRecievedDelegate(Message message);
+
+        public List<Message> Messages { get; set; }
 
         public string LastText { get; set; }
 
@@ -16,19 +22,31 @@
 
         public void PrintMessage(object message)
         {
-            LastText = OnSmsReceived((string) message);
+                LastText = OnSmsReceived((Message)message);
         }
 
-        private string OnSmsReceived(string message)
+        private string OnSmsReceived(Message message)
         {
-            Count++;
-            message = message + " #" + Count;
-            if (Formatter != null) message = Formatter($"{message}");
+            message.ReferenceNumber = ++Count;
+            if (Formatter != null) message = Formatter(message);
+            else
+            {
+                message.FormatText = $"{message.Text} #{message.ReferenceNumber}";
+            }
+
+            Messages.Add(message);
 
             var handler = SmsReceived;
             handler?.Invoke(message);
 
-            return message;
+
+            return message.FormatText;
+        }
+
+        public SmsProvider()
+        {
+            Messages = new List<Message>();
+            Count = 0;
         }
     }
 }
