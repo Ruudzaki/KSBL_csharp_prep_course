@@ -28,46 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.formatComboBox = new System.Windows.Forms.ComboBox();
+            this.MessageListView = new System.Windows.Forms.ListView();
+            this.Sender = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SmsText = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(13, 59);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(459, 390);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
             // 
             // formatComboBox
             // 
+            this.formatComboBox.DisplayMember = "None";
             this.formatComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.formatComboBox.FormattingEnabled = true;
-            this.formatComboBox.Location = new System.Drawing.Point(13, 13);
+            this.formatComboBox.Location = new System.Drawing.Point(13, 68);
             this.formatComboBox.Name = "formatComboBox";
             this.formatComboBox.Size = new System.Drawing.Size(183, 21);
             this.formatComboBox.TabIndex = 1;
-            this.formatComboBox.SelectedIndexChanged += new System.EventHandler(this.formatComboBox1_SelectedIndexChanged);
+            this.formatComboBox.SelectedIndexChanged += new System.EventHandler(this.formatComboBox_SelectedIndexChanged);
+            // 
+            // MessageListView
+            // 
+            this.MessageListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Sender,
+            this.SmsText});
+            this.MessageListView.GridLines = true;
+            this.MessageListView.LabelWrap = false;
+            this.MessageListView.Location = new System.Drawing.Point(13, 106);
+            this.MessageListView.Name = "MessageListView";
+            this.MessageListView.Size = new System.Drawing.Size(643, 343);
+            this.MessageListView.TabIndex = 2;
+            this.MessageListView.UseCompatibleStateImageBehavior = false;
+            this.MessageListView.View = System.Windows.Forms.View.Details;
+            // 
+            // Sender
+            // 
+            this.Sender.Text = "Sender";
+            this.Sender.Width = 127;
+            // 
+            // SmsText
+            // 
+            this.SmsText.Text = "Sms Text";
+            this.SmsText.Width = 342;
             // 
             // SmsViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 461);
+            this.ClientSize = new System.Drawing.Size(668, 458);
+            this.Controls.Add(this.MessageListView);
             this.Controls.Add(this.formatComboBox);
-            this.Controls.Add(this.richTextBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SmsViewer";
             this.Text = "SMS Viewer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SmsViewer_FormClosing);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ComboBox formatComboBox;
+        private System.Windows.Forms.ListView MessageListView;
+        private System.Windows.Forms.ColumnHeader Sender;
+        private System.Windows.Forms.ColumnHeader SmsText;
     }
 }
 

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Formats.cs" />
+    <Compile Include="FormatterClass.cs" />
     <Compile Include="SMSViewer.cs">
       <SubType>Form</SubType>
     </Compile>

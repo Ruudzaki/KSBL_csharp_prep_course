@@ -20,8 +20,8 @@ namespace KSBL_UnitTestProject
             string actual;
 
             //Act
-            mobile.SmsProvider.SmsReceived += SmsProvider_SmsReceived;
-            mobile.SmsProvider.PrintMessage(new Message("KSBL", message, DateTime.Now));
+            mobile.InternalStorage.SmsAdded += SmsProvider_SmsReceived;
+            mobile.InternalStorage.AddMessage(new Message("KSBL", message, DateTime.Now));
             actual = Text;
 
             //Assert

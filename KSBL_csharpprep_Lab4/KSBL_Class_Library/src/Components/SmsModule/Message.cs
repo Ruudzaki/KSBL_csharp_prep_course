@@ -2,8 +2,15 @@
 
 namespace KSBL_Class_Library.Components.SmsModule
 {
-    public class Message
+    public class Message : ICloneable
     {
+        public Message(string user, string text, DateTime receivingTime)
+        {
+            User = user;
+            Text = text;
+            ReceivingTime = receivingTime;
+        }
+
         public string User { get; set; }
 
         public string Text { get; set; }
@@ -14,11 +21,9 @@ namespace KSBL_Class_Library.Components.SmsModule
 
         public DateTime ReceivingTime { get; set; }
 
-        public Message(string user, string text, DateTime receivingTime)
+        public object Clone()
         {
-            User = user;
-            Text = text;
-            ReceivingTime = receivingTime;
+            return MemberwiseClone();
         }
     }
 }

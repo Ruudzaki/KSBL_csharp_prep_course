@@ -8,7 +8,6 @@ using KSBL_Class_Library.Components.Microphone;
 using KSBL_Class_Library.Components.RAM;
 using KSBL_Class_Library.Components.Screen;
 using KSBL_Class_Library.Components.SimCardHolder;
-using KSBL_Class_Library.Components.SmsModule;
 using KSBL_Class_Library.Components.Speaker;
 using KSBL_Class_Library.Components.Storage;
 using KSBL_Class_Library.Components.TouchScreen;
@@ -32,7 +31,7 @@ namespace KSBL_Class_Library.Mobile
         public abstract BasicSpeaker Speaker { get; }
         public abstract BasicKeyboard Keyboard { get; }
 
-        public SmsProvider SmsProvider { get; set; }
+        //public SmsProvider SmsProvider { get; set; }
         public IPlayback PlaybackComponent { get; set; }
         public IOutput Output { get; set; }
         public ICharge ChargeComponent { get; set; }
@@ -164,7 +163,6 @@ namespace KSBL_Class_Library.Mobile
                 Output.WriteLine($"Charge battery in {nameof(Mobile)} by {Output.GetType()}:"));
             stringBuilder.AppendLine(ChargeComponent.Charge(""));
             return stringBuilder.ToString();
-
         }
 
         private void CpuProcess(IProcess process)
@@ -231,7 +229,6 @@ namespace KSBL_Class_Library.Mobile
             }
 
             return Output.WriteLine("No playback component to play");
-
         }
 
         private void PressButton(IPressButton pressButton)
