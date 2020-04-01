@@ -6,6 +6,8 @@ namespace KSBL_Class_Library.Components.SmsModule
 {
     public class SmsProvider
     {
+        private static object _locker = new object();
+
         public delegate Message FormatDelegate(Message message);
 
         public delegate void SmsRecievedDelegate(Message message);
@@ -22,7 +24,10 @@ namespace KSBL_Class_Library.Components.SmsModule
 
         public void PrintMessage(object message)
         {
-                LastText = OnSmsReceived((Message)message);
+            lock (_locker)
+            {
+                LastText = OnSmsReceived((Message) message);
+            }
         }
 
         private string OnSmsReceived(Message message)

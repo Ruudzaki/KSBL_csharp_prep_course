@@ -1,4 +1,6 @@
-﻿using KSBL_Class_Library.Mobile;
+﻿using System;
+using KSBL_Class_Library.Components.SmsModule;
+using KSBL_Class_Library.Mobile;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace KSBL_UnitTestProject
@@ -19,16 +21,16 @@ namespace KSBL_UnitTestProject
 
             //Act
             mobile.SmsProvider.SmsReceived += SmsProvider_SmsReceived;
-            mobile.SmsProvider.PrintMessage(message);
+            mobile.SmsProvider.PrintMessage(new Message("KSBL", message, DateTime.Now));
             actual = Text;
 
             //Assert
             Assert.AreEqual(expected, actual);
         }
 
-        private void SmsProvider_SmsReceived(string message)
+        private void SmsProvider_SmsReceived(Message message)
         {
-            Text = ReturnMessage(message + " - Event Raised");
+            Text = ReturnMessage(message.Text + " #1 - Event Raised");
         }
 
         private static string ReturnMessage(string message)

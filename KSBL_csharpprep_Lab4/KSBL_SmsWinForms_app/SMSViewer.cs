@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
 using KSBL_Class_Library;
@@ -27,6 +28,7 @@ namespace KSBL_SmsWinForms_app
         }
 
         public Mobile Mobile { get; }
+        private readonly List<Timer> _timer = new List<Timer>();
 
         private void InitializeComboBox()
         {
@@ -41,7 +43,7 @@ namespace KSBL_SmsWinForms_app
         public void MessageGenerator(Message message, int dueTime, int period)
         {
             TimerCallback tm = Mobile.SmsProvider.PrintMessage;
-            var unused = new Timer(tm, message, dueTime, period);
+            _timer.Add(new Timer(tm, message, dueTime, period));
         }
 
         private void SmsProvider_SmsReceived(object message)

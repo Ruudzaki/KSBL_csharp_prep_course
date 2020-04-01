@@ -1,4 +1,5 @@
 ﻿using System;
+using KSBL_Class_Library.Components.SmsModule;
 using KSBL_Class_Library.Mobile;
 using KSBL_SmsWinForms_app;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -13,7 +14,7 @@ namespace KSBL_UnitTestProject
         {
             //Arrange
             var mobile = new SimCorpMobile();
-            var message = "Test message!";
+            var message = new Message("KSBL", "Test message!", DateTime.Now);
             var expected = "Test message! #1";
             string actual;
 
@@ -30,7 +31,7 @@ namespace KSBL_UnitTestProject
         {
             //Arrange
             var mobile = new SimCorpMobile();
-            var message = "Test message!";
+            var message = new Message("KSBL", "Test message!", DateTime.Now);
             var expected = "TEST MESSAGE! #1";
             string actual;
             mobile.SmsProvider.Formatter = SmsViewer.FormatUpperCase;
@@ -48,7 +49,7 @@ namespace KSBL_UnitTestProject
         {
             //Arrange
             var mobile = new SimCorpMobile();
-            var message = "Test message!";
+            var message = new Message("KSBL", "Test message!", DateTime.Now);
             var expected = "test message! #1";
             string actual;
             mobile.SmsProvider.Formatter = SmsViewer.FormatLowerCase;
@@ -66,8 +67,8 @@ namespace KSBL_UnitTestProject
         {
             //Arrange
             var mobile = new SimCorpMobile();
-            var message = "Test message!";
-            var expected = $"Test message! #1 [{DateTime.Now}]";
+            var message = new Message("KSBL", "Test message!", DateTime.Now);
+            var expected = $"Test message! [{DateTime.Now}] #1";
             string actual;
             mobile.SmsProvider.Formatter = SmsViewer.FormatEndWithDate;
 
@@ -84,7 +85,7 @@ namespace KSBL_UnitTestProject
         {
             //Arrange
             var mobile = new SimCorpMobile();
-            var message = "Test message!";
+            var message = new Message("KSBL", "Test message!", DateTime.Now);
             var expected = $"[{DateTime.Now}] Test message! #1";
             string actual;
             mobile.SmsProvider.Formatter = SmsViewer.FormatStartWithDate;
@@ -102,7 +103,7 @@ namespace KSBL_UnitTestProject
         {
             //Arrange
             var mobile = new SimCorpMobile();
-            var message = "Test message!";
+            var message = new Message("KSBL", "Test message!", DateTime.Now);
             var expected = $"[{DateTime.Now}] TEST MESSAGE! #1";
             string actual;
             mobile.SmsProvider.Formatter = SmsViewer.FormatUpperStartWithDate;
@@ -120,7 +121,7 @@ namespace KSBL_UnitTestProject
         {
             //Arrange
             var mobile = new SimCorpMobile();
-            var message = "Test message!";
+            var message = new Message("KSBL", "Test message!", DateTime.Now);
             var expected = "Test message! #1";
             string actual;
             mobile.SmsProvider.Formatter = SmsViewer.FormatNone;
