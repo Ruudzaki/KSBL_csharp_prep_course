@@ -14,8 +14,6 @@ namespace KSBL_SmsWinForms_app
     {
         public delegate void FormatChangedDelegate(List<Message> messages);
 
-        private object _lock = new object();
-
         public SmsViewer(Mobile mobile, IOutput output, Message message1, Message message2, Message message3)
         {
             InitializeComponent();
@@ -33,8 +31,7 @@ namespace KSBL_SmsWinForms_app
             MessageGenerator(message2, 0, 2000);
             MessageGenerator(message3, 0, 3000);
 
-            Mobile.InternalStorage.SmsAdded += SmsProvider_SmsReceived;
-
+            Mobile.InternalStorage.SmsAdded += ReceiveMessagesFromDb;
             FormatChanged += ShowMessages;
         }
 
@@ -42,7 +39,7 @@ namespace KSBL_SmsWinForms_app
         private List<Timer> Timers { get; }
         public FormatDelegate Formatter { get; set; }
         public event FormatChangedDelegate FormatChanged;
-
+        private object _lock = new object();
 
         private void InitializeComboBox()
         {
@@ -60,12 +57,12 @@ namespace KSBL_SmsWinForms_app
             Timers.Add(new Timer(tm, message, dueTime, period));
         }
 
-        private void SmsProvider_SmsReceived(object message)
+        private void ReceiveMessagesFromDb(object message)
         {
-            if (InvokeRequired) Invoke(new SmsAddedDelegate(SmsReceivedHandler), message);
+            if (InvokeRequired) Invoke(new SmsAddedDelegate(ReceiveMessagesFromDbHandler), message);
         }
 
-        private void SmsReceivedHandler(Message message)
+        private void ReceiveMessagesFromDbHandler(Message message)
         {
             if (Mobile.InternalStorage.Messages.Count > 0) ShowMessages(Mobile.InternalStorage.Messages);
         }
