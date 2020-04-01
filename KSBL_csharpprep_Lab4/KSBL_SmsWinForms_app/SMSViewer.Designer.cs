@@ -80,6 +80,7 @@
             this.Name = "SmsViewer";
             this.Text = "SMS Viewer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SmsViewer_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SmsViewer_FormClosed);
             this.ResumeLayout(false);
 
         }

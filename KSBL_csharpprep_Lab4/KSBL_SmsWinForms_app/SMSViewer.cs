@@ -113,5 +113,10 @@ namespace KSBL_SmsWinForms_app
         {
             foreach (var timer in Timers) timer.Dispose();
         }
+
+        private void SmsViewer_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            foreach (var timer in Timers) timer.Dispose();
+        }
     }
 }
