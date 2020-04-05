@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using KSBL_Class_Library;
@@ -10,14 +11,19 @@ using Timer = System.Threading.Timer;
 
 namespace KSBL_SmsWinForms_app
 {
+    public delegate void FormatChangedDelegate(List<Message> messages);
+
+    public delegate void FilterChangedDelegate(List<Message> messages);
+
     public partial class SmsViewer : Form
     {
-        public delegate void FormatChangedDelegate(List<Message> messages);
+        private object _lock = new object();
+
 
         public SmsViewer(Mobile mobile, IOutput output, Message message1, Message message2, Message message3)
         {
             InitializeComponent();
-            InitializeComboBox();
+            InitializeComboBoxes();
 
             Mobile = mobile;
             Mobile.Output = output;
@@ -25,23 +31,38 @@ namespace KSBL_SmsWinForms_app
             MaximizeBox = false;
             Timers = new List<Timer>();
             Formatter = Mobile.InternalStorage.Formatter;
+            PickedUser = null;
+            SearchText = "";
+            StartWithDate = new DateTime();
+            EndWithDate = new DateTime();
 
-
-            MessageGenerator(message1, 0, 1000);
-            MessageGenerator(message2, 0, 2000);
-            MessageGenerator(message3, 0, 3000);
+            MessageGenerator(message1, 0, 3000);
+            MessageGenerator(message2, 0, 3500);
+            MessageGenerator(message3, 0, 4000);
 
             Mobile.InternalStorage.SmsAdded += ReceiveMessagesFromDb;
             FormatChanged += ShowMessages;
+            FilterChanged += ShowMessages;
         }
 
         public Mobile Mobile { get; }
         private List<Timer> Timers { get; }
         public FormatDelegate Formatter { get; set; }
-        public event FormatChangedDelegate FormatChanged;
-        private object _lock = new object();
+        private IEnumerable<Message> SelectedMessages { get; set; }
+        private string SearchText { get; set; }
 
-        private void InitializeComboBox()
+        public string PickedUser { get; set; }
+
+        public DateTime StartWithDate { get; set; }
+
+        public DateTime EndWithDate { get; set; }
+
+        public bool JoinFilteringCheck { get; set; }
+
+        public event FormatChangedDelegate FormatChanged;
+        public event FilterChangedDelegate FilterChanged;
+
+        private void InitializeComboBoxes()
         {
             formatComboBox.Items.Add(Formats.None);
             formatComboBox.Items.Add(Formats.FormatStartWithDate);
@@ -64,7 +85,16 @@ namespace KSBL_SmsWinForms_app
 
         private void ReceiveMessagesFromDbHandler(Message message)
         {
-            if (Mobile.InternalStorage.Messages.Count > 0) ShowMessages(Mobile.InternalStorage.Messages);
+            if (Mobile.InternalStorage.Messages.Count > 0)
+            {
+                ShowMessages(Mobile.InternalStorage.Messages);
+                if (!UserComboBox.Items.Contains(Mobile.InternalStorage.UniqueUsers.Last()))
+                {
+                    UserComboBox.Items.Clear();
+                    UserComboBox.Items.Add("");
+                    UserComboBox.Items.AddRange(Mobile.InternalStorage.UniqueUsers.ToArray());
+                }
+            }
         }
 
         private void formatComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,7 +129,14 @@ namespace KSBL_SmsWinForms_app
         {
             MessageListView.Items.Clear();
 
-            foreach (var message in messages)
+            if (AllFilterOnCheckBox.Checked)
+                SelectedMessages =
+                    Mobile.InternalStorage.FilterAll(messages, PickedUser, SearchText, StartWithDate, EndWithDate);
+            else
+                SelectedMessages =
+                    Mobile.InternalStorage.FilterSeparate(messages, PickedUser, SearchText, StartWithDate, EndWithDate);
+
+            foreach (var message in SelectedMessages)
             {
                 var formatMessage = Mobile.InternalStorage.FormatText(message);
                 MessageListView.Items.Add(new ListViewItem(new[] {formatMessage.User, formatMessage.FormatText}));
@@ -114,6 +151,47 @@ namespace KSBL_SmsWinForms_app
         private void SmsViewer_FormClosed(object sender, FormClosedEventArgs e)
         {
             foreach (var timer in Timers) timer.Dispose();
+        }
+
+        private void userComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PickedUser = (string) UserComboBox.Items[UserComboBox.SelectedIndex];
+
+            var handler = FilterChanged;
+            handler?.Invoke(Mobile.InternalStorage.Messages);
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            SearchText = searchTextBox.Text;
+
+            var handler = FilterChanged;
+            handler?.Invoke(Mobile.InternalStorage.Messages);
+        }
+
+        private void startWithDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            StartWithDate = startWithDateTimePicker.Value;
+
+            var handler = FilterChanged;
+            handler?.Invoke(Mobile.InternalStorage.Messages);
+        }
+
+
+        private void endWithDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            EndWithDate = endWithDateTimePicker.Value;
+
+            var handler = FilterChanged;
+            handler?.Invoke(Mobile.InternalStorage.Messages);
+        }
+
+        private void AllFilterOnCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            JoinFilteringCheck = AllFilterOnCheckBox.Checked;
+
+            var handler = FilterChanged;
+            handler?.Invoke(Mobile.InternalStorage.Messages);
         }
     }
 }

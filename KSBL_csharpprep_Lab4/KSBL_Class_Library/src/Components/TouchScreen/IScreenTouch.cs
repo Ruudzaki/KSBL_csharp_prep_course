@@ -2,7 +2,7 @@
 {
     public interface IScreenTouch
     {
-        int CoursorX { get; set; }
-        int CoursorY { get; set; }
+        int CursorX { get; set; }
+        int CursorY { get; set; }
     }
 }

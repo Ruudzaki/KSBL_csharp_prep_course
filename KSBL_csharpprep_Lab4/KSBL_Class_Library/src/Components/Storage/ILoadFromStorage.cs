@@ -2,6 +2,6 @@
 {
     public interface ILoadFromStorage
     {
-        int Adress { get; set; }
+        int Address { get; set; }
     }
 }

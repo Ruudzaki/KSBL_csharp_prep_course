@@ -2,17 +2,17 @@
 {
     internal class SmsProvider
     {
-        public delegate void SmsRecievedDelegate(Message message);
+        public delegate void SmsReceivedDelegate(Message message);
 
-        private static readonly object _locker = new object();
+        private static readonly object Locker = new object();
 
         public static int Count { get; set; }
 
-        public event SmsRecievedDelegate SmsReceived;
+        public event SmsReceivedDelegate SmsReceived;
 
         public void PrintMessage(object message)
         {
-            lock (_locker)
+            lock (Locker)
             {
                 OnSmsReceived((Message) message);
             }

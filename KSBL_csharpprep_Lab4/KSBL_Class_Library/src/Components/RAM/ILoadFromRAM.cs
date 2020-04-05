@@ -2,7 +2,7 @@
 {
     public interface ILoadFromRam
     {
-        int Adress { get; set; }
+        int Address { get; set; }
         int Value { get; set; }
     }
 }

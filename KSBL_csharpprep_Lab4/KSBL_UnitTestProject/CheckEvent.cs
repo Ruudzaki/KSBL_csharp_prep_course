@@ -20,7 +20,7 @@ namespace KSBL_UnitTestProject
             string actual;
 
             //Act
-            mobile.InternalStorage.SmsAdded += SmsProvider_SmsReceived;
+            mobile.InternalStorage.SmsAdded += SmsProviderListener;
             mobile.InternalStorage.AddMessage(new Message("KSBL", message, DateTime.Now));
             actual = Text;
 
@@ -28,7 +28,7 @@ namespace KSBL_UnitTestProject
             Assert.AreEqual(expected, actual);
         }
 
-        private void SmsProvider_SmsReceived(Message message)
+        private void SmsProviderListener(Message message)
         {
             Text = ReturnMessage(message.Text + " #1 - Event Raised");
         }
