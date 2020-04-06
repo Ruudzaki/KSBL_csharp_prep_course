@@ -17,9 +17,12 @@ namespace KSBL_SmsWinForms_app
             Mobile mobile = new SimCorpMobile();
             IOutput output = new WinFormOutput();
 
-            var message1 = new Message("KSBL", "Hello! This is a KSBL's (test analyst's) dummy incoming message.", DateTime.Now);
-            var message2 = new Message("VZL", "Hello! This is a VZL's (tech-lead's) dummy incoming message.", DateTime.Now);
-            var message3 = new Message("OKTK", "Hello! This is a OKTK's (scrum-master's) dummy incoming message.", DateTime.Now);
+            var message1 = new Message("KSBL", "Hello! This is a KSBL's (test analyst's) dummy incoming message.",
+                DateTime.Now);
+            var message2 = new Message("VZL", "Hello! This is a VZL's (tech-lead's) dummy incoming message.",
+                DateTime.Now);
+            var message3 = new Message("OKTK", "Hello! This is a OKTK's (scrum-master's) dummy incoming message.",
+                DateTime.Now);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

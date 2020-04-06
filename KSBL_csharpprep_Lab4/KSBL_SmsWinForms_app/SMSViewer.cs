@@ -134,7 +134,7 @@ namespace KSBL_SmsWinForms_app
                     Mobile.InternalStorage.FilterAll(messages, PickedUser, SearchText, StartWithDate, EndWithDate);
             else
                 SelectedMessages =
-                    Mobile.InternalStorage.FilterSeparate(messages, PickedUser, SearchText, StartWithDate, EndWithDate);
+                    Mobile.InternalStorage.FilterByUnion(messages, PickedUser, SearchText, StartWithDate, EndWithDate);
 
             foreach (var message in SelectedMessages)
             {

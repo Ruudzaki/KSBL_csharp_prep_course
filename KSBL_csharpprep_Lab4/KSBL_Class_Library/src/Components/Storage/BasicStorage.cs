@@ -120,13 +120,12 @@ namespace KSBL_Class_Library.Components.Storage
             return selectedMessages;
         }
 
-        public IEnumerable<Message> FilterSeparate(IEnumerable<Message> messages, string user, string text,
+        public IEnumerable<Message> FilterByUnion(IEnumerable<Message> messages, string user, string text,
             DateTime startTime, DateTime endDate)
         {
             var selectedMessages = FilterByUser(messages, user);
             selectedMessages = selectedMessages.Union(FilterBySearchText(messages, text));
-            selectedMessages = selectedMessages.Union(FilterByStartDate(messages, startTime));
-            selectedMessages = selectedMessages.Union(FilterByEndDate(messages, endDate));
+            selectedMessages = selectedMessages.Union(FilterByEndDate(FilterByStartDate(messages, startTime), endDate));
 
             selectedMessages = selectedMessages.OrderBy(t => t.ReferenceNumber);
 

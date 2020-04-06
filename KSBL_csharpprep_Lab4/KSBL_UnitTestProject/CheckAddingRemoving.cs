@@ -15,9 +15,9 @@ namespace KSBL_UnitTestProject
         {
             //Arrange
             var mobile = new SimCorpMobile();
-            var message = new Message("KSBL", "Test message!", new DateTime(1,1,1));
+            var message = new Message("KSBL", "Test message!", new DateTime(1, 1, 1));
             int actual;
-            int expected = 2;
+            var expected = 2;
 
             //Act
             mobile.InternalStorage.AddMessage(message);
@@ -60,7 +60,7 @@ namespace KSBL_UnitTestProject
             var mobile = new SimCorpMobile();
             var message = new Message("KSBL", "Test message!", new DateTime(1, 1, 1));
             int actual;
-            int expected = 0;
+            var expected = 0;
 
             //Act
             mobile.InternalStorage.RemoveMessage(message);

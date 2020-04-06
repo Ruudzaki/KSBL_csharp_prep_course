@@ -53,6 +53,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CheckFiltering.cs" />
     <Compile Include="CheckAddingRemoving.cs" />
     <Compile Include="CheckEvent.cs" />
     <Compile Include="FakeOutput.cs" />
