@@ -8,8 +8,6 @@ namespace KSBL_UnitTestProject
     [TestClass]
     public class CheckAddingRemoving
     {
-        public string Text { get; set; }
-
         [TestMethod]
         public void MessageIsRemoved()
         {

@@ -50,6 +50,7 @@ namespace KSBL_Class_Library.Components.Storage
             Count++;
 
             Messages[Messages.Count - 1].ReferenceNumber = Count;
+            message.FormatText = $"{message.Text} #{Messages[Messages.Count - 1].ReferenceNumber}";
 
             if (!UniqueUsers.Contains(message.User)) UniqueUsers.Add(message.User);
 
@@ -94,7 +95,7 @@ namespace KSBL_Class_Library.Components.Storage
 
         public IEnumerable<Message> FilterBySearchText(IEnumerable<Message> messages, string text)
         {
-            return text != "" ? messages.Where(t => t.Text.Contains(text)) : messages;
+                return text != "" ? messages.Where(t => t.FormatText.Contains(text)) : messages;
         }
 
         public IEnumerable<Message> FilterByStartDate(IEnumerable<Message> messages, DateTime startDate)
