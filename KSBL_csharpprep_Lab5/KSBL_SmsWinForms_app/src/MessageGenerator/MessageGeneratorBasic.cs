@@ -30,8 +30,13 @@ namespace KSBL_SmsWinForms_app.MessageGenerator
 
         protected List<Message> Messages { get; }
         protected List<int> Delays { get; }
-        public bool MessageGeneratorOnSwitch { get; set; }
+        public bool MessageGeneratorIsOn { get; protected set; }
 
         public abstract void RunMessageGenerator();
+
+        public virtual void Stop()
+        {
+            MessageGeneratorIsOn = false;
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace KSBL_SmsWinForms_app
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SmsViewer(mobile, output, messageGenerator));
+            Application.Run(new SmsViewer(mobile, output, messageGenerator2));
         }
     }
 }

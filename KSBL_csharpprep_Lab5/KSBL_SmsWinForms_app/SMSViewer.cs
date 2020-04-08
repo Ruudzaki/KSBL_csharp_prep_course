@@ -139,12 +139,12 @@ namespace KSBL_SmsWinForms_app
 
         private void SmsViewer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageGenerator.MessageGeneratorOnSwitch = false;
+            MessageGenerator.Stop();
         }
 
         private void SmsViewer_FormClosed(object sender, FormClosedEventArgs e)
         {
-            MessageGenerator.MessageGeneratorOnSwitch = false;
+            MessageGenerator.Stop();
         }
 
         private void userComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -190,13 +190,12 @@ namespace KSBL_SmsWinForms_app
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (MessageGenerator.MessageGeneratorOnSwitch)
+            if (MessageGenerator.MessageGeneratorIsOn)
             {
-                MessageGenerator.MessageGeneratorOnSwitch = false;
+                MessageGenerator.Stop();
             }
             else
             {
-                MessageGenerator.MessageGeneratorOnSwitch = true;
                 var handler = RunMessageGenerator;
                 handler?.Invoke();
             }

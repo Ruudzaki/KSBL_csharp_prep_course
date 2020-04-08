@@ -16,6 +16,8 @@ namespace KSBL_SmsWinForms_app.MessageGenerator
 
         public override void RunMessageGenerator()
         {
+            MessageGeneratorIsOn = true;
+            _index = 0;
             for (var i = 0; i < Messages.Count; i++)
             {
                 var thread = new Thread(RunMessageGeneratorThread);
@@ -37,7 +39,7 @@ namespace KSBL_SmsWinForms_app.MessageGenerator
 
         private void RunMessageGenerator(Message message, int delay)
         {
-            while (MessageGeneratorOnSwitch)
+            while (MessageGeneratorIsOn)
             {
                 message.ReceivingTime = DateTime.Now;
                 Mobile.InternalStorage.AddMessage(message);
