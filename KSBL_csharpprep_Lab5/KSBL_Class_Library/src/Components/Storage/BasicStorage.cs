@@ -50,7 +50,7 @@ namespace KSBL_Class_Library.Components.Storage
             Count++;
 
             Messages[Messages.Count - 1].ReferenceNumber = Count;
-            message.FormatText = $"{message.Text} #{Messages[Messages.Count - 1].ReferenceNumber}";
+            message.FormatText = FormatText(message).FormatText;
 
             if (!UniqueUsers.Contains(message.User)) UniqueUsers.Add(message.User);
 
