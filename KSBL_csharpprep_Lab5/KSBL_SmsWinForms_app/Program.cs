@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using KSBL_Class_Library;
 using KSBL_Class_Library.Mobile;
-using Message = KSBL_Class_Library.Components.SmsModule.Message;
+using KSBL_SmsWinForms_app.MessageGenerator;
 
 namespace KSBL_SmsWinForms_app
 {
@@ -17,16 +17,12 @@ namespace KSBL_SmsWinForms_app
             Mobile mobile = new SimCorpMobile();
             IOutput output = new WinFormOutput();
 
-            var message1 = new Message("KSBL", "Hello! This is a KSBL's (test analyst's) dummy incoming message.",
-                DateTime.Now);
-            var message2 = new Message("VZL", "Hello! This is a VZL's (tech-lead's) dummy incoming message.",
-                DateTime.Now);
-            var message3 = new Message("OKTK", "Hello! This is a OKTK's (scrum-master's) dummy incoming message.",
-                DateTime.Now);
+            MessageGeneratorBasic messageGenerator = new MessageGeneratorThread(mobile);
+            MessageGeneratorBasic messageGenerator2 = new MessageGeneratorTask(mobile);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SmsViewer(mobile, output, message1, message2, message3));
+            Application.Run(new SmsViewer(mobile, output, messageGenerator));
         }
     }
 }

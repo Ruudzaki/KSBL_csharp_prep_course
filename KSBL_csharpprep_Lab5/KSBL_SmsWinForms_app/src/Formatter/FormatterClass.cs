@@ -1,6 +1,6 @@
 ﻿using KSBL_Class_Library.Components.SmsModule;
 
-namespace KSBL_SmsWinForms_app
+namespace KSBL_SmsWinForms_app.Formatter
 {
     //public delegate Message FormatDelegate(Message message);
 

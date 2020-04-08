@@ -1,4 +1,4 @@
-﻿namespace KSBL_SmsWinForms_app
+﻿namespace KSBL_SmsWinForms_app.Formatter
 {
     public enum Formats
     {

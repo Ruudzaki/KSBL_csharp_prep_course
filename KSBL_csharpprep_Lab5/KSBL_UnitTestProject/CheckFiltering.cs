@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using KSBL_Class_Library.Components.SmsModule;
 using KSBL_Class_Library.Mobile;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 
 namespace KSBL_UnitTestProject
 {
@@ -21,8 +21,8 @@ namespace KSBL_UnitTestProject
             var message6 = new Message("KSBL", "Test message!", new DateTime(2020, 1, 5));
             var mobile = new SimCorpMobile();
             IEnumerable<Message> filteredMessages;
-            List<Message> actual = new List<Message>();
-            List<Message> expected = new List<Message>() { message4 };
+            var actual = new List<Message>();
+            var expected = new List<Message> {message4};
 
             //Act
             mobile.InternalStorage.AddMessage(message1);
@@ -31,17 +31,15 @@ namespace KSBL_UnitTestProject
             mobile.InternalStorage.AddMessage(message4);
             mobile.InternalStorage.AddMessage(message5);
             mobile.InternalStorage.AddMessage(message6);
-            filteredMessages = mobile.InternalStorage.FilterAll(mobile.InternalStorage.Messages, "KSBL", "Test", new DateTime(2020, 1, 2), new DateTime(2020, 1, 4));
+            filteredMessages = mobile.InternalStorage.FilterAll(mobile.InternalStorage.Messages, "KSBL", "Test",
+                new DateTime(2020, 1, 2), new DateTime(2020, 1, 4));
 
-            foreach (var message in filteredMessages)
-            {
-                actual.Add(message);
-            }
+            foreach (var message in filteredMessages) actual.Add(message);
 
             //Assert
             Assert.AreEqual(expected.Count, actual.Count);
 
-            for (int i = 0; i < actual.Count - 1; i++)
+            for (var i = 0; i < actual.Count - 1; i++)
             {
                 Assert.AreEqual(expected[i].Text, actual[i].Text);
                 Assert.AreEqual(expected[i].User, actual[i].User);
@@ -61,8 +59,8 @@ namespace KSBL_UnitTestProject
             var message6 = new Message("KSBL", "Test message!", new DateTime(2020, 1, 5));
             var mobile = new SimCorpMobile();
             IEnumerable<Message> filteredMessages;
-            List<Message> actual = new List<Message>();
-            List<Message> expected = new List<Message>() { message2, message3, message4, message5, message6 };
+            var actual = new List<Message>();
+            var expected = new List<Message> {message2, message3, message4, message5, message6};
 
             //Act
             mobile.InternalStorage.AddMessage(message1);
@@ -71,17 +69,15 @@ namespace KSBL_UnitTestProject
             mobile.InternalStorage.AddMessage(message4);
             mobile.InternalStorage.AddMessage(message5);
             mobile.InternalStorage.AddMessage(message6);
-            filteredMessages = mobile.InternalStorage.FilterByUnion(mobile.InternalStorage.Messages, "KSBL", "Test", new DateTime(2020, 1, 2), new DateTime(2020, 1, 4));
+            filteredMessages = mobile.InternalStorage.FilterByUnion(mobile.InternalStorage.Messages, "KSBL", "Test",
+                new DateTime(2020, 1, 2), new DateTime(2020, 1, 4));
 
-            foreach (var message in filteredMessages)
-            {
-                actual.Add(message);
-            }
+            foreach (var message in filteredMessages) actual.Add(message);
 
             //Assert
             Assert.AreEqual(expected.Count, actual.Count);
 
-            for (int i = 0; i < actual.Count - 1; i++)
+            for (var i = 0; i < actual.Count - 1; i++)
             {
                 Assert.AreEqual(expected[i].Text, actual[i].Text);
                 Assert.AreEqual(expected[i].User, actual[i].User);
@@ -99,8 +95,8 @@ namespace KSBL_UnitTestProject
             var message4 = new Message("KSBL", "Test message!", new DateTime(2020, 1, 4));
             var mobile = new SimCorpMobile();
             IEnumerable<Message> filteredMessages;
-            List<Message> actual = new List<Message>();
-            List<Message> expected = new List<Message>() { message1, message4 };
+            var actual = new List<Message>();
+            var expected = new List<Message> {message1, message4};
 
             //Act
             mobile.InternalStorage.AddMessage(message1);
@@ -109,15 +105,12 @@ namespace KSBL_UnitTestProject
             mobile.InternalStorage.AddMessage(message4);
             filteredMessages = mobile.InternalStorage.FilterByUser(mobile.InternalStorage.Messages, "KSBL");
 
-            foreach (var message in filteredMessages)
-            {
-                actual.Add(message);
-            }
+            foreach (var message in filteredMessages) actual.Add(message);
 
             //Assert
             Assert.AreEqual(expected.Count, actual.Count);
 
-            for (int i = 0; i < actual.Count - 1; i++)
+            for (var i = 0; i < actual.Count - 1; i++)
             {
                 Assert.AreEqual(expected[i].Text, actual[i].Text);
                 Assert.AreEqual(expected[i].User, actual[i].User);
@@ -135,8 +128,8 @@ namespace KSBL_UnitTestProject
             var message4 = new Message("KSBL", "Test message!", new DateTime(2020, 1, 4));
             var mobile = new SimCorpMobile();
             IEnumerable<Message> filteredMessages;
-            List<Message> actual = new List<Message>();
-            List<Message> expected = new List<Message>() { message2, message3, message4 };
+            var actual = new List<Message>();
+            var expected = new List<Message> {message2, message3, message4};
 
             //Act
             mobile.InternalStorage.AddMessage(message1);
@@ -145,15 +138,12 @@ namespace KSBL_UnitTestProject
             mobile.InternalStorage.AddMessage(message4);
             filteredMessages = mobile.InternalStorage.FilterBySearchText(mobile.InternalStorage.Messages, "Test");
 
-            foreach (var message in filteredMessages)
-            {
-                actual.Add(message);
-            }
+            foreach (var message in filteredMessages) actual.Add(message);
 
             //Assert
             Assert.AreEqual(expected.Count, actual.Count);
 
-            for (int i = 0; i < actual.Count - 1; i++)
+            for (var i = 0; i < actual.Count - 1; i++)
             {
                 Assert.AreEqual(expected[i].Text, actual[i].Text);
                 Assert.AreEqual(expected[i].User, actual[i].User);
@@ -172,25 +162,23 @@ namespace KSBL_UnitTestProject
             var message4 = new Message("KSBL", "Test message!", new DateTime(2020, 1, 4));
             var mobile = new SimCorpMobile();
             IEnumerable<Message> filteredMessages;
-            List<Message> actual = new List<Message>();
-            List<Message> expected = new List<Message>() { message3, message4 };
+            var actual = new List<Message>();
+            var expected = new List<Message> {message3, message4};
 
             //Act
             mobile.InternalStorage.AddMessage(message1);
             mobile.InternalStorage.AddMessage(message2);
             mobile.InternalStorage.AddMessage(message3);
             mobile.InternalStorage.AddMessage(message4);
-            filteredMessages = mobile.InternalStorage.FilterByStartDate(mobile.InternalStorage.Messages, new DateTime(2020, 1, 3));
+            filteredMessages =
+                mobile.InternalStorage.FilterByStartDate(mobile.InternalStorage.Messages, new DateTime(2020, 1, 3));
 
-            foreach (var message in filteredMessages)
-            {
-                actual.Add(message);
-            }
+            foreach (var message in filteredMessages) actual.Add(message);
 
             //Assert
             Assert.AreEqual(expected.Count, actual.Count);
 
-            for (int i = 0; i < actual.Count - 1; i++)
+            for (var i = 0; i < actual.Count - 1; i++)
             {
                 Assert.AreEqual(expected[i].Text, actual[i].Text);
                 Assert.AreEqual(expected[i].User, actual[i].User);
@@ -208,25 +196,23 @@ namespace KSBL_UnitTestProject
             var message4 = new Message("KSBL", "Test message!", new DateTime(2020, 1, 4));
             var mobile = new SimCorpMobile();
             IEnumerable<Message> filteredMessages;
-            List<Message> actual = new List<Message>();
-            List<Message> expected = new List<Message>() { message1, message2, message3 };
+            var actual = new List<Message>();
+            var expected = new List<Message> {message1, message2, message3};
 
             //Act
             mobile.InternalStorage.AddMessage(message1);
             mobile.InternalStorage.AddMessage(message2);
             mobile.InternalStorage.AddMessage(message3);
             mobile.InternalStorage.AddMessage(message4);
-            filteredMessages = mobile.InternalStorage.FilterByEndDate(mobile.InternalStorage.Messages, new DateTime(2020, 1, 3));
+            filteredMessages =
+                mobile.InternalStorage.FilterByEndDate(mobile.InternalStorage.Messages, new DateTime(2020, 1, 3));
 
-            foreach (var message in filteredMessages)
-            {
-                actual.Add(message);
-            }
+            foreach (var message in filteredMessages) actual.Add(message);
 
             //Assert
             Assert.AreEqual(expected.Count, actual.Count);
 
-            for (int i = 0; i < actual.Count - 1; i++)
+            for (var i = 0; i < actual.Count - 1; i++)
             {
                 Assert.AreEqual(expected[i].Text, actual[i].Text);
                 Assert.AreEqual(expected[i].User, actual[i].User);

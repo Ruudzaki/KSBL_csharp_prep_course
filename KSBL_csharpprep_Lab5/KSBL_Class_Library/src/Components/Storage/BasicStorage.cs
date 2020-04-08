@@ -95,7 +95,7 @@ namespace KSBL_Class_Library.Components.Storage
 
         public IEnumerable<Message> FilterBySearchText(IEnumerable<Message> messages, string text)
         {
-                return text != "" ? messages.Where(t => t.FormatText.Contains(text)) : messages;
+            return text != "" ? messages.Where(t => t.FormatText.Contains(text)) : messages;
         }
 
         public IEnumerable<Message> FilterByStartDate(IEnumerable<Message> messages, DateTime startDate)

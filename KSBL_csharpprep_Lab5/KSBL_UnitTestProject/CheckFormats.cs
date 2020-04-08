@@ -1,7 +1,7 @@
 ﻿using System;
 using KSBL_Class_Library.Components.SmsModule;
 using KSBL_Class_Library.Mobile;
-using KSBL_SmsWinForms_app;
+using KSBL_SmsWinForms_app.Formatter;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace KSBL_UnitTestProject

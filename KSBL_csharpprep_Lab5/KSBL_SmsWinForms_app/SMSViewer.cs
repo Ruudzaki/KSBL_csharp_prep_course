@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
 using KSBL_Class_Library;
 using KSBL_Class_Library.Components.Storage;
 using KSBL_Class_Library.Mobile;
+using KSBL_SmsWinForms_app.Formatter;
+using KSBL_SmsWinForms_app.MessageGenerator;
 using Message = KSBL_Class_Library.Components.SmsModule.Message;
-using Timer = System.Threading.Timer;
 
 namespace KSBL_SmsWinForms_app
 {
@@ -15,41 +15,40 @@ namespace KSBL_SmsWinForms_app
 
     public delegate void FilterChangedDelegate(List<Message> messages);
 
+    public delegate void RunMessageGeneratorDelegate();
+
     public partial class SmsViewer : Form
     {
         private object _lock = new object();
 
 
-        public SmsViewer(Mobile mobile, IOutput output, Message message1, Message message2, Message message3)
+        public SmsViewer(Mobile mobile, IOutput output, MessageGeneratorBasic messageGenerator)
         {
             InitializeComponent();
             InitializeComboBoxes();
 
             Mobile = mobile;
+            MessageGenerator = messageGenerator;
             Mobile.Output = output;
 
             MaximizeBox = false;
-            Timers = new List<Timer>();
             Formatter = Mobile.InternalStorage.Formatter;
             PickedUser = null;
             SearchText = "";
             StartWithDate = new DateTime();
             EndWithDate = new DateTime();
 
-            MessageGenerator(message1, 0, 3000);
-            MessageGenerator(message2, 0, 3500);
-            MessageGenerator(message3, 0, 4000);
-
             Mobile.InternalStorage.SmsAdded += ReceiveMessagesFromDb;
             FormatChanged += ShowMessages;
             FilterChanged += ShowMessages;
+            RunMessageGenerator += MessageGenerator.RunMessageGenerator;
         }
 
         public Mobile Mobile { get; }
-        private List<Timer> Timers { get; }
         public FormatDelegate Formatter { get; set; }
         private IEnumerable<Message> SelectedMessages { get; set; }
         private string SearchText { get; set; }
+        public MessageGeneratorBasic MessageGenerator { get; set; }
 
         public string PickedUser { get; set; }
 
@@ -61,6 +60,7 @@ namespace KSBL_SmsWinForms_app
 
         public event FormatChangedDelegate FormatChanged;
         public event FilterChangedDelegate FilterChanged;
+        public event RunMessageGeneratorDelegate RunMessageGenerator;
 
         private void InitializeComboBoxes()
         {
@@ -70,12 +70,6 @@ namespace KSBL_SmsWinForms_app
             formatComboBox.Items.Add(Formats.FormatUpperCase);
             formatComboBox.Items.Add(Formats.FormatLowerCase);
             formatComboBox.Items.Add(Formats.Custom);
-        }
-
-        public void MessageGenerator(Message message, int dueTime, int period)
-        {
-            TimerCallback tm = Mobile.InternalStorage.AddMessage;
-            Timers.Add(new Timer(tm, message, dueTime, period));
         }
 
         private void ReceiveMessagesFromDb(object message)
@@ -145,12 +139,12 @@ namespace KSBL_SmsWinForms_app
 
         private void SmsViewer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            foreach (var timer in Timers) timer.Dispose();
+            MessageGenerator.MessageGeneratorOnSwitch = false;
         }
 
         private void SmsViewer_FormClosed(object sender, FormClosedEventArgs e)
         {
-            foreach (var timer in Timers) timer.Dispose();
+            MessageGenerator.MessageGeneratorOnSwitch = false;
         }
 
         private void userComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -192,6 +186,20 @@ namespace KSBL_SmsWinForms_app
 
             var handler = FilterChanged;
             handler?.Invoke(Mobile.InternalStorage.Messages);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (MessageGenerator.MessageGeneratorOnSwitch)
+            {
+                MessageGenerator.MessageGeneratorOnSwitch = false;
+            }
+            else
+            {
+                MessageGenerator.MessageGeneratorOnSwitch = true;
+                var handler = RunMessageGenerator;
+                handler?.Invoke();
+            }
         }
     }
 }

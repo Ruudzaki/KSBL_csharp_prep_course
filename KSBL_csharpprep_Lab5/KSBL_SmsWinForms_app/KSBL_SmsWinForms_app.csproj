@@ -46,8 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Formats.cs" />
-    <Compile Include="FormatterClass.cs" />
+    <Compile Include="src\MessageGenerator\MessageGeneratorBasic.cs" />
+    <Compile Include="src\MessageGenerator\MessageGeneratorThread.cs" />
+    <Compile Include="src\MessageGenerator\MessageGeneratorTask.cs" />
+    <Compile Include="src\Formatter\Formats.cs" />
+    <Compile Include="src\Formatter\FormatterClass.cs" />
     <Compile Include="SMSViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +90,7 @@
       <Name>KSBL_Class_Library</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
