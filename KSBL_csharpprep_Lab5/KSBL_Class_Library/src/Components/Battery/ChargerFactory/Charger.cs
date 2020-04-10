@@ -4,8 +4,8 @@
 
     public abstract class Charger
     {
-        protected object Lock = new object();
         private int _chargeLevel;
+        protected object Lock = new object();
 
         protected Charger()
         {

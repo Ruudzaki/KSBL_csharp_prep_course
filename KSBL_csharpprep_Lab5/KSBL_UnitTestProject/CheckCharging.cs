@@ -1,6 +1,4 @@
 ﻿using System.Threading;
-using KSBL_Class_Library;
-using KSBL_Class_Library.Components.Battery;
 using KSBL_Class_Library.Components.Battery.ChargerFactory;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
