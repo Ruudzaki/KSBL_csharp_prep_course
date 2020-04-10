@@ -42,6 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Components\Battery\ChargerFactory\ChargerThreadCreator.cs" />
+    <Compile Include="src\Components\Battery\ChargerFactory\ChargerTaskCreator.cs" />
+    <Compile Include="src\Components\Battery\ChargerFactory\ChargerCreator.cs" />
+    <Compile Include="src\Components\Battery\ChargerFactory\Charger.cs" />
+    <Compile Include="src\Components\Battery\ChargerFactory\ChargerTask.cs" />
+    <Compile Include="src\Components\Battery\ChargerFactory\ChargerThread.cs" />
     <Compile Include="src\Components\Battery\XiaomiCharger.cs" />
     <Compile Include="src\Components\Battery\BaIonBattery.cs" />
     <Compile Include="src\Components\Battery\BasicBattery.cs" />

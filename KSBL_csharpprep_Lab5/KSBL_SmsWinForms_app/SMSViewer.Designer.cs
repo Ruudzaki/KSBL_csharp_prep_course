@@ -44,9 +44,13 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ChargeLevelProgressBar = new System.Windows.Forms.ProgressBar();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.Filtering.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // formatComboBox
@@ -67,7 +71,7 @@
             this.SmsText});
             this.MessageListView.GridLines = true;
             this.MessageListView.LabelWrap = false;
-            this.MessageListView.Location = new System.Drawing.Point(12, 135);
+            this.MessageListView.Location = new System.Drawing.Point(18, 135);
             this.MessageListView.Name = "MessageListView";
             this.MessageListView.Size = new System.Drawing.Size(643, 343);
             this.MessageListView.TabIndex = 2;
@@ -88,7 +92,7 @@
             // 
             this.UserComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.UserComboBox.FormattingEnabled = true;
-            this.UserComboBox.Location = new System.Drawing.Point(87, 17);
+            this.UserComboBox.Location = new System.Drawing.Point(80, 28);
             this.UserComboBox.Name = "UserComboBox";
             this.UserComboBox.Size = new System.Drawing.Size(128, 21);
             this.UserComboBox.TabIndex = 3;
@@ -96,7 +100,7 @@
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(87, 44);
+            this.searchTextBox.Location = new System.Drawing.Point(80, 55);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(128, 20);
             this.searchTextBox.TabIndex = 4;
@@ -104,7 +108,7 @@
             // 
             // startWithDateTimePicker
             // 
-            this.startWithDateTimePicker.Location = new System.Drawing.Point(87, 70);
+            this.startWithDateTimePicker.Location = new System.Drawing.Point(80, 81);
             this.startWithDateTimePicker.Name = "startWithDateTimePicker";
             this.startWithDateTimePicker.Size = new System.Drawing.Size(128, 20);
             this.startWithDateTimePicker.TabIndex = 5;
@@ -112,7 +116,7 @@
             // 
             // endWithDateTimePicker
             // 
-            this.endWithDateTimePicker.Location = new System.Drawing.Point(221, 70);
+            this.endWithDateTimePicker.Location = new System.Drawing.Point(214, 81);
             this.endWithDateTimePicker.Name = "endWithDateTimePicker";
             this.endWithDateTimePicker.Size = new System.Drawing.Size(128, 20);
             this.endWithDateTimePicker.TabIndex = 6;
@@ -123,7 +127,7 @@
             this.AllFilterOnCheckBox.AutoSize = true;
             this.AllFilterOnCheckBox.Checked = true;
             this.AllFilterOnCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.AllFilterOnCheckBox.Location = new System.Drawing.Point(237, 21);
+            this.AllFilterOnCheckBox.Location = new System.Drawing.Point(230, 32);
             this.AllFilterOnCheckBox.Name = "AllFilterOnCheckBox";
             this.AllFilterOnCheckBox.Size = new System.Drawing.Size(112, 17);
             this.AllFilterOnCheckBox.TabIndex = 7;
@@ -141,9 +145,9 @@
             this.Filtering.Controls.Add(this.startWithDateTimePicker);
             this.Filtering.Controls.Add(this.searchTextBox);
             this.Filtering.Controls.Add(this.UserComboBox);
-            this.Filtering.Location = new System.Drawing.Point(292, 12);
+            this.Filtering.Location = new System.Drawing.Point(292, 4);
             this.Filtering.Name = "Filtering";
-            this.Filtering.Size = new System.Drawing.Size(364, 117);
+            this.Filtering.Size = new System.Drawing.Size(364, 125);
             this.Filtering.TabIndex = 8;
             this.Filtering.TabStop = false;
             this.Filtering.Text = "Filtering";
@@ -151,7 +155,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(46, 74);
+            this.label3.Location = new System.Drawing.Point(39, 85);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 13);
             this.label3.TabIndex = 10;
@@ -160,7 +164,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 47);
+            this.label2.Location = new System.Drawing.Point(15, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 9;
@@ -169,7 +173,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 22);
+            this.label1.Location = new System.Drawing.Point(39, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 8;
@@ -193,23 +197,53 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Start/Stop";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.MessageGeneratorButton_Click);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Location = new System.Drawing.Point(160, 69);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(118, 59);
+            this.groupBox2.Size = new System.Drawing.Size(118, 60);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SMS Generator";
+            // 
+            // ChargeLevelProgressBar
+            // 
+            this.ChargeLevelProgressBar.Location = new System.Drawing.Point(6, 38);
+            this.ChargeLevelProgressBar.Name = "ChargeLevelProgressBar";
+            this.ChargeLevelProgressBar.Size = new System.Drawing.Size(253, 13);
+            this.ChargeLevelProgressBar.TabIndex = 12;
+            this.ChargeLevelProgressBar.Value = 100;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.ChargeLevelProgressBar);
+            this.groupBox3.Location = new System.Drawing.Point(12, 4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(265, 59);
+            this.groupBox3.TabIndex = 13;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Charger";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(97, 11);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "On/Off";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.ChargerButton_Click);
             // 
             // SmsViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 490);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Filtering);
@@ -223,6 +257,7 @@
             this.Filtering.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -244,6 +279,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ProgressBar ChargeLevelProgressBar;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button button2;
     }
 }
 

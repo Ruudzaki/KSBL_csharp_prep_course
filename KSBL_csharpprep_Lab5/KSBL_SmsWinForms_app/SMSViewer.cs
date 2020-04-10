@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using KSBL_Class_Library;
+using KSBL_Class_Library.Components.Battery.ChargerFactory;
 using KSBL_Class_Library.Components.Storage;
 using KSBL_Class_Library.Mobile;
 using KSBL_SmsWinForms_app.Formatter;
@@ -19,13 +20,11 @@ namespace KSBL_SmsWinForms_app
 
     public partial class SmsViewer : Form
     {
-        private object _lock = new object();
-
-
         public SmsViewer(Mobile mobile, IOutput output, MessageGeneratorBasic messageGenerator)
         {
             InitializeComponent();
-            InitializeComboBoxes();
+            InitializeComboBox();
+
 
             Mobile = mobile;
             MessageGenerator = messageGenerator;
@@ -38,10 +37,7 @@ namespace KSBL_SmsWinForms_app
             StartWithDate = new DateTime();
             EndWithDate = new DateTime();
 
-            Mobile.InternalStorage.SmsAdded += ReceiveMessagesFromDb;
-            FormatChanged += ShowMessages;
-            FilterChanged += ShowMessages;
-            RunMessageGenerator += MessageGenerator.RunMessageGenerator;
+            InitializeEvents();
         }
 
         public Mobile Mobile { get; }
@@ -62,7 +58,26 @@ namespace KSBL_SmsWinForms_app
         public event FilterChangedDelegate FilterChanged;
         public event RunMessageGeneratorDelegate RunMessageGenerator;
 
-        private void InitializeComboBoxes()
+        private void InitializeEvents()
+        {
+            Mobile.InternalStorage.SmsAdded += ReceiveMessagesFromDb;
+            FormatChanged += ShowMessages;
+            FilterChanged += ShowMessages;
+            RunMessageGenerator += MessageGenerator.RunMessageGenerator;
+            Mobile.Battery.Charger.ChargerUpdated += UpdateProgressBar;
+        }
+
+        private void UpdateProgressBar(int chargerLevel)
+        {
+            if (InvokeRequired) Invoke(new ChargerUpdatedDelegate(UpdateProgressBarHandler), chargerLevel);
+        }
+
+        private void UpdateProgressBarHandler(int chargerLevel)
+        {
+            ChargeLevelProgressBar.Value = chargerLevel;
+        }
+
+        private void InitializeComboBox()
         {
             formatComboBox.Items.Add(Formats.None);
             formatComboBox.Items.Add(Formats.FormatStartWithDate);
@@ -140,11 +155,13 @@ namespace KSBL_SmsWinForms_app
         private void SmsViewer_FormClosing(object sender, FormClosingEventArgs e)
         {
             MessageGenerator.Stop();
+            Mobile.Battery.Charger.ChargeLevelDecreaseStop();
         }
 
         private void SmsViewer_FormClosed(object sender, FormClosedEventArgs e)
         {
             MessageGenerator.Stop();
+            Mobile.Battery.Charger.ChargeLevelDecreaseStop();
         }
 
         private void userComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -188,7 +205,7 @@ namespace KSBL_SmsWinForms_app
             handler?.Invoke(Mobile.InternalStorage.Messages);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void MessageGeneratorButton_Click(object sender, EventArgs e)
         {
             if (MessageGenerator.MessageGeneratorIsOn)
             {
@@ -199,6 +216,14 @@ namespace KSBL_SmsWinForms_app
                 var handler = RunMessageGenerator;
                 handler?.Invoke();
             }
+        }
+
+        private void ChargerButton_Click(object sender, EventArgs e)
+        {
+            if (Mobile.Battery.Charger.ChargerIsOn)
+                Mobile.Battery.Charger.Discharge();
+            else
+                Mobile.Battery.Charger.Charge();
         }
     }
 }
