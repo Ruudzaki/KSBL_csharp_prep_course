@@ -53,11 +53,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ChargeSetupUnitTest.cs" />
     <Compile Include="CheckFiltering.cs" />
     <Compile Include="CheckAddingRemoving.cs" />
     <Compile Include="CheckEvent.cs" />
     <Compile Include="FakeOutput.cs" />
-    <Compile Include="ChargeUnitTest.cs" />
+    <Compile Include="CheckCharging.cs" />
     <Compile Include="PlaybackUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CheckFormats.cs" />

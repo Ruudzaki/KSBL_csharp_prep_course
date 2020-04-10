@@ -155,13 +155,13 @@ namespace KSBL_SmsWinForms_app
         private void SmsViewer_FormClosing(object sender, FormClosingEventArgs e)
         {
             MessageGenerator.Stop();
-            Mobile.Battery.Charger.ChargeLevelDecreaseStop();
+            Mobile.Battery.Charger.Stop();
         }
 
         private void SmsViewer_FormClosed(object sender, FormClosedEventArgs e)
         {
             MessageGenerator.Stop();
-            Mobile.Battery.Charger.ChargeLevelDecreaseStop();
+            Mobile.Battery.Charger.Stop();
         }
 
         private void userComboBox_SelectedIndexChanged(object sender, EventArgs e)

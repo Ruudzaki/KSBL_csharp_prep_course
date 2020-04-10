@@ -40,8 +40,9 @@ namespace KSBL_Class_Library.Components.Battery.ChargerFactory
             });
         }
 
-        public override void ChargeLevelDecreaseStop()
+        public override void Stop()
         {
+            ChargerIsOn = false;
             WindowClosed = true;
         }
     }

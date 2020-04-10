@@ -32,8 +32,9 @@ namespace KSBL_Class_Library.Components.Battery.ChargerFactory
             ChargeDecrease.Start();
         }
 
-        public override void ChargeLevelDecreaseStop()
+        public override void Stop()
         {
+            ChargerIsOn = false;
             ChargeDecrease.Abort();
         }
 

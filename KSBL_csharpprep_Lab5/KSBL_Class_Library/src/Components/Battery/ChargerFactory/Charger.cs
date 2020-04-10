@@ -5,6 +5,7 @@
     public abstract class Charger
     {
         protected object Lock = new object();
+        private int _chargeLevel;
 
         protected Charger()
         {
@@ -13,7 +14,15 @@
             ChargeLevelDecreaseStart();
         }
 
-        public int ChargeLevel { get; set; }
+        public int ChargeLevel
+        {
+            get { return _chargeLevel; }
+            set
+            {
+                if (value >= 0 && value <= 100)
+                    _chargeLevel = value;
+            }
+        }
 
         public bool ChargerIsOn { get; protected set; }
         public event ChargerUpdatedDelegate ChargerUpdated;
@@ -26,7 +35,7 @@
         }
 
         protected abstract void ChargeLevelDecreaseStart();
-        public abstract void ChargeLevelDecreaseStop();
+        public abstract void Stop();
 
         protected void OnChargerUpdated(int chargeLevel)
         {

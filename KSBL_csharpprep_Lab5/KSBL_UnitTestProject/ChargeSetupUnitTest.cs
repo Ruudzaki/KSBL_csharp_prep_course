@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace KSBL_UnitTestProject
 {
     [TestClass]
-    public class ChargeUnitTest
+    public class ChargeSetupUnitTest
     {
         [TestMethod]
         public void AppleChargerIsPlaying()
