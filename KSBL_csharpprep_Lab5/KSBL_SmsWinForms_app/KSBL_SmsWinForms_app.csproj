@@ -46,9 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\MessageGenerator\MessageGeneratorBasic.cs" />
-    <Compile Include="src\MessageGenerator\MessageGeneratorThread.cs" />
-    <Compile Include="src\MessageGenerator\MessageGeneratorTask.cs" />
+    <Compile Include="src\MessageGeneratorFactory\MessageGenerator.cs" />
+    <Compile Include="src\MessageGeneratorFactory\MessageGeneratorCreatorThread.cs" />
+    <Compile Include="src\MessageGeneratorFactory\MessageGeneratorCreatorTask.cs" />
+    <Compile Include="src\MessageGeneratorFactory\MessageGeneratorCreator.cs" />
+    <Compile Include="src\MessageGeneratorFactory\MessageGeneratorThread.cs" />
+    <Compile Include="src\MessageGeneratorFactory\MessageGeneratorTask.cs" />
     <Compile Include="src\Formatter\Formats.cs" />
     <Compile Include="src\Formatter\FormatterClass.cs" />
     <Compile Include="SMSViewer.cs">

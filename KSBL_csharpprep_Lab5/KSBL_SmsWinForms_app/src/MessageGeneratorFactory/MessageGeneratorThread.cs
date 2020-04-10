@@ -3,9 +3,9 @@ using System.Threading;
 using KSBL_Class_Library.Components.SmsModule;
 using KSBL_Class_Library.Mobile;
 
-namespace KSBL_SmsWinForms_app.MessageGenerator
+namespace KSBL_SmsWinForms_app.MessageGeneratorFactory
 {
-    public class MessageGeneratorThread : MessageGeneratorBasic
+    public class MessageGeneratorThread : MessageGenerator
     {
         private int _index;
 

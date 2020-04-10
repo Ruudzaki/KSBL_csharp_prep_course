@@ -7,7 +7,7 @@ using KSBL_Class_Library.Components.Battery.ChargerFactory;
 using KSBL_Class_Library.Components.Storage;
 using KSBL_Class_Library.Mobile;
 using KSBL_SmsWinForms_app.Formatter;
-using KSBL_SmsWinForms_app.MessageGenerator;
+using KSBL_SmsWinForms_app.MessageGeneratorFactory;
 using Message = KSBL_Class_Library.Components.SmsModule.Message;
 
 namespace KSBL_SmsWinForms_app
@@ -20,7 +20,7 @@ namespace KSBL_SmsWinForms_app
 
     public partial class SmsViewer : Form
     {
-        public SmsViewer(Mobile mobile, IOutput output, MessageGeneratorBasic messageGenerator)
+        public SmsViewer(Mobile mobile, IOutput output, MessageGenerator messageGenerator)
         {
             InitializeComponent();
             InitializeComboBox();
@@ -44,7 +44,7 @@ namespace KSBL_SmsWinForms_app
         public FormatDelegate Formatter { get; set; }
         private IEnumerable<Message> SelectedMessages { get; set; }
         private string SearchText { get; set; }
-        public MessageGeneratorBasic MessageGenerator { get; set; }
+        public MessageGenerator MessageGenerator { get; set; }
 
         public string PickedUser { get; set; }
 

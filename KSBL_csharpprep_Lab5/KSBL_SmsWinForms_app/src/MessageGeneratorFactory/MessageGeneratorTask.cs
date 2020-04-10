@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using KSBL_Class_Library.Components.SmsModule;
 using KSBL_Class_Library.Mobile;
 
-namespace KSBL_SmsWinForms_app.MessageGenerator
+namespace KSBL_SmsWinForms_app.MessageGeneratorFactory
 {
-    public class MessageGeneratorTask : MessageGeneratorBasic
+    public class MessageGeneratorTask : MessageGenerator
     {
         public MessageGeneratorTask(Mobile mobile) : base(mobile)
         {

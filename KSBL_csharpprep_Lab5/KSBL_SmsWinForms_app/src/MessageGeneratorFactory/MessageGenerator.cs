@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using KSBL_Class_Library.Components.SmsModule;
 using KSBL_Class_Library.Mobile;
 
-namespace KSBL_SmsWinForms_app.MessageGenerator
+namespace KSBL_SmsWinForms_app.MessageGeneratorFactory
 {
-    public abstract class MessageGeneratorBasic
+    public abstract class MessageGenerator
     {
         protected readonly Mobile Mobile;
 
-        protected MessageGeneratorBasic(Mobile mobile)
+        protected MessageGenerator(Mobile mobile)
         {
             Messages = new List<Message>();
             Delays = new List<int>();
