@@ -77,6 +77,7 @@
             this.MessageListView.TabIndex = 2;
             this.MessageListView.UseCompatibleStateImageBehavior = false;
             this.MessageListView.View = System.Windows.Forms.View.Details;
+            this.MessageListView.SelectedIndexChanged += new System.EventHandler(this.MessageListView_SelectedIndexChanged);
             // 
             // Sender
             // 

@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using KSBL_Class_Library.Components.CallModule;
 using KSBL_Class_Library.Components.SmsModule;
 
 namespace KSBL_Class_Library.Components.Storage
 {
     public delegate Message FormatDelegate(Message message);
+    public delegate Contact GetContactDelegate(string phoneNumber);
 
     public delegate void SmsAddedDelegate(Message message);
+    public delegate void CallAddedDelegate(Call message);
 
     public abstract class BasicStorage
     {
@@ -17,18 +20,25 @@ namespace KSBL_Class_Library.Components.Storage
         {
             Capacity = capacity;
             Messages = new List<Message>();
+            Calls = new List<Call>();
+            Contacts = new List<Contact>();
             UniqueUsers = new List<string>();
-            Count = 0;
+            CountMessages = 0;
+            GetContact += GetContactsByNumber;
         }
 
         public FormatDelegate Formatter { get; set; }
-
+        
         public List<Message> Messages { get; set; }
-        private int Count { get; set; }
+        private int CountMessages { get; set; }
         public List<string> UniqueUsers { get; set; }
+        public List<Call> Calls { get; set; }
+        public List<Contact> Contacts { get; set; }
 
         public int Capacity { get; }
         public event SmsAddedDelegate SmsAdded;
+        public event CallAddedDelegate CallAdded;
+        public event GetContactDelegate GetContact;
 
         public abstract void LoadFromHardMemory(ILoadFromStorage loadFromHardMemory);
         public abstract void LoadToHardMemory(ILoadToStorage loadToHardMemory);
@@ -44,12 +54,35 @@ namespace KSBL_Class_Library.Components.Storage
             }
         }
 
+        public void AddCall(object call)
+        {
+            lock (Locker)
+            {
+                call = ((Call)call).Clone();
+                OnAddCall((Call)call);
+            }
+        }
+
+        public void AddContact(string name, List<string> phoneNumbers)
+        {
+            Contacts.Add(new Contact(name, phoneNumbers));
+        }
+
+        public void OnAddCall(Call call)
+        {
+            Calls.Add(call);
+
+            var handler = CallAdded;
+            handler?.Invoke(Calls[Calls.Count - 1]);
+        }
+
+
         public void OnAddMessage(Message message)
         {
             Messages.Add(message);
-            Count++;
+            CountMessages++;
 
-            Messages[Messages.Count - 1].ReferenceNumber = Count;
+            Messages[Messages.Count - 1].ReferenceNumber = CountMessages;
             message.FormatText = FormatText(message).FormatText;
 
             if (!UniqueUsers.Contains(message.User)) UniqueUsers.Add(message.User);
@@ -75,6 +108,12 @@ namespace KSBL_Class_Library.Components.Storage
                 Messages.Remove(item);
 
             if (Messages.Count(t => t.User == message.User) == 1) UniqueUsers.Remove(message.User);
+        }
+
+        //Searching
+        public Contact GetContactsByNumber(string phoneNumber)
+        {
+            return Contacts.First(t => t.PhoneNumbers.Contains(phoneNumber));
         }
 
         //Formatting

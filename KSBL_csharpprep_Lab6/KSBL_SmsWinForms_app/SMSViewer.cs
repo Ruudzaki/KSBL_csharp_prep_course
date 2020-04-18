@@ -225,5 +225,10 @@ namespace KSBL_SmsWinForms_app
             else
                 Mobile.Battery.Charger.Charge();
         }
+
+        private void MessageListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

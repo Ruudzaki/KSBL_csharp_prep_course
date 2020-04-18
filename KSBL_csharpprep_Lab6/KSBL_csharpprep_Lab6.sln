@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSBL_UnitTestProject", "KSB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSBL_SmsWinForms_app", "KSBL_SmsWinForms_app\KSBL_SmsWinForms_app.csproj", "{048E8DFD-2D65-4EFC-8D3C-8A8F5E4A9715}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSBL_CallWinForm", "KSBL_CallWinForm\KSBL_CallWinForm.csproj", "{8B7E4E1E-5BCF-4957-902B-F2BC393CE0B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{048E8DFD-2D65-4EFC-8D3C-8A8F5E4A9715}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{048E8DFD-2D65-4EFC-8D3C-8A8F5E4A9715}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{048E8DFD-2D65-4EFC-8D3C-8A8F5E4A9715}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B7E4E1E-5BCF-4957-902B-F2BC393CE0B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B7E4E1E-5BCF-4957-902B-F2BC393CE0B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B7E4E1E-5BCF-4957-902B-F2BC393CE0B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B7E4E1E-5BCF-4957-902B-F2BC393CE0B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

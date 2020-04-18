@@ -54,6 +54,9 @@
     <Compile Include="src\Components\Battery\AppleCharger.cs" />
     <Compile Include="src\Components\Battery\ICharge.cs" />
     <Compile Include="src\Components\Battery\LiIonBattery.cs" />
+    <Compile Include="src\Components\CallModule\Call.cs" />
+    <Compile Include="src\Components\CallModule\CallType.cs" />
+    <Compile Include="src\Components\CallModule\Contact.cs" />
     <Compile Include="src\Components\Camera\BasicCamera.cs" />
     <Compile Include="src\Components\Camera\FrontalBasicCamera.cs" />
     <Compile Include="src\Components\Camera\ITakePhoto.cs" />
