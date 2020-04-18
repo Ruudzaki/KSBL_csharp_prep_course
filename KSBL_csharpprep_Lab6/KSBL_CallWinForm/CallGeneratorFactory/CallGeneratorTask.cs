@@ -2,7 +2,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using KSBL_Class_Library.Components.CallModule;
-using KSBL_Class_Library.Components.SmsModule;
 using KSBL_Class_Library.Mobile;
 
 namespace KSBL_CallWinForm.CallGeneratorFactory

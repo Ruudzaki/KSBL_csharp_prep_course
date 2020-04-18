@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using KSBL_CallWinForm.CallGeneratorFactory;
 using KSBL_Class_Library;
@@ -20,35 +13,27 @@ namespace KSBL_CallWinForm
 
     public partial class CallViewer : Form
     {
-        public CallViewer(Mobile mobile, IOutput output, CallGenerator messageGenerator)
+        public RunCallGeneratorDelegate RunCallGenerator;
+
+        public CallViewer(Mobile mobile, CallGenerator callGenerator)
         {
             InitializeComponent();
 
             Mobile = mobile;
-            CallGenerator = messageGenerator;
-            Mobile.Output = output;
+            CallGenerator = callGenerator;
 
             MaximizeBox = false;
             InitializeEvents();
-
         }
 
-        public event RunCallGeneratorDelegate RunCallGenerator;
+        public Mobile Mobile { get; set; }
+        public CallGenerator CallGenerator { get; set; }
 
         private void InitializeEvents()
         {
             Mobile.InternalStorage.CallAdded += ReceiveCallsFromDb;
             RunCallGenerator += CallGenerator.RunCallGenerator;
-
-            var handler = RunCallGenerator;
-            handler?.Invoke();
         }
-
-        public Mobile Mobile { get; set; }
-        public CallGenerator CallGenerator { get; set; }
-        public List<Call> SelectedCalls { get; set; }
-
-
 
         private void ReceiveCallsFromDb(object call)
         {
@@ -57,28 +42,47 @@ namespace KSBL_CallWinForm
 
         private void ReceiveCallsFromDbHandler(Call call)
         {
-            if (Mobile.InternalStorage.Calls.Count > 0)
-            {
-                ShowMessages(Mobile.InternalStorage.Calls);
-            }
+            if (Mobile.InternalStorage.Calls.Count > 0) ShowMessages();
         }
 
-        private void ShowMessages(IEnumerable<Call> calls)
+        private void ShowMessages()
         {
             CallListView.Items.Clear();
 
+            var orderedGroupedCalls = Mobile.InternalStorage.GetUniqueLastAndTimeSortedCalls();
 
-            SelectedCalls = Mobile.InternalStorage.Calls;
-
-            foreach (var call in SelectedCalls)
+            foreach (var call in orderedGroupedCalls)
             {
-                CallListView.Items.Add(new ListViewItem(new string[] {call.PhoneNumber, call.CallType.ToString(), call.CallTime.ToString(CultureInfo.InvariantCulture)}));
+                var equalCallCount = Mobile.InternalStorage.GetEqualCallCount(call);
+                CallListView.Items.Add(new ListViewItem(new[]
+                {
+                    call.Contact.Name, call.CallType.ToString(), call.CallTime.ToString(CultureInfo.InvariantCulture),
+                    equalCallCount.ToString()
+                }));
             }
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void CallViewer_FormClosed(object sender, FormClosedEventArgs e)
         {
+            CallGenerator.Stop();
+        }
 
+        private void CallViewer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CallGenerator.Stop();
+        }
+
+        private void runCallGeneratorButton_Click(object sender, EventArgs e)
+        {
+            if (CallGenerator.CallGeneratorIsOn)
+            {
+                CallGenerator.Stop();
+            }
+            else
+            {
+                var handler = RunCallGenerator;
+                handler?.Invoke();
+            }
         }
     }
 }

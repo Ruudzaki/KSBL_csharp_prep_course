@@ -1,29 +1,42 @@
 ﻿using System;
-using KSBL_Class_Library.Components.Storage;
 
 namespace KSBL_Class_Library.Components.CallModule
 {
     public class Call : IComparable, ICloneable
     {
-        public string PhoneNumber { get; set; }
-        public CallType CallType { get; set; }
+        public Call(Contact contact, CallType callType)
+        {
+            Contact = contact;
+            CallType = callType;
+            CallTime = DateTime.Now;
+        }
+
+        public CallType CallType { get; }
         public DateTime CallTime { get; set; }
+        public Contact Contact { get; }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
 
         public int CompareTo(object obj)
         {
             throw new NotImplementedException();
         }
 
-        public Call(string phoneNumber, CallType callType)
+        public override bool Equals(object obj)
         {
-            PhoneNumber = phoneNumber;
-            CallType = callType;
-            CallTime = DateTime.Now;
+            var call = (Call) obj;
+            return call != null && call.Contact.Equals(Contact) && call.CallType.Equals(CallType);
         }
 
-        public object Clone()
+        public override int GetHashCode()
         {
-            return MemberwiseClone();
+            unchecked
+            {
+                return ((int) CallType * 397) ^ (Contact != null ? Contact.GetHashCode() : 0);
+            }
         }
     }
 }

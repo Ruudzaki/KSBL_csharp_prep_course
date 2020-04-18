@@ -228,7 +228,6 @@ namespace KSBL_SmsWinForms_app
 
         private void MessageListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

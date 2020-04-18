@@ -29,7 +29,9 @@ namespace KSBL_Class_Library.Mobile
         public abstract BasicSimCardHolder SimCardHolder { get; }
         public abstract BasicMicrophone Microphone { get; }
         public abstract BasicSpeaker Speaker { get; }
+
         public abstract BasicKeyboard Keyboard { get; }
+
         //public SmsProvider SmsProvider { get; set; }
         public IPlayback PlaybackComponent { get; set; }
         public IOutput Output { get; set; }

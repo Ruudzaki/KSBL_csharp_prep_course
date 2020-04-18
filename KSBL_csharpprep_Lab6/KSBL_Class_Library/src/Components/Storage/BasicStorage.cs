@@ -7,9 +7,11 @@ using KSBL_Class_Library.Components.SmsModule;
 namespace KSBL_Class_Library.Components.Storage
 {
     public delegate Message FormatDelegate(Message message);
+
     public delegate Contact GetContactDelegate(string phoneNumber);
 
     public delegate void SmsAddedDelegate(Message message);
+
     public delegate void CallAddedDelegate(Call message);
 
     public abstract class BasicStorage
@@ -24,11 +26,10 @@ namespace KSBL_Class_Library.Components.Storage
             Contacts = new List<Contact>();
             UniqueUsers = new List<string>();
             CountMessages = 0;
-            GetContact += GetContactsByNumber;
         }
 
         public FormatDelegate Formatter { get; set; }
-        
+
         public List<Message> Messages { get; set; }
         private int CountMessages { get; set; }
         public List<string> UniqueUsers { get; set; }
@@ -38,7 +39,6 @@ namespace KSBL_Class_Library.Components.Storage
         public int Capacity { get; }
         public event SmsAddedDelegate SmsAdded;
         public event CallAddedDelegate CallAdded;
-        public event GetContactDelegate GetContact;
 
         public abstract void LoadFromHardMemory(ILoadFromStorage loadFromHardMemory);
         public abstract void LoadToHardMemory(ILoadToStorage loadToHardMemory);
@@ -58,8 +58,8 @@ namespace KSBL_Class_Library.Components.Storage
         {
             lock (Locker)
             {
-                call = ((Call)call).Clone();
-                OnAddCall((Call)call);
+                call = ((Call) call).Clone();
+                OnAddCall((Call) call);
             }
         }
 
@@ -113,7 +113,36 @@ namespace KSBL_Class_Library.Components.Storage
         //Searching
         public Contact GetContactsByNumber(string phoneNumber)
         {
-            return Contacts.First(t => t.PhoneNumbers.Contains(phoneNumber));
+            var selectedContacts = Contacts.Where(t => t.PhoneNumbers.Contains(phoneNumber)).ToList();
+
+            if (selectedContacts.Count > 0)
+                return selectedContacts.First();
+
+            var newContact = new Contact($"Unknown: {phoneNumber}", new List<string> {phoneNumber});
+            Contacts.Add(newContact);
+            return newContact;
+        }
+
+        //Sorting
+
+        public IEnumerable<Call> GetUniqueLastAndTimeSortedCalls()
+        {
+            var result = Calls
+                .GroupBy(item => new
+                {
+                    item.Contact,
+                    item.CallType
+                })
+                .Select(chunk => chunk
+                    .OrderByDescending(item => item.CallTime)
+                    .First());
+
+            return result.OrderByDescending(t => t.CallTime);
+        }
+
+        public int GetEqualCallCount(Call call)
+        {
+            return Calls.Count(t => t.Equals(call));
         }
 
         //Formatting
