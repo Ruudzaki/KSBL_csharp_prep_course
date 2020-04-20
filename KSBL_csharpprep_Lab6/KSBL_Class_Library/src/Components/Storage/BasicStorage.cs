@@ -64,7 +64,7 @@ namespace KSBL_Class_Library.Components.Storage
         public void AddContact(string name, List<string> phoneNumbers)
         {
             var newContact = new Contact(name, phoneNumbers);
-            var ourContact = ContactsContainsContact(newContact);
+            var ourContact = GetContactWhichContainsInContactList(newContact);
 
             if (ourContact == null)
                 Contacts.Add(new Contact(name, phoneNumbers));
@@ -74,7 +74,7 @@ namespace KSBL_Class_Library.Components.Storage
 
         public void AddContact(Contact contact)
         {
-            var ourContact = ContactsContainsContact(contact);
+            var ourContact = GetContactWhichContainsInContactList(contact);
             if (ourContact == null)
                 Contacts.Add(contact);
             else
@@ -104,14 +104,14 @@ namespace KSBL_Class_Library.Components.Storage
             handler?.Invoke(Messages[Messages.Count - 1]);
         }
 
-        private Contact ContactsContainsContact(Contact other)
+        private Contact GetContactWhichContainsInContactList(Contact other)
         {
             return Contacts.FirstOrDefault(contact => contact.Equals(other));
         }
 
         private void AddNewPhoneNumbersToExistingContact(Contact other)
         {
-            var contact = ContactsContainsContact(other);
+            var contact = GetContactWhichContainsInContactList(other);
             if (contact == null) return;
             var contactPhoneNumbers = contact.PhoneNumbers;
             contactPhoneNumbers.AddRange(other.PhoneNumbers.Where(phoneNumber => !contact.PhoneNumbers.Contains(phoneNumber)));
