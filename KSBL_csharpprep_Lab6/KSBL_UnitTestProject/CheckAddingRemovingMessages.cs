@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace KSBL_UnitTestProject
 {
     [TestClass]
-    public class CheckAddingRemoving
+    public class CheckAddingRemovingMessages
     {
         [TestMethod]
         public void MessageIsRemoved()

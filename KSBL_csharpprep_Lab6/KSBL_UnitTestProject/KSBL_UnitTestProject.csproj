@@ -54,8 +54,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ChargeSetupUnitTest.cs" />
+    <Compile Include="CheckAddingRemovingCallsAndContacts.cs" />
+    <Compile Include="CheckComparingCalls.cs" />
     <Compile Include="CheckFiltering.cs" />
-    <Compile Include="CheckAddingRemoving.cs" />
+    <Compile Include="CheckAddingRemovingMessages.cs" />
     <Compile Include="CheckEvent.cs" />
     <Compile Include="FakeOutput.cs" />
     <Compile Include="CheckCharging.cs" />
