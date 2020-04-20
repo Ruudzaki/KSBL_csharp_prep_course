@@ -2,7 +2,6 @@
 using System.Globalization;
 using System.Windows.Forms;
 using KSBL_CallWinForm.CallGeneratorFactory;
-using KSBL_Class_Library;
 using KSBL_Class_Library.Components.CallModule;
 using KSBL_Class_Library.Components.Storage;
 using KSBL_Class_Library.Mobile;

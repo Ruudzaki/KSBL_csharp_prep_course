@@ -8,8 +8,6 @@ namespace KSBL_Class_Library.Components.Storage
 {
     public delegate Message FormatDelegate(Message message);
 
-    public delegate Contact GetContactDelegate(string phoneNumber);
-
     public delegate void SmsAddedDelegate(Message message);
 
     public delegate void CallAddedDelegate(Call message);
@@ -33,7 +31,7 @@ namespace KSBL_Class_Library.Components.Storage
         public List<Message> Messages { get; set; }
         private int CountMessages { get; set; }
         public List<string> UniqueUsers { get; set; }
-        public List<Call> Calls { get;  }
+        public List<Call> Calls { get; }
         public List<Contact> Contacts { get; }
 
         public int Capacity { get; }
@@ -69,26 +67,18 @@ namespace KSBL_Class_Library.Components.Storage
             var ourContact = ContactsContainsContact(newContact);
 
             if (ourContact == null)
-            {
                 Contacts.Add(new Contact(name, phoneNumbers));
-            }
             else
-            {
                 AddNewPhoneNumbersToExistingContact(newContact);
-            }
         }
 
         public void AddContact(Contact contact)
         {
             var ourContact = ContactsContainsContact(contact);
             if (ourContact == null)
-            {
                 Contacts.Add(contact);
-            }
             else
-            {
                 AddNewPhoneNumbersToExistingContact(contact);
-            }
         }
 
         public void OnAddCall(Call call)
@@ -116,29 +106,15 @@ namespace KSBL_Class_Library.Components.Storage
 
         private Contact ContactsContainsContact(Contact other)
         {
-            foreach (var contact in Contacts)
-            {
-                if (contact.Equals(other))
-                {
-                    return contact;
-                }
-            }
-            return null;
+            return Contacts.FirstOrDefault(contact => contact.Equals(other));
         }
 
         private void AddNewPhoneNumbersToExistingContact(Contact other)
         {
             var contact = ContactsContainsContact(other);
-            if (contact != null)
-            {
-                var contactPhoneNumbers = contact.PhoneNumbers;
-
-                foreach (var phoneNumber in other.PhoneNumbers)
-                {
-                    if (!contact.PhoneNumbers.Contains(phoneNumber))
-                        contactPhoneNumbers.Add(phoneNumber);
-                }
-            }
+            if (contact == null) return;
+            var contactPhoneNumbers = contact.PhoneNumbers;
+            contactPhoneNumbers.AddRange(other.PhoneNumbers.Where(phoneNumber => !contact.PhoneNumbers.Contains(phoneNumber)));
         }
 
         //Removing
@@ -164,7 +140,7 @@ namespace KSBL_Class_Library.Components.Storage
         {
             lock (Locker)
             {
-                OnRemoveCall((Call)call);
+                OnRemoveCall((Call) call);
             }
         }
 

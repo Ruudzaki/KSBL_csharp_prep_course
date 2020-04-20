@@ -11,8 +11,8 @@ namespace KSBL_Class_Library.Components.CallModule
             PhoneNumbers = phoneNumbers;
         }
 
-        public string Name { get; set; }
-        public List<string> PhoneNumbers { get; set; }
+        public string Name { get; }
+        public List<string> PhoneNumbers { get; }
 
         public int CompareTo(object obj)
         {
@@ -30,7 +30,8 @@ namespace KSBL_Class_Library.Components.CallModule
         {
             unchecked
             {
-                return ((Name != null ? Name.GetHashCode() : 0) * 397) ^ (PhoneNumbers != null ? PhoneNumbers.GetHashCode() : 0);
+                return ((Name != null ? Name.GetHashCode() : 0) * 397) ^
+                       (PhoneNumbers != null ? PhoneNumbers.GetHashCode() : 0);
             }
         }
     }
